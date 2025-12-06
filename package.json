@@ -1,0 +1,25 @@
+{
+  "name": "final-project",
+  "version": "1.0.0",
+  "description": "Parks and Recreation Centers finder for New York City",
+  "keywords": [
+    "parks",
+    "rec",
+    "recreation"
+  ],
+  "homepage": "https://github.com/Imz794/nyc-parks-and-rec-finder#readme",
+  "bugs": {
+    "url": "https://github.com/Imz794/nyc-parks-and-rec-finder/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Imz794/nyc-parks-and-rec-finder.git"
+  },
+  "license": "ISC",
+  "author": "Ian Zambrano, Thomas Vella, Jeremy Zhang, Eric Yoon",
+  "type": "module",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
