@@ -60,8 +60,21 @@ const validate =
       throw 'Password cannot contain spaces';
     }
     return password;
+  },
 
-
-    //implement more
-      
+    //helper that will validate user username
+  checkUsername(uname)
+  {
+    uname = this.checkString(uname, 'Username');
+    //just require it to be greater than 3 characters and no character restrictions unless we need it
+    if(uname.length < 3)
+    {
+      throw 'Username must be greater than 3 characters';
+    }
+    return uname;
+  },
   
+      
+    
+  
+
