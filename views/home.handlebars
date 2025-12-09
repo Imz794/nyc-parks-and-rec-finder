@@ -6,3 +6,26 @@
         <a href="/login">Log In</a>
     {{/if}}
 </nav> 
+
+<form id="listform" name="listform">
+    <label for="parklist">Parks</label>
+    <input type="checkbox" name="parklist" id="parklist">
+    
+    <label for="reclist">Recreation Centers</label>
+    <input type="checkbox" name="reclist" id="reclist">
+</form>
+
+<div id="list">
+
+</div>
+<form id="pageselect" name="pageselect">
+    <label for="back">Back</label>
+    <input type="button" id="back" name="back" value="<">
+
+    <label for="next">Next</label>
+    <input type="button" id="next" name="next" value=">">
+</form>
+
+<p id="error" hidden></p>
+
+<script src="public/js/form_process.js"></script>
