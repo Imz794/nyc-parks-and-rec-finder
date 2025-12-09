@@ -1,28 +1,29 @@
 import { parks, rec_centers } from '../config/mongoCollections.js';
 
-export const parkList = async(page) =>{
-    let pageSet = page * 10;
-    let park = await parks();
-    let parkList = await park.find({}).skip(pageSet).limit(10).toArray();
-    return parkList;
-}
+const PAGE_SIZE = 10;
 
-export const recList = async(page) =>{
-    let pageSet = page * 10;
-    let rec = await rec_centers();
-    let recList = await rec.find({}).skip(pageSet).limit(10).toArray();
+export const parkList = async (page) => {
+    const skip = page * PAGE_SIZE;
+    const park = await parks();
+    return await park.find({}).skip(skip).limit(PAGE_SIZE).toArray();
+};
 
-    return recList;
-}
+export const recList = async (page) => {
+    const skip = page * PAGE_SIZE;
+    const rec = await rec_centers();
+    return await rec.find({}).skip(skip).limit(PAGE_SIZE).toArray();
+};
 
-export const allList = async(page) =>{
-    let pageSet = page * 10;
-    let park = await parks();
-    let parkList = await park.find({}).skip(pageSet).limit(10).toArray();
-    let rec = await rec_centers();
-    let recList = await rec.find({}).skip(pageSet).limit(10).toArray();
-    let allList = parkList + recList;
-    allList = allList.slice(pageSet, pageSet + 10);
+export const allList = async (page) => {
+    const skip = page * PAGE_SIZE;
+    
+    const park = await parks();
+    const rec = await rec_centers();
 
-    return allList;
-}
+    const parkAll = await park.find({}).toArray();
+    const recAll = await rec.find({}).toArray();
+
+    const merged = parkAll.concat(recAll);
+
+    return merged.slice(skip, skip + PAGE_SIZE);
+};

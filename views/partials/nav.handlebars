@@ -1,0 +1,15 @@
+<nav>
+  <a href="/">Home</a>
+
+  {{#if user}}
+    <a href="/parks/0">Parks</a>
+    <a href="/rec_centers/0">Recreation Centers</a>
+    <a href="/profile">Profile</a>
+    <a href="/signout">Sign Out</a>
+  {{else}}
+    <a href="/parks/0">Parks</a>
+    <a href="/rec_centers/0">Recreation Centers</a>
+    <a href="/login">Log In</a>
+    <a href="/register">Sign Up</a>
+  {{/if}}
+</nav>

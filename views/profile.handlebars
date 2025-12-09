@@ -1,12 +1,38 @@
-<div>
-    <h2>My Profile</h2>
-    <p>Name: {{user.firstName}} {{user.lastName}}</p>
-    <p>User ID: {{user.userId}} | Email: {{user.email}}</p>
-    <p>Gender: {{user.gender}} | Age: {{user.age}}</p>
-    <p>Member Since: {{user.signupDate}}</p>
-    <p>My Favorites: {{user.favorites}}</p>
-    <p>My Reviews: {{user.reviews}}</p>
-</div>
+<section>
+  <h2>My Profile</h2>
 
-<a href="/">Go to Home</a>
-<a href="/signout">Sign Out</a>
+  <p>Name: {{user.firstName}} {{user.lastName}}</p>
+  <p>User ID: {{user.userId}} | Email: {{user.email}}</p>
+  <p>Gender: {{user.gender}} | Age: {{user.age}}</p>
+  <p>Member Since: {{user.signupDate}}</p>
+
+  {{#if user.lastLogin}}
+    <p>Last Login: {{user.lastLogin}}</p>
+  {{/if}}
+
+  <h3>My Favorites</h3>
+  {{#if user.favorites}}
+    <ul>
+      {{#each user.favorites}}
+        <li>{{this}}</li>
+      {{/each}}
+    </ul>
+  {{else}}
+    <p>You have no favorites yet.</p>
+  {{/if}}
+
+  <h3>My Reviews</h3>
+  {{#if user.reviews}}
+    <ul>
+      {{#each user.reviews}}
+        <li>{{this}}</li>
+      {{/each}}
+    </ul>
+  {{else}}
+    <p>You have not submitted any reviews yet.</p>
+  {{/if}}
+
+  <p>
+    <a href="/">Go to Home</a>
+  </p>
+</section>

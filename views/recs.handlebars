@@ -1,16 +1,48 @@
-{{#each recs}}
-    <h3>{{this.recCenterName}}</h3>
-    <p>{{this.streetAddress}}</p>
-    <p>{{this.zipcode}}</p>
-    <p>Open: {{this.hours.start}} Close: {{this.hours.end}} | {{this.phoneNumber}}</p>
-    <form id="like_dislike" name="like_dislike">
-        <label for="likes">Likes</label>
-        <input type="button" id="likes" name="likes" value="{{this.likes}}">
-        <label for="dislikes">Dislikes</label>
-        <input type="button" id="dislikes" name="dislikes" value="{{this.dislikes}}">
-    </form>
-    <p>{{this.comments}}</p>
-{{/each}}
+<section>
+  <h2>Recreation Centers</h2>
 
-<a href="/rec_centers/{{back}}"><button>Back</button></a>
-<a href="/rec_centers/{{next}}"><button>Next</button></a>
+  {{#if recs}}
+    {{#each recs}}
+      <article class="rec-card">
+        <h3>{{this.recCenterName}}</h3>
+        <p>{{this.streetAddress}}</p>
+        <p>{{this.borough}} | {{this.zipcode}}</p>
+
+        <p>
+          Hours:
+          {{#if this.hours.start}}
+            Open: {{this.hours.start}} – {{this.hours.end}}
+          {{else}}
+            {{this.hours}}
+          {{/if}}
+          | {{this.phoneNumber}}
+        </p>
+
+        <div class="likes-section">
+          <form class="like-dislike-form">
+            <button type="button" class="like-btn">Likes: {{this.likes}}</button>
+            <button type="button" class="dislike-btn">Dislikes: {{this.dislikes}}</button>
+          </form>
+        </div>
+
+        {{#if this.comments}}
+          <h4>Comments:</h4>
+          <ul>
+            {{#each this.comments}}
+              <li>
+                <strong>{{this.name}}</strong> ({{this.date}}): {{this.comment}}
+              </li>
+            {{/each}}
+          </ul>
+        {{/if}}
+      </article>
+    {{/each}}
+  {{else}}
+    <p>No recreation centers found.</p>
+  {{/if}}
+
+  <nav class="pagination">
+    <a href="/rec_centers/{{back}}"><button type="button">Back</button></a>
+    <a href="/rec_centers/{{next}}"><button type="button">Next</button></a>
+  </nav>
+</section>

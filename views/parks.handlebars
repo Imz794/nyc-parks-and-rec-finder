@@ -1,16 +1,39 @@
-{{#each parks}}
-    <h3>{{this.parkName}}</h3>
-    <p>{{this.streetAddress}}</p>
-    <p>{{this.borough}} | {{this.zipcode}}</p>
-    <p>{{this.type}} | {{this.size}} Acres</p>
-    <form id="like_dislike" name="like_dislike">
-        <label for="likes">Likes</label>
-        <input type="button" id="likes" name="likes" value="{{this.likes}}">
-        <label for="dislikes">Dislikes</label>
-        <input type="button" id="dislikes" name="dislikes" value="{{this.dislikes}}">
-    </form>
-    <p>{{this.comments}}</p>
-{{/each}}
+<section>
+  <h2>Parks</h2>
 
-<a href="/parks/{{back}}"><button>Back</button></a>
-<a href="/parks/{{next}}"><button>Next</button></a>
+  {{#if parks}}
+    {{#each parks}}
+      <article class="park-card">
+        <h3>{{this.parkName}}</h3>
+        <p>{{this.streetAddress}}</p>
+        <p>{{this.borough}} | {{this.zipcode}}</p>
+        <p>{{this.type}} | {{this.size}} Acres</p>
+
+        <div class="likes-section">
+          <form class="like-dislike-form">
+            <button type="button" class="like-btn">Likes: {{this.likes}}</button>
+            <button type="button" class="dislike-btn">Dislikes: {{this.dislikes}}</button>
+          </form>
+        </div>
+
+        {{#if this.comments}}
+          <h4>Comments:</h4>
+          <ul>
+            {{#each this.comments}}
+              <li>
+                <strong>{{this.name}}</strong> ({{this.date}}): {{this.comment}}
+              </li>
+            {{/each}}
+          </ul>
+        {{/if}}
+      </article>
+    {{/each}}
+  {{else}}
+    <p>No parks found.</p>
+  {{/if}}
+
+  <nav class="pagination">
+    <a href="/parks/{{back}}"><button type="button">Back</button></a>
+    <a href="/parks/{{next}}"><button type="button">Next</button></a>
+  </nav>
+</section>

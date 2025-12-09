@@ -1,11 +1,12 @@
-<nav>
-    <a href="/">Home</a>
-    {{#if usere}}
-        <a href="/profile">Profile</a>
-    {{else}}
-        <a href="/login">Log In</a>
-    {{/if}}
-</nav> 
+<section>
+  <h2>Welcome</h2>
+  <p>
+    Use this site to explore parks and recreation centers across New York City.
+    You can browse locations, see basic information, and log in to view your profile.
+  </p>
 
-<a href="/parks">View Parks Nearby</a>
-<a href="/rec_centers">View Recreation Centers Nearby</a>
+  <div class="home-links">
+    <a href="/parks/0">View Parks Nearby</a>
+    <a href="/rec_centers/0">View Recreation Centers Nearby</a>
+  </div>
+</section>
