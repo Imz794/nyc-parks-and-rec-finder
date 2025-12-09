@@ -1,0 +1,16 @@
+{{#each recs}}
+    <h3>{{this.recCenterName}}</h3>
+    <p>{{this.streetAddress}}</p>
+    <p>{{this.zipcode}}</p>
+    <p>Open: {{this.hours.start}} Close: {{this.hours.end}} | {{this.phoneNumber}}</p>
+    <form id="like_dislike" name="like_dislike">
+        <label for="likes">Likes</label>
+        <input type="button" id="likes" name="likes" value="{{this.likes}}">
+        <label for="dislikes">Dislikes</label>
+        <input type="button" id="dislikes" name="dislikes" value="{{this.dislikes}}">
+    </form>
+    <p>{{this.comments}}</p>
+{{/each}}
+
+<a href="/rec_centers/{{back}}"><button>Back</button></a>
+<a href="/rec_centers/{{next}}"><button>Next</button></a>

@@ -14,3 +14,5 @@ const getCollectionFn = (collection) => {
 };
 
 export const users = getCollectionFn('users');
+export const parks = getCollectionFn('parks');
+export const rec_centers = getCollectionFn('rec_centers');
