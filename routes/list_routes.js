@@ -36,4 +36,12 @@ router.route('/parks').get(async (req, res) => {
     res.redirect('/parks/0');
 });
 
+router.route('/parks/:_id/comments').get(async (req, res) => {
+  res.render('comments', { recs: recL, next: next, back: back, user: req.session.user });
+});
+
+// router.route('/rec_centers').post(async (req, res) => {
+//     res.redirect('/rec_centers/0');
+// });
+
 export default router;
