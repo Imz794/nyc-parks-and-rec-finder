@@ -27,3 +27,10 @@ export const allList = async (page) => {
 
     return merged.slice(skip, skip + PAGE_SIZE);
 };
+
+export const getParkById = async (_id) =>{
+    let p = await parks();
+    return await p.findOne({
+        _id: Number(_id)
+    });
+};
