@@ -1,0 +1,25 @@
+<div>
+    <h3>Comments</h3>
+    {{#each park.comments}}
+        <article>
+            <p>{{this.name}}: {{this.comment}}</p>
+            <p>({{this.date}})</p>
+        </article>
+    {{/each}}
+</div>
+<div>
+    <h4>Add a Comment</h4>
+    <form method="POST" action="/parks/{{park._id}}/comments">
+        <label for="commentbox">Comment:</label>
+        <input type="text" id="commentbox" name="commentbox">
+
+        <button type="submit" id="submitcom" name="submitcom">Submit</button>
+    </form>
+
+    {{#if errors}}
+        <p>{{errors}}</p>
+        {{#if login}}
+            <a href="/login">Click here to log in</a>
+        {{/if}}
+    {{/if}}
+</div>

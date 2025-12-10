@@ -16,17 +16,17 @@
           </form>
         </div>
 
-        {{#if this.comments}}
+        {{#if comments}}
           <h4>Comments:</h4>
           <ul>
-            {{#each this.comments}}
+            {{#each comments}}
               <li>
                 <strong>{{this.name}}</strong> ({{this.date}}): {{this.comment}}
               </li>
             {{/each}}
           </ul>
         {{/if}}
-        <a name="add-comment" id="add-comment" href="/parks/{{this._id}}/comments">Add Comment</a>
+        <a name="add-comment" id="add-comment" href="/parks/{{this._id}}/comments">View All Comments | Add Comment</a>
       </article>
     {{/each}}
   {{else}}
