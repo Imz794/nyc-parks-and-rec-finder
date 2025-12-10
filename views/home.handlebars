@@ -1,12 +1,114 @@
-<section>
-  <h2>Welcome</h2>
-  <p>
-    Use this site to explore parks and recreation centers across New York City.
-    You can browse locations, see basic information, and log in to view your profile.
-  </p>
+<link rel="stylesheet" href="/public/css/styles.css">
 
-  <div class="home-links">
-    <a href="/parks/0">View Parks Nearby</a>
-    <a href="/rec_centers/0">View Recreation Centers Nearby</a>
-  </div>
-</section>
+<div class="home-container">
+  <header class="hero-section">
+    <h1>NYC Parks and Rec Finder</h1>
+    <p class="tagline">Discover and explore New York City's parks and recreation centers</p>
+  </header>
+
+  {{#if user}}
+    <div class="welcome-message">
+      <h2>Welcome back, {{user.firstName}}!</h2>
+      <p>Ready to explore more facilities or check your favorites?</p>
+    </div>
+  {{else}}
+    <div class="welcome-message">
+      <h2>Welcome</h2>
+      <p>Use this site to explore parks and recreation centers across New York City. You can browse locations, see basic information, and log in to view your profile.</p>
+    </div>
+  {{/if}}
+
+  <section class="main-actions">
+    <h3>Browse Facilities</h3>
+    <div class="action-cards">
+      <div class="card">
+        <h4>🏞️ Parks</h4>
+        <p>Explore NYC's beautiful parks and outdoor spaces</p>
+        <a href="/parks" class="btn btn-primary">View Parks</a>
+      </div>
+
+      <div class="card">
+        <h4>🏀 Recreation Centers</h4>
+        <p>Find recreation centers with sports and fitness facilities</p>
+        <a href="/rec_centers" class="btn btn-primary">View Rec Centers</a>
+      </div>
+
+      <div class="card">
+        <h4>⭐ Top Rated</h4>
+        <p>Check out the highest rated facilities in NYC</p>
+        <a href="/top-rated" class="btn btn-primary">View Top Rated</a>
+      </div>
+
+      <div class="card">
+        <h4>🔍 Search & Filter</h4>
+        <p>Search by name or filter by borough, zipcode, and more</p>
+        <a href="/search" class="btn btn-primary">Advanced Search</a>
+      </div>
+    </div>
+  </section>
+
+  {{#if user}}
+    <section class="user-actions">
+      <h3>Your Account</h3>
+      <div class="action-cards">
+        <div class="card">
+          <h4>👤 Profile</h4>
+          <p>View your profile information and activity</p>
+          <a href="/profile" class="btn btn-secondary">Go to Profile</a>
+        </div>
+
+        <div class="card">
+          <h4>❤️ Favorites</h4>
+          <p>See all your favorited facilities</p>
+          <a href="/profile/favorites" class="btn btn-secondary">View Favorites</a>
+        </div>
+
+        <div class="card">
+          <h4>✍️ Reviews</h4>
+          <p>Check out all the reviews you've written</p>
+          <a href="/profile/reviews" class="btn btn-secondary">View Reviews</a>
+        </div>
+      </div>
+    </section>
+  {{else}}
+    <section class="auth-prompt">
+      <div class="auth-card">
+        <h3>Join the Community</h3>
+        <p>Create an account to save your favorite facilities, write reviews, and more!</p>
+        <div class="auth-buttons">
+          <a href="/register" class="btn btn-primary">Sign Up</a>
+          <a href="/login" class="btn btn-secondary">Log In</a>
+        </div>
+      </div>
+    </section>
+  {{/if}}
+
+  <section class="features">
+    <h3>Features</h3>
+    <div class="feature-list">
+      <div class="feature-item">
+        <span class="icon">🗺️</span>
+        <h4>Browse by Borough</h4>
+        <p>Find facilities in Manhattan, Brooklyn, Queens, Bronx, or Staten Island</p>
+      </div>
+
+      <div class="feature-item">
+        <span class="icon">⭐</span>
+        <h4>Rate & Review</h4>
+        <p>Share your experiences and help others discover great places</p>
+      </div>
+
+      <div class="feature-item">
+        <span class="icon">❤️</span>
+        <h4>Save Favorites</h4>
+        <p>Keep track of your favorite parks and recreation centers</p>
+      </div>
+
+      <div class="feature-item">
+        <span class="icon">🔍</span>
+        <h4>Advanced Search</h4>
+        <p>Filter by location, type, amenities, and more</p>
+      </div>
+    </div>
+  </section>
+</div>
