@@ -1,0 +1,38 @@
+<div>
+    <h3>Reviews</h3>
+    {{#each rec.rating}}
+        <article>
+            <p>{{this.name}}: {{this.rating}}</p>
+            <p>({{this.date}})</p>
+        </article>
+    {{/each}}
+
+    {{#each rec.rating}}
+        <article>
+            <p>{{this.name}}: {{this.rating}}</p>
+            <p>({{this.date}})</p>
+        </article>
+    {{/each}}
+</div>
+<div>
+    <h4>Leave a Review</h4>
+    <form method="POST" action="/rec_centers/{{rec._id}}/rating">
+        <label for="reviewtitle">Review:</label>
+        <input type="text" id="reviewtitle" name="reviewtitle">
+
+        <label for="reviewbox">Description:</label>
+        <input type="text" id="reviewbox" name="reviewbox">
+
+        <label for="rating">Rating(1-5):</label>
+        <input type="number" id="rating" name="rating" min="1" max="5">
+
+        <button type="submit" id="submitrev" name="submitrev">Post</button>
+    </form>
+
+    {{#if errors}}
+        <p>{{errors}}</p>
+        {{#if login}}
+            <a href="/login">Click here to log in</a>
+        {{/if}}
+    {{/if}}
+</div>

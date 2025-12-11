@@ -19,15 +19,15 @@ const validateNumber = (num, fieldName, min = -Infinity, max = Infinity) => {
 export const getFacilityById = async (id) => {
   if (!id) throw new Error('ID must be provided');
   
-  const numId = validateNumber(id, 'Facility ID');
+  // const numId = validateNumber(id, 'Facility ID');
   
   const park = await parks();
   const rec = await rec_centers();
 
-  let facility = await park.findOne({ _id: numId });
+  let facility = await park.findOne({ _id: id });
   
   if (!facility) {
-    facility = await rec.findOne({ _id: numId });
+    facility = await rec.findOne({ _id: id });
   }
   
   if (!facility) {

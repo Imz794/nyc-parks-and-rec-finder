@@ -31,6 +31,19 @@
             {{/each}}
           </ul>
         {{/if}}
+        <a name="add-comment" id="add-comment" href="/rec_centers/{{this._id}}/comments">View All Comments | Add Comment</a>
+        {{#if rating}}
+            <h4>Reviews:</h4>
+            <ul>
+            {{#each rating}}
+              <li>
+                <p><strong>{{this.name}}</strong> ({{this.date}}): {{title}} - {{rating}}/5</p>
+                <p>{{review}}</p>
+              </li>
+            {{/each}}
+          </ul>
+        {{/if}}
+        <a name="add-review" id="add-review" href="/rec_centers/{{this._id}}/rating">View All Reviews | Add Review</a>
       </article>
     {{/each}}
   {{else}}
