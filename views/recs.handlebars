@@ -5,17 +5,13 @@
     {{#each recs}}
       <article class="rec-card">
         <h3>{{this.recCenterName}}</h3>
+        <p>{{this.score}}/5</p>
         <p>{{this.streetAddress}}</p>
-        <p>{{this.borough}} | {{this.zipcode}}</p>
+        <p>{{this.zipcode}}</p>
 
         <p>
-          Hours:
-          {{#if this.hours.start}}
-            Open: {{this.hours.start}} – {{this.hours.end}}
-          {{else}}
-            {{this.hours}}
-          {{/if}}
-          | {{this.phoneNumber}}
+            <a href="/rec_centers/{{this._id}}/hours">See Hours</a>
+            {{this.phoneNumber}}
         </p>
 
         <div class="likes-section">

@@ -4,7 +4,8 @@
   {{#if parks}}
     {{#each parks}}
       <article class="park-card">
-        <h3>{{this.parkName}}</h3>
+        <h3>{{this.parkName}}</h3> 
+        <p>{{this.score}}/5</p>
         <p>{{this.streetAddress}}</p>
         <p>{{this.borough}} | {{this.zipcode}}</p>
         <p>{{this.type}} | {{this.size}} Acres</p>
@@ -21,12 +22,24 @@
           <ul>
             {{#each comments}}
               <li>
-                <strong>{{this.name}}</strong> ({{this.date}}): {{this.comment}}
+                <p><strong>{{this.name}}</strong> ({{this.date}}): {{this.comment}}</p>
               </li>
             {{/each}}
           </ul>
         {{/if}}
         <a name="add-comment" id="add-comment" href="/parks/{{this._id}}/comments">View All Comments | Add Comment</a>
+        {{#if rating}}
+            <h4>Reviews:</h4>
+            <ul>
+            {{#each rating}}
+              <li>
+                <p><strong>{{this.name}}</strong> ({{this.date}}): {{title}} - {{rating}}/5</p>
+                <p>{{review}}</p>
+              </li>
+            {{/each}}
+          </ul>
+        {{/if}}
+        <a name="add-review" id="add-review" href="/parks/{{this._id}}/rating">View All Reviews | Add Review</a>
       </article>
     {{/each}}
   {{else}}
