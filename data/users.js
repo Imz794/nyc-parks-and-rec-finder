@@ -178,6 +178,7 @@ export const login = async (userId, password) => {
     }
 
     let loggedin = {
+      _id: ucheck._id,
       firstName: ucheck.firstName,
       lastName: ucheck.lastName,
       userId: ucheck.userId,
@@ -192,3 +193,17 @@ export const login = async (userId, password) => {
     return loggedin;
   }
 };
+
+export const getUserById = async (userId) => {
+  if(!userId){
+    throw new Error("Must provide user ID");
+  }
+  let user = await users();
+  let ufind = await user.findOne({
+    _id: userId
+  });
+  if(!ufind){
+    throw new Error("User not found");
+  }
+  return ufind;
+}

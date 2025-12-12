@@ -1,5 +1,6 @@
 import { parks, rec_centers } from '../config/mongoCollections.js';
 import { ObjectId } from 'mongodb';
+import { getUserById } from './users.js';
 
 const validateString = (str, fieldName) => {
   if (typeof str !== 'string' || str.trim().length === 0) {
@@ -24,7 +25,7 @@ export const getFacilityById = async (id) => {
   const park = await parks();
   const rec = await rec_centers();
 
-  let facility = await park.findOne({ _id: id });
+  let facility = await park.findOne({ _id: Number(id) });
   
   if (!facility) {
     facility = await rec.findOne({ _id: id });
@@ -312,4 +313,22 @@ export const getFacilityCount = async (filters = {}) => {
     totalRecCenters: recCount,
     total: parkCount + recCount
   };
+};
+
+export const hasReviewed = async (userId, facilityId) => {
+  if(!userId){
+    throw new Error('Must provide user ID');
+  }
+  if(!facilityId){
+    throw new Error('Must provide facility ID');
+  }
+
+  let facility = await getFacilityById(facilityId);
+
+  for(let i of facility.rating){
+    if(i.userId == userId){
+      return true;
+    }
+  }
+  return false;
 };

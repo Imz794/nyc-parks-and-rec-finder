@@ -1,21 +1,21 @@
 import {Router} from 'express';
 const router = Router();
 import { parkList, recList } from '../data/parks_rec.js';
-import { getFacilityById } from '../data/facilities.js';
+import { getFacilityById, hasReviewed } from '../data/facilities.js';
 import { parks, rec_centers } from '../config/mongoCollections.js';
 
 router.route('/rec_centers/:page').get(async (req, res) => {
-  let page = parseInt(req.params.page, 10);
-  if (isNaN(page) || page < 0) {
-    return res.status(400).render('error', { error: 'Invalid page number' });
-  }
+    let page = parseInt(req.params.page, 10);
+    if (isNaN(page) || page < 0) {
+        return res.status(400).render('error', { error: 'Invalid page number' });
+    }
 
-  let back = page > 0 ? page - 1 : 0;
-  let next = page + 1;
+    let back = page > 0 ? page - 1 : 0;
+    let next = page + 1;
 
-  const recL = await recList(page);
-let comments = recL.slice(0, 3);
-  res.render('recs', { recs: recL, comments: comments, next: next, back: back, user: req.session.user });
+    const recL = await recList(page);
+    let comments = recL.map(r => r.comments = r.comments.slice(0, 3));
+    res.render('recs', { recs: recL, comments: comments, next: next, back: back, user: req.session.user });
 });
 
 router.route('/rec_centers').get(async (req, res) => {
@@ -93,7 +93,7 @@ router.route('/parks/:_id/comments').post(async (req, res) => {
     let currentTime = `${tfhour}:${minute}${ap}`;
     date = `${currentDate} at ${currentTime}`;
 
-    let com = {name: `${user.firstName} ${user.lastName}`, comment: comment, date: date};
+    let com = {name: `${user.firstName} ${user.lastName}`, userId: user.userId, comment: comment, date: date};
 
     p.comments.push(com);
     let ps = await parks();
@@ -104,6 +104,15 @@ router.route('/parks/:_id/comments').post(async (req, res) => {
 
 router.route('/parks/:_id/rating').get(async (req, res) => {
     let p = await getFacilityById(req.params._id);
+    let user = req.session.user;
+
+    p.rating = p.rating.map(rat => {
+        return{
+            ...rat,
+            reviewed: user && rat.userId == user.userId
+        };
+    });
+
     res.render('park_rating', { park: p });
 });
 
@@ -114,8 +123,18 @@ router.route('/parks/:_id/rating').post(async (req, res) => {
     if(req.session.user == null){
         return res.status(400).render('park_rating', {errors: "You must sign in to review", login: true, park: p});
     }
-
     let user = req.session.user;
+
+    p.rating = p.rating.map(rat => {
+        return{
+            ...rat,
+            reviewed: user && rat.userId == user.userId
+        };
+    });
+
+    if(await hasReviewed(user.userId, p._id)){
+        return res.status(400).render('park_rating', {errors: "You have already reviewed this facility", park: p});
+    }
 
     if(!req.body.reviewbox || !req.body.reviewtitle || !req.body.rating){
         return res.status(400).render('park_rating', {errors: "Review cannot be empty", park: p});
@@ -169,7 +188,7 @@ router.route('/parks/:_id/rating').post(async (req, res) => {
     let currentTime = `${tfhour}:${minute}${ap}`;
     date = `${currentDate} at ${currentTime}`;
 
-    let rat = {name: `${user.firstName} ${user.lastName}`, title: title, review: review, rating: rating, date: date};
+    let rat = {name: `${user.firstName} ${user.lastName}`, userId: user.userId, title: title, review: review, rating: rating, date: date};
     let score = (p.score + rating) / (p.rating.length + 1);
     score = score.toFixed(2);
     p.rating.push(rat);
@@ -233,7 +252,7 @@ router.route('/rec_centers/:_id/comments').post(async (req, res) => {
     let currentTime = `${tfhour}:${minute}${ap}`;
     date = `${currentDate} at ${currentTime}`;
 
-    let com = {name: `${user.firstName} ${user.lastName}`, comment: comment, date: date};
+    let com = {name: `${user.firstName} ${user.lastName}`, userId: user.userId, comment: comment, date: date};
 
     r.comments.push(com);
     let rs = await rec_centers();
@@ -244,6 +263,16 @@ router.route('/rec_centers/:_id/comments').post(async (req, res) => {
 
 router.route('/rec_centers/:_id/rating').get(async (req, res) => {
     let r = await getFacilityById(req.params._id);
+
+    let user = req.session.user;
+
+    r.rating = r.rating.map(rat => {
+        return{
+            ...rat,
+            reviewed: user && rat.userId == user.userId
+        };
+    });
+
     res.render('rec_rating', { rec: r });
 });
 
@@ -254,8 +283,18 @@ router.route('/rec_centers/:_id/rating').post(async (req, res) => {
     if(req.session.user == null){
         return res.status(400).render('rec_rating', {errors: "You must sign in to review", login: true, rec: r});
     }
-
     let user = req.session.user;
+
+    r.rating = r.rating.map(rat => {
+        return{
+            ...rat,
+            reviewed: user && rat.userId == user.userId
+        };
+    });
+
+    if(await hasReviewed(user.userId, r._id)){
+        return res.status(400).render('rec_rating', {errors: "You have already reviewed this facility", rec: r});
+    }
 
     if(!req.body.reviewbox || !req.body.reviewtitle || !req.body.rating){
         return res.status(400).render('rec_rating', {errors: "Review cannot be empty", rec: r});
@@ -309,7 +348,7 @@ router.route('/rec_centers/:_id/rating').post(async (req, res) => {
     let currentTime = `${tfhour}:${minute}${ap}`;
     date = `${currentDate} at ${currentTime}`;
 
-    let rat = {name: `${user.firstName} ${user.lastName}`, title: title, review: review, rating: rating, date: date};
+    let rat = {name: `${user.firstName} ${user.lastName}`, userId: user.userId, title: title, review: review, rating: rating, date: date};
     let score = (r.score + rating) / (r.rating.length + 1);
     score = score.toFixed(2);
     r.rating.push(rat);

@@ -22,7 +22,7 @@
           <ul>
             {{#each comments}}
               <li>
-                <p><strong>{{this.name}}</strong> ({{this.date}}): {{this.comment}}</p>
+                <p><strong>{{this.userId}}</strong> ({{this.date}}): {{this.comment}}</p>
               </li>
             {{/each}}
           </ul>
@@ -33,7 +33,7 @@
             <ul>
             {{#each rating}}
               <li>
-                <p><strong>{{this.name}}</strong> ({{this.date}}): {{title}} - {{rating}}/5</p>
+                <p><strong>{{this.userId}}</strong> ({{this.date}}): {{title}} - {{rating}}/5</p>
                 <p>{{review}}</p>
               </li>
             {{/each}}

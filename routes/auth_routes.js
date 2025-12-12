@@ -157,6 +157,7 @@ router
       const li = await login(userId, password);
 
       req.session.user = {
+        _id: li._id,
         firstName: li.firstName,
         lastName: li.lastName,
         userId: li.userId,

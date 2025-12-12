@@ -2,15 +2,12 @@
     <h3>Reviews</h3>
     {{#each rec.rating}}
         <article>
-            <p>{{this.name}}: {{this.rating}}</p>
+            <p>{{this.userId}}: {{this.title}}</p>
+            <p>{{this.review}} {{this.rating}}/5</p>
             <p>({{this.date}})</p>
-        </article>
-    {{/each}}
-
-    {{#each rec.rating}}
-        <article>
-            <p>{{this.name}}: {{this.rating}}</p>
-            <p>({{this.date}})</p>
+            {{#if reviewed}}
+                <p>edit logic here</p>
+            {{/if}}
         </article>
     {{/each}}
 </div>
