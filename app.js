@@ -58,12 +58,25 @@ app.use('/signout', (req, res, next) => {
   next();
 });
 
+app.use((req, res, next) => {
+  console.log(req.method, req.originalUrl);
+  next();
+});
+
 configRoutes(app);
+const stack = (app.router && app.router.stack) || (app._router && app._router.stack) || [];
+
+console.log(
+  stack
+    .filter((l) => l.route)
+    .map((l) => ({ path: l.route.path, methods: l.route.methods }))
+);
 
 app.use( (req, res) => {
   res.status(404).render('error', { error: 'Page not found' });
 });
 
+console.log('RUNNING FROM:', process.cwd());
 app.listen(3000, () => {
   console.log("We've now got a server!");
   console.log('Your routes will be running on http://localhost:3000');

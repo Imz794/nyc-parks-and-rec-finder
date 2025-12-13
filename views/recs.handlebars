@@ -16,8 +16,25 @@
 
         <div class="likes-section">
           <form class="like-dislike-form">
-            <button type="button" class="like-btn">Likes: {{this.likes}}</button>
-            <button type="button" class="dislike-btn">Dislikes: {{this.dislikes}}</button>
+            <button
+          type="button"
+          class="like-btn"
+          data-id="{{this._id}}"
+          data-kind="rec"
+        >
+          Likes: <span class="like-count">{{this.likes}}</span>
+        </button>
+
+        <button
+          type="button"
+          class="dislike-btn"
+          data-id="{{this._id}}"
+          data-kind="rec"
+        >
+          Dislikes: <span class="dislike-count">{{this.dislikes}}</span>
+        </button>
+
+        <p class="ajax-error" hidden></p>
           </form>
         </div>
 
@@ -55,3 +72,4 @@
     <a href="/rec_centers/{{next}}"><button type="button">Next</button></a>
   </nav>
 </section>
+<script src="/public/js/likes_ajax.js"></script>
