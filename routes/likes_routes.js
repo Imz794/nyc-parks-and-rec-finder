@@ -65,8 +65,8 @@ router.post('/parks/:_id/like', async (req, res) => {
     console.log('HIT parks like route', req.params._id);
   if (!req.session.user) return res.status(401).json({ error: 'You must be logged in.' });
 
-  const id = Number(req.params._id);
-if (!Number.isInteger(id)) return res.status(400).json({ error: 'Invalid id.' });
+  const id = parseInt(req.params._id, 10);
+if (Number.isNaN(id)) return res.status(400).json({ error: 'Invalid id.' });
 
   try {
     const col = await parks();
@@ -80,8 +80,8 @@ if (!Number.isInteger(id)) return res.status(400).json({ error: 'Invalid id.' })
 router.post('/parks/:_id/dislike', async (req, res) => {
   if (!req.session.user) return res.status(401).json({ error: 'You must be logged in.' });
 
-  const id = Number(req.params._id);
-if (!Number.isInteger(id)) return res.status(400).json({ error: 'Invalid id.' });
+  const id = parseInt(req.params._id, 10);
+if (Number.isNaN(id)) return res.status(400).json({ error: 'Invalid id.' });
 
   try {
     const col = await parks();
@@ -93,10 +93,11 @@ if (!Number.isInteger(id)) return res.status(400).json({ error: 'Invalid id.' })
 });
 
 router.post('/rec_centers/:_id/like', async (req, res) => {
-  if (!req.session.user) return res.status(401).json({ error: 'You must be logged in.' });
+  if (!req.session.user)
+    return res.status(401).json({ error: 'You must be logged in.' });
 
-  const id = Number(req.params._id);
-if (!Number.isInteger(id)) return res.status(400).json({ error: 'Invalid id.' });
+  const id = (req.params._id || '').trim();
+  if (!id) return res.status(400).json({ error: 'Invalid id.' });
 
   try {
     const col = await rec_centers();
@@ -108,10 +109,11 @@ if (!Number.isInteger(id)) return res.status(400).json({ error: 'Invalid id.' })
 });
 
 router.post('/rec_centers/:_id/dislike', async (req, res) => {
-  if (!req.session.user) return res.status(401).json({ error: 'You must be logged in.' });
+  if (!req.session.user)
+    return res.status(401).json({ error: 'You must be logged in.' });
 
-  const id = Number(req.params._id);
-if (!Number.isInteger(id)) return res.status(400).json({ error: 'Invalid id.' });
+  const id = (req.params._id || '').trim();
+  if (!id) return res.status(400).json({ error: 'Invalid id.' });
 
   try {
     const col = await rec_centers();

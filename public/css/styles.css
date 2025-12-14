@@ -122,3 +122,34 @@
       grid-template-columns: 1fr;
     }
   }
+
+  .form-group {
+  margin-bottom: 15px;
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+input.error,
+select.error,
+textarea.error {
+  border-color: red;
+}
+
+.error-message {
+  color: red;
+  font-size: 0.9em;
+  margin-top: 5px;
+}
+
+.error-container {
+  border: 1px solid red;
+  padding: 10px;
+  margin-top: 10px;
+}
