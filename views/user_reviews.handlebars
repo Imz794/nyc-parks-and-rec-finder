@@ -1,0 +1,8 @@
+<h3>Facilities I've Reviewed</h3>
+<h4>I've made {{totalReviews}} reviews and scored these facilties {{avgRating}} on average!</h4>
+{{#each reviews}}
+    <article>
+        <h4>{{this.facilityName}} {{this.title}}: {{this.rating}}/5</h4>
+        <p>{{this.review}}</p>
+    </article>
+{{/each}}     
