@@ -6,6 +6,20 @@ import { parks, rec_centers } from '../config/mongoCollections.js';
 import { ObjectId } from 'mongodb';
 
 
+const requireAdmin = (req, res, next) => 
+{
+  if (!req.session.user || req.session.user.role !== "admin") 
+  {
+    return res.status(403).render("error", {
+      title: "Access Denied",
+      error: "Admin access required",
+      user: req.session.user
+    });
+  }
+  next();
+};
+
+
 router.route('/parks/:_id/comments').get(async (req, res) => {
     let p = await getFacilityById(req.params._id);
     let user = req.session.user;
@@ -157,8 +171,9 @@ router.route('/rec_centers/:_id/comments').post(async (req, res) => {
     res.redirect(`/rec_centers/${r._id}/comments`);
 });
 
-router.route('/parks/:_id/comments/:comid/delete').post(async (req, res) => {
-    let errors = [];
+router.route('/parks/:_id/comments/:comid/delete').post(async (req, res) => 
+{
+    let errors = []
     let p = await getFacilityById(req.params._id);
     let comid = req.params.comid;
     let cind = p.comments.findIndex(c => c._id.toString() == comid);
@@ -171,7 +186,7 @@ router.route('/parks/:_id/comments/:comid/delete').post(async (req, res) => {
     }
     let user = req.session.user;
 
-    if(p.comments[cind].userId != user.userId){
+    if(p.comments[cind].userId != user.userId && user.role !== 'admin'){
         return res.status(400).render('park_comments', {errors: "You do not have access to delete this comment", park: p});
     }
 
@@ -208,7 +223,7 @@ router.route('/rec_centers/:_id/comments/:comid/delete').post(async (req, res) =
     }
     let user = req.session.user;
 
-    if(r.comments[cind].userId != user.userId){
+    if(r.comments[cind].userId != user.userId && user.role !== 'admin'){
         return res.status(400).render('rec_comments', {errors: "You do not have access to delete this comment", rec: r});
     }
 
