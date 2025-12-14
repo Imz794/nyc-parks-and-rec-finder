@@ -6,7 +6,10 @@
             <p>{{this.review}} {{this.rating}}/5</p>
             <p>({{this.date}})</p>
             {{#if reviewed}}
-                <p>edit logic here</p>
+                    <a href="/parks/{{../park._id}}/rating/{{this._id}}/edit">Edit Review</a>
+                    <form method="POST" action="/parks/{{../park._id}}/rating/{{this._id}}/delete">
+                        <button type="submit">Delete Review</button>
+                    </form>
             {{/if}}
         </article>
     {{/each}}

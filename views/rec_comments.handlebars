@@ -4,6 +4,11 @@
         <article>
             <p>{{this.userId}}: {{this.comment}}</p>
             <p>({{this.date}})</p>
+            {{#if commented }}
+                <form method="POST" action="/rec_centers/{{../rec._id}}/comments/{{this._id}}/delete">
+                    <button type="submit">Delete Comment</button>
+                </form>
+            {{/if}}
         </article>
     {{/each}}
 </div>
