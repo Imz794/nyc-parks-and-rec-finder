@@ -1,0 +1,41 @@
+<section>
+  <h2>Search Facilities</h2>
+
+  <form method="GET" action="/search">
+    <label for="query">Search by name</label>
+    <input
+      type="text"
+      id="query"
+      name="query"
+      value="{{query}}"
+    >
+    <button type="submit">Search</button>
+  </form>
+
+  {{#if error}}
+    <div class="error-container">
+      <p>{{error}}</p>
+    </div>
+  {{/if}}
+
+  {{#if results}}
+    {{#if results.length}}
+      <h3>Results</h3>
+      <ul>
+        {{#each results}}
+          <li>
+            {{#if this.parkName}}
+              {{this.parkName}}
+              <a href="/parks/{{this._id}}/comments">View</a>
+            {{else}}
+              {{this.recCenterName}}
+              <a href="/rec_centers/{{this._id}}/comments">View</a>
+            {{/if}}
+          </li>
+        {{/each}}
+      </ul>
+    {{else}}
+      <p>No results found.</p>
+    {{/if}}
+  {{/if}}
+</section>
