@@ -1,14 +1,12 @@
 import {Router} from 'express';
 const router = Router();
-import { parkList, recList } from '../data/parks_rec.js';
-import { getFacilityById, hasReviewed } from '../data/facilities.js';
-import { parks, rec_centers } from '../config/mongoCollections.js';
-import { ObjectId } from 'mongodb';
+import { getHours, hasHours, parkList, recList } from '../data/parks_rec.js';
+import { getFacilityById } from '../data/facilities.js';
 
 router.route('/rec_centers/:page').get(async (req, res) => {
     let page = parseInt(req.params.page, 10);
     if (isNaN(page) || page < 0) {
-        return res.status(400).render('error', { error: 'Invalid page number' });
+        return res.status(400).render('error', { error: 'Invalid page number', user: req.session.user });
     }
 
     let back = page > 0 ? page - 1 : 0;
@@ -26,7 +24,7 @@ router.route('/rec_centers').get(async (req, res) => {
 router.route('/parks/:page').get(async (req, res) => {
     let page = parseInt(req.params.page, 10);
     if (isNaN(page) || page < 0) {
-        return res.status(400).render('error', { error: 'Invalid page number' });
+        return res.status(400).render('error', { error: 'Invalid page number', user: req.session.user });
     }
 
     let back = page > 0 ? page - 1 : 0;
@@ -39,6 +37,24 @@ router.route('/parks/:page').get(async (req, res) => {
 
 router.route('/parks').get(async (req, res) => {
     res.redirect('/parks/0');
+});
+
+router.route('/rec_centers/:id/hours').get(async (req, res) => {
+    let facilId = req.params.id;
+    let facility = await getFacilityById(facilId);
+    let hasH = false;
+    let hours = {};
+
+    if(!facility){
+        return res.status(404).render('error', { error: 'Facility not found', user: req.session.user });
+    }
+
+    if(hasHours(facility)){
+        hasH = true;
+        hours = getHours(facility);
+    }
+
+    res.render('hours', { facility: facility, hasHours: hasH, hours: hours, user: req.session.user });
 });
 
 export default router;
