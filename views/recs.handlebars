@@ -5,9 +5,9 @@
     {{#each recs}}
       <article class="rec-card">
         <h3>{{this.recCenterName}}</h3>
-        <p>{{this.score}}/5</p>
-        <p>{{this.streetAddress}}</p>
-        <p>{{this.zipcode}}</p>
+        <p>Rated: {{this.score}}/5</p>
+        <p>Address: {{this.streetAddress}}</p>
+        <p>Zipcode: {{this.zipcode}}</p>
 
         <p>
             <a href="/rec_centers/{{this._id}}/hours">See Hours</a>

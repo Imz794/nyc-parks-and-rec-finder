@@ -16,7 +16,7 @@ router.route('/parks/:_id/comments').get(async (req, res) => {
             commented: user && com.userId == user.userId
         };
     });
-    res.render('park_comments', { park: {...p, comments: newcom} });
+    res.render('park_comments', { park: {...p, comments: newcom}, user: user });
 });
 
 router.route('/parks/:_id/comments').post(async (req, res) => {
@@ -37,7 +37,7 @@ router.route('/parks/:_id/comments').post(async (req, res) => {
     });
 
     if(!req.body.commentbox){
-        return res.status(400).render('park_comments', {errors: "Comment cannot be empty", park: {...p, comments: newcom}});
+        return res.status(400).render('park_comments', {errors: "Comment cannot be empty", park: {...p, comments: newcom}, user: user});
     }
     let comment = sanitizeString(req.body.commentbox.trim());
 
@@ -48,7 +48,7 @@ router.route('/parks/:_id/comments').post(async (req, res) => {
         errors.push("Max length is 500 characters");
     }
     if(errors.length > 0){
-        return res.status(400).render('park_comments', {errors: errors.join(", "), park: {...p, comments: newcom}});
+        return res.status(400).render('park_comments', {errors: errors.join(", "), park: {...p, comments: newcom}, user: user});
     }
 
     let date = new Date();
@@ -92,7 +92,7 @@ router.route('/rec_centers/:_id/comments').get(async (req, res) => {
             commented: user && com.userId == user.userId
         };
     });
-    res.render('rec_comments', { rec: {...r, comments: newcom} });
+    res.render('rec_comments', { rec: {...r, comments: newcom}, user: user});
 });
 
 router.route('/rec_centers/:_id/comments').post(async (req, res) => {
@@ -112,7 +112,7 @@ router.route('/rec_centers/:_id/comments').post(async (req, res) => {
     });
 
     if(!req.body.commentbox){
-        return res.status(400).render('rec_comments', {errors: "Comment cannot be empty", rec: {...r, comments: newcom}});
+        return res.status(400).render('rec_comments', {errors: "Comment cannot be empty", rec: {...r, comments: newcom}, user: user});
     }
     let comment = sanitizeString(req.body.commentbox.trim());
 
@@ -123,7 +123,7 @@ router.route('/rec_centers/:_id/comments').post(async (req, res) => {
         errors.push("Max length is 500 characters");
     }
     if(errors.length > 0){
-        return res.status(400).render('rec_comments', {errors: errors.join(", "), rec: {...r, comments: newcom}});
+        return res.status(400).render('rec_comments', {errors: errors.join(", "), rec: {...r, comments: newcom}, user: user});
     }
 
     let date = new Date();
@@ -168,7 +168,7 @@ router.route('/parks/:_id/comments/:comid/delete').post(async (req, res) => {
     }
 
     if(req.session.user == null){
-        return res.status(400).render('park_comments', {errors: "You must sign in to comment", login: true, park: p});
+        return res.redirect(`/parks/${p._id}/comments`)
     }
     let user = req.session.user;
 
@@ -184,7 +184,7 @@ router.route('/parks/:_id/comments/:comid/delete').post(async (req, res) => {
     });
 
     if(errors.length > 0){
-        return res.status(400).render('park_comments', {errors: errors.join(", "), park: {...p, comments: newcom} });
+        return res.status(400).render('park_comments', {errors: errors.join(", "), park: {...p, comments: newcom}, user: user });
     }
 
     p.comments = p.comments.filter(p => p._id != comid);
@@ -205,12 +205,12 @@ router.route('/rec_centers/:_id/comments/:comid/delete').post(async (req, res) =
     }
 
     if(req.session.user == null){
-        return res.status(400).render('rec_comments', {errors: "You must sign in to comment", login: true, rec: r});
+        return res.redirect(`/parks/${p._id}/comments`)
     }
     let user = req.session.user;
 
     if(r.comments[cind].userId != user.userId){
-        return res.status(400).render('rec_comments', {errors: "You do not have access to delete this comment", rec: r});
+        return res.status(400).render('rec_comments', {errors: "You do not have access to delete this comment", rec: r, user: user});
     }
 
     let newcom = r.comments.map(com => {
@@ -221,7 +221,7 @@ router.route('/rec_centers/:_id/comments/:comid/delete').post(async (req, res) =
     });
 
     if(errors.length > 0){
-        return res.status(400).render('rec_comments', {errors: errors.join(", "), rec: {...r, comments: newcom} });
+        return res.status(400).render('rec_comments', {errors: errors.join(", "), rec: {...r, comments: newcom}, user: user});
     }
 
     r.comments = r.comments.filter(r => r._id != comid);

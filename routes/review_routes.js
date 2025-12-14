@@ -17,7 +17,7 @@ router.route('/parks/:_id/rating').get(async (req, res) => {
         };
     });
 
-    res.render('park_rating', { park: {...p, rating: newrate} });
+    res.render('park_rating', { park: {...p, rating: newrate}, user: user });
 });
 
 router.route('/parks/:_id/rating').post(async (req, res) => {
@@ -37,11 +37,11 @@ router.route('/parks/:_id/rating').post(async (req, res) => {
     });
 
     if(await hasReviewed(user.userId, p._id)){
-        return res.status(400).render('park_rating', {errors: "You have already reviewed this facility", park: {...p, rating: newrate} });
+        return res.status(400).render('park_rating', {errors: "You have already reviewed this facility", park: {...p, rating: newrate}, user: user });
     }
 
     if(!req.body.reviewbox || !req.body.reviewtitle || !req.body.rating){
-        return res.status(400).render('park_rating', {errors: "Review cannot be empty", park: {...p, rating: newrate} });
+        return res.status(400).render('park_rating', {errors: "Review cannot be empty", park: {...p, rating: newrate}, user: user });
     }
     let review = req.body.reviewbox.trim();
     let title = req.body.reviewtitle.trim();
@@ -66,13 +66,13 @@ router.route('/parks/:_id/rating').post(async (req, res) => {
     }
 
     if(errors.length > 0){
-        return res.status(400).render('park_rating', {errors: errors.join(", "), park: {...p, rating: newrate} } );
+        return res.status(400).render('park_rating', {errors: errors.join(", "), park: {...p, rating: newrate}, user: user });
     }
 
     try{
         await addReview(p._id, user.userId, title, rating, review);
     } catch (e) {
-        return res.status(400).render('park_rating', {errors: e.message, park: {...p, rating: newrate} });
+        return res.status(400).render('park_rating', {errors: e.message, park: {...p, rating: newrate}, user: user });
     }
 
     res.redirect(`/parks/${p._id}/rating`);
@@ -90,7 +90,7 @@ router.route('/rec_centers/:_id/rating').get(async (req, res) => {
         };
     });
 
-    res.render('rec_rating', { rec: {...r, rating: newrate} });
+    res.render('rec_rating', { rec: {...r, rating: newrate}, user: user });
 });
 
 router.route('/rec_centers/:_id/rating').post(async (req, res) => {
@@ -110,11 +110,11 @@ router.route('/rec_centers/:_id/rating').post(async (req, res) => {
     });
 
     if(await hasReviewed(user.userId, r._id)){
-        return res.status(400).render('park_rating', {errors: "You have already reviewed this facility", rec: {...r, rating: newrate} });
+        return res.status(400).render('park_rating', {errors: "You have already reviewed this facility", rec: {...r, rating: newrate}, user: user });
     }
 
     if(!req.body.reviewbox || !req.body.reviewtitle || !req.body.rating){
-        return res.status(400).render('park_rating', {errors: "Review cannot be empty", rec: {...r, rating: newrate} });
+        return res.status(400).render('park_rating', {errors: "Review cannot be empty", rec: {...r, rating: newrate}, user: user });
     }
     let review = req.body.reviewbox.trim();
     let title = req.body.reviewtitle.trim();
@@ -139,13 +139,13 @@ router.route('/rec_centers/:_id/rating').post(async (req, res) => {
     }
 
     if(errors.length > 0){
-        return res.status(400).render('rec_rating', {errors: errors.join(", "), rec: {...r, rating: newrate} } );
+        return res.status(400).render('rec_rating', {errors: errors.join(", "), rec: {...r, rating: newrate}, user: user });
     }
 
     try{
         await addReview(r._id, user.userId, title, rating, review);
     } catch (e) {
-        return res.status(400).render('rec_rating', {errors: e.message, rec: {...r, rating: newrate} });
+        return res.status(400).render('rec_rating', {errors: e.message, rec: {...r, rating: newrate}, user: user });
     }
 
     res.redirect(`/rec_centers/${r._id}/rating`);
@@ -159,7 +159,7 @@ router.route('/parks/:_id/rating/:revid/edit').get(async (req, res) => {
     let revid = req.params.revid;
     let review = p.rating.find(r => r._id.toString() == revid);
 
-    res.render('edit_park', { review: review, park: p });
+    res.render('edit_park', { review: review, park: p, user: req.session.user});
 });
 
 router.route('/parks/:_id/rating/:revid/edit').post(async (req, res) => {
@@ -178,7 +178,7 @@ router.route('/parks/:_id/rating/:revid/edit').post(async (req, res) => {
     let user = req.session.user;
 
     if(p.rating[rind].userId != user.userId){
-        return res.status(400).render('edit_park', {errors: "You do not have access to edit this review", park: p});
+        return res.status(400).render('edit_park', {errors: "You do not have access to edit this review", park: p, user: user});
     }
 
     let newrate = p.rating.map(rat => {
@@ -189,7 +189,7 @@ router.route('/parks/:_id/rating/:revid/edit').post(async (req, res) => {
     });
 
     if(!req.body.reviewbox || !req.body.reviewtitle || !req.body.rating){
-        return res.status(400).render('park_rating', {errors: "Review cannot be empty", park: {...p, rating: newrate}});
+        return res.status(400).render('park_rating', {errors: "Review cannot be empty", park: {...p, rating: newrate}, user: user});
     }
     let review = req.body.reviewbox.trim();
     let title = req.body.reviewtitle.trim();
@@ -214,14 +214,14 @@ router.route('/parks/:_id/rating/:revid/edit').post(async (req, res) => {
     }
 
     if(errors.length > 0){
-        return res.status(400).render('edit_park', {errors: errors.join(", "), park: {...p, rating: newrate}});
+        return res.status(400).render('edit_park', {errors: errors.join(", "), park: {...p, rating: newrate}, user: user});
     }
 
     try{
         await updateReview(p._id, user.userId, title, rating, review);
     }
     catch(e){
-        return res.status(400).render('edit_park', {errors: e.message, park: {...p, rating: newrate} });
+        return res.status(400).render('edit_park', {errors: e.message, park: {...p, rating: newrate}, user: user });
     }
 
     res.redirect(`/parks/${p._id}/rating`);
@@ -235,7 +235,7 @@ router.route('/rec_centers/:_id/rating/:revid/edit').get(async (req, res) => {
     let revid = req.params.revid;
     let review = r.rating.find(r => r._id.toString() == revid);
 
-    res.render('edit_rec', { review: review, rec: r });
+    res.render('edit_rec', { review: review, rec: r, user: req.session.user });
 });
 
 router.route('/rec_centers/:_id/rating/:revid/edit').post(async (req, res) => {
@@ -253,7 +253,7 @@ router.route('/rec_centers/:_id/rating/:revid/edit').post(async (req, res) => {
     let user = req.session.user;
 
     if(r.rating[rind].userId != user.userId){
-        return res.status(400).render('edit_rec', {errors: "You do not have access to edit this review", rec: r});
+        return res.status(400).render('edit_rec', {errors: "You do not have access to edit this review", rec: r, user: user});
     }
 
     let newrate = r.rating.map(rat => {
@@ -264,7 +264,7 @@ router.route('/rec_centers/:_id/rating/:revid/edit').post(async (req, res) => {
     });
 
     if(!req.body.reviewbox || !req.body.reviewtitle || !req.body.rating){
-        return res.status(400).render('edit_rec', {errors: "Review cannot be empty", rec: {...r, rating: newrate}});
+        return res.status(400).render('edit_rec', {errors: "Review cannot be empty", rec: {...r, rating: newrate}, user: user});
     }
     let review = req.body.reviewbox.trim();
     let title = req.body.reviewtitle.trim();
@@ -289,14 +289,14 @@ router.route('/rec_centers/:_id/rating/:revid/edit').post(async (req, res) => {
     }
 
     if(errors.length > 0){
-        return res.status(400).render('edit_rec', {errors: errors.join(", "), rec: {...r, rating: newrate}});
+        return res.status(400).render('edit_rec', {errors: errors.join(", "), rec: {...r, rating: newrate}, user: user});
     }
 
     try{
         await updateReview(r._id, user.userId, title, rating, review);
     }
     catch(e){
-        return res.status(400).render('edit_rec', {errors: e.message, rec: {...r, rating: newrate} });
+        return res.status(400).render('edit_rec', {errors: e.message, rec: {...r, rating: newrate}, user: user });
     }
 
     res.redirect(`/rec_centers/${r._id}/rating`);
@@ -318,7 +318,7 @@ router.route('/parks/:_id/rating/:revid/delete').post(async (req, res) => {
     let user = req.session.user;
 
     if(p.rating[rind].userId != user.userId){
-        return res.status(400).render('park_rating', {errors: "You do not have access to delete this review", park: p});
+        return res.status(400).render('park_rating', {errors: "You do not have access to delete this review", park: p, user: user});
     }
 
     let newrate = p.rating.map(rat => {
@@ -329,14 +329,14 @@ router.route('/parks/:_id/rating/:revid/delete').post(async (req, res) => {
     });
 
     if(errors.length > 0){
-        return res.status(400).render('park_rating', {errors: errors.join(", "), park: {...p, rating: newrate} });
+        return res.status(400).render('park_rating', {errors: errors.join(", "), park: {...p, rating: newrate}, user: user});
     }
 
     try{
         await deleteReview(p._id, user.userId);
     }
     catch(e){
-        return res.status(400).render('park_rating', {errors: e.message, rec: {...r, rating: newrate} });
+        return res.status(400).render('park_rating', {errors: e.message, park: {...p, rating: newrate}, user: user });
     }
 
     res.redirect(`/parks/${p._id}/rating`);
@@ -358,7 +358,7 @@ router.route('/rec_centers/:_id/rating/:revid/delete').post(async (req, res) => 
     let user = req.session.user;
 
     if(r.rating[rind].userId != user.userId){
-        return res.status(400).render('rec_rating', {errors: "You do not have access to delete this review", rec: r});
+        return res.status(400).render('rec_rating', {errors: "You do not have access to delete this review", rec: r, user: user});
     }
 
     let newrate = r.rating.map(rat => {
@@ -369,14 +369,14 @@ router.route('/rec_centers/:_id/rating/:revid/delete').post(async (req, res) => 
     });
 
     if(errors.length > 0){
-        return res.status(400).render('rec_rating', {errors: errors.join(", "), rec: {...r, rating: newrate} });
+        return res.status(400).render('rec_rating', {errors: errors.join(", "), rec: {...r, rating: newrate}, user: user});
     }
 
     try{
-        await deleteReview(p._id, user.userId);
+        await deleteReview(r._id, user.userId);
     }
     catch(e){
-        return res.status(400).render('rec_rating', {errors: e.message, rec: {...r, rating: newrate} });
+        return res.status(400).render('rec_rating', {errors: e.message, rec: {...r, rating: newrate}, user: user });
     }
 
     res.redirect(`/rec_centers/${r._id}/rating`);
