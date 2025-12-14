@@ -5,6 +5,21 @@ import { addFavorite, removeFavorite, isFavorite } from '../data/favorites.js';
 
 const router = Router();
 
+//make it so admin can only add/delete facilities
+const requireAdmin = (req, res, next) => 
+{
+  if (!req.session.user || req.session.user.role !== "admin") 
+  {
+    return res.status(403).render("error", 
+    {
+      title: "Access Denied",
+      error: "Admin access required",
+      user: req.session.user
+    });
+  }
+  next();
+};
+
 router.route('/facility/:id').get(async (req, res) => {
   try {
     const facilityId = req.params.id;
@@ -102,6 +117,12 @@ router.route('/facility/:id/review/update').post(async (req, res) => {
     if (!comment) {
       comment = '';
     }
+
+    const review = await getReviewByUserAndFacility(facilityId, req.session.user.userId);
+    if (!review) 
+    {
+      throw new Error('You have not reviewed this facility');
+    }
     
     await updateReview(
       facilityId,
@@ -126,6 +147,18 @@ router.route('/facility/:id/review/delete').post(async (req, res) => {
   
   try {
     const facilityId = req.params.id;
+    const userId = req.session.user.userId;
+
+    const review = await getReviewByUserAndFacility(facilityId, userId);
+
+    //allow delete of review if admind or owner of review
+    if(!review && req.session.user.role !== 'admin')
+    {
+      throw new Error('You are not authorized to delete this review');
+    }
+
+    //admin can delete any review
+    const targetUserId = review ? userId : req.body.targetUserId; 
     
     await deleteReview(facilityId, req.session.user.userId);
     
@@ -270,5 +303,34 @@ router.route('/top-rated').get(async (req, res) => {
     });
   }
 });
+
+//to add / delete facilities
+router.post('/facility/add',requireAdmin, async(req,res) =>
+{
+  try {
+    await addFacility(req,body);
+    res.redirect('/');
+  } catch (e) {
+    return res.status(400).render('error', { 
+      error: e.message || 'Failed to add facility', 
+      user: req.session.user 
+    });
+  }
+});
+
+router.delete('/facility/:id', requireAdmin, async(req,res) =>
+{
+  try {
+    const facilityId = req.params.id;
+    await deleteFacility(facilityId);
+    res.redirect('/');
+  } catch (e) {
+    return res.status(400).render('error', {
+      error: e.message || 'Failed to delete facility',
+      user: req.session.user
+    });
+  }
+});
+    
 
 export default router;
