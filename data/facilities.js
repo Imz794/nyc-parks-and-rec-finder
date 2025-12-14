@@ -1,6 +1,7 @@
 import { parks, rec_centers } from '../config/mongoCollections.js';
 import { ObjectId } from 'mongodb';
 import { getUserById } from './users.js';
+import { sanitizeString } from '../utils/sanitize.js';
 
 const validateString = (str, fieldName) => {
   if (typeof str !== 'string' || str.trim().length === 0) {
@@ -41,7 +42,7 @@ export const getFacilityById = async (id) => {
 export const searchFacilitiesByName = async (searchTerm, page = 0, pageSize = 10) => {
   if (!searchTerm) throw new Error('Search term must be provided');
   
-  searchTerm = validateString(searchTerm, 'Search term');
+  searchTerm = sanitizeString(validateString(searchTerm, 'Search term'));
   page = validateNumber(page, 'Page number', 0);
   pageSize = validateNumber(pageSize, 'Page size', 1, 100);
   
@@ -77,11 +78,11 @@ export const filterFacilities = async (filters = {}, page = 0, pageSize = 10) =>
   let query = {};
   
   if (filters.borough) {
-    query.borough = validateString(filters.borough, 'Borough');
+    query.borough = sanitizeString(validateString(filters.borough, 'Borough'));
   }
   
   if (filters.zipcode) {
-    query.zipcode = validateString(filters.zipcode, 'Zipcode');
+    query.zipcode = sanitizeString(validateString(filters.zipcode, 'Zipcode'));
   }
   
   let parkResults = [];
@@ -91,7 +92,7 @@ export const filterFacilities = async (filters = {}, page = 0, pageSize = 10) =>
     let parkQuery = { ...query };
     
     if (filters.parkType) {
-      parkQuery.type = validateString(filters.parkType, 'Park type');
+      parkQuery.type = sanitizeString(validateString(filters.parkType, 'Park type'));
     }
     
     parkResults = await park

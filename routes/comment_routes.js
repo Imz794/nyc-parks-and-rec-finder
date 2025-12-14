@@ -4,6 +4,7 @@ import { parkList, recList } from '../data/parks_rec.js';
 import { getFacilityById, hasReviewed } from '../data/facilities.js';
 import { parks, rec_centers } from '../config/mongoCollections.js';
 import { ObjectId } from 'mongodb';
+import { sanitizeString } from '../utils/sanitize.js';
 
 
 router.route('/parks/:_id/comments').get(async (req, res) => {
@@ -38,7 +39,7 @@ router.route('/parks/:_id/comments').post(async (req, res) => {
     if(!req.body.commentbox){
         return res.status(400).render('park_comments', {errors: "Comment cannot be empty", park: {...p, comments: newcom}});
     }
-    let comment = req.body.commentbox.trim();
+    let comment = sanitizeString(req.body.commentbox.trim());
 
     if(typeof(comment) != 'string' || comment.length == 0 || comment == ''){
         errors.push("Comment cannot be empty");
@@ -113,7 +114,7 @@ router.route('/rec_centers/:_id/comments').post(async (req, res) => {
     if(!req.body.commentbox){
         return res.status(400).render('rec_comments', {errors: "Comment cannot be empty", rec: {...r, comments: newcom}});
     }
-    let comment = req.body.commentbox.trim();
+    let comment = sanitizeString(req.body.commentbox.trim());
 
     if(typeof(comment) != 'string' || comment.length == 0 || comment == ''){
         errors.push("Comment cannot be empty");
