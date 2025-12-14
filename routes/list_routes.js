@@ -2,6 +2,11 @@ import {Router} from 'express';
 const router = Router();
 import { getHours, hasHours, parkList, recList } from '../data/parks_rec.js';
 import { getFacilityById } from '../data/facilities.js';
+import { parkList, recList } from '../data/parks_rec.js';
+import { getFacilityById, hasReviewed } from '../data/facilities.js';
+import { searchFacilitiesByName } from '../data/facilities.js';
+import { parks, rec_centers } from '../config/mongoCollections.js';
+import { ObjectId } from 'mongodb';
 
 router.route('/rec_centers/:page').get(async (req, res) => {
     let page = parseInt(req.params.page, 10);
@@ -55,6 +60,27 @@ router.route('/rec_centers/:id/hours').get(async (req, res) => {
     }
 
     res.render('hours', { facility: facility, hasHours: hasH, hours: hours, user: req.session.user });
+  
+router.route('/search').get(async (req, res) => {
+    const query = req.query.query;
+
+    let results = [];
+    let error = null;
+
+    if (query && query.trim().length > 0) {
+        try {
+            results = await searchFacilitiesByName(query.trim(), 0, 20);
+        } catch (e) {
+            error = e.toString();
+        }
+    }
+
+    res.render('search', {
+        query,
+        results,
+        error,
+        user: req.session.user
+    });
 });
 
 export default router;
