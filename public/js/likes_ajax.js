@@ -46,8 +46,18 @@ document.addEventListener('click', async (e) => {
 
     const likeCount = card.querySelector('.like-count');
     const dislikeCount = card.querySelector('.dislike-count');
+    
     if (likeCount) likeCount.textContent = data.likes;
     if (dislikeCount) dislikeCount.textContent = data.dislikes;
+
+    const likeBtnEl = card.querySelector('.like-btn');
+    const dislikeBtnEl = card.querySelector('.dislike-btn');
+
+    if (likeBtnEl && dislikeBtnEl) {
+  likeBtnEl.classList.toggle('active', data.userReaction === 'like');
+  dislikeBtnEl.classList.toggle('active', data.userReaction === 'dislike');
+}
+
   } catch (err) {
     showErr(errP, err.message || 'Error');
   }
