@@ -1,5 +1,6 @@
 import csv from "csvtojson";
 import { closeConnection, dbConnection } from "../config/mongoConnection.js";
+import { users } from "../config/mongoCollections.js";
 import fs from 'fs';
 
 const db = await dbConnection();
@@ -72,11 +73,32 @@ const seedRec = async() =>{
         };
     });
 
+const seedAdmin = async () => 
+{
+    const userCollection = await users();
+
+    const result = await userCollection.updateOne(
+        { userId: "admin" },
+        { $set: { role: "admin" } }
+    );
+
+    if (result.matchedCount === 0) 
+    {
+        console.log("Admin user not found. Register an admin account first.");
+    } 
+    
+    else 
+    {
+        console.log("Admin role assigned successfully.");
+    }
+};
+
     await recs.deleteMany({});
     await recs.insertMany(newjson);
 }
 
 await seedParks();
 await seedRec();
+await seedAdmin();
 await closeConnection();
 
