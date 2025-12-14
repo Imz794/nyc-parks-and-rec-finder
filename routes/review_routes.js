@@ -6,6 +6,18 @@ import { parks, rec_centers } from '../config/mongoCollections.js';
 import { ObjectId } from 'mongodb';
 import { addReview, deleteReview, updateReview } from '../data/reviews.js';
 
+const requireAdmin = (req, res, next) => 
+{
+  if (!req.session.user || req.session.user.role !== "admin") {
+    return res.status(403).render("error", {
+      title: "Access Denied",
+      error: "Admin access required",
+      user: req.session.user
+    });
+  }
+  next();
+};
+
 router.route('/parks/:_id/rating').get(async (req, res) => {
     let p = await getFacilityById(req.params._id);
     let user = req.session.user;
@@ -177,7 +189,7 @@ router.route('/parks/:_id/rating/:revid/edit').post(async (req, res) => {
     }
     let user = req.session.user;
 
-    if(p.rating[rind].userId != user.userId){
+    if(p.rating[rind].userId != user.userId && user.role !== 'admin'){
         return res.status(400).render('edit_park', {errors: "You do not have access to edit this review", park: p});
     }
 
@@ -252,7 +264,7 @@ router.route('/rec_centers/:_id/rating/:revid/edit').post(async (req, res) => {
     }
     let user = req.session.user;
 
-    if(r.rating[rind].userId != user.userId){
+    if(r.rating[rind].userId != user.userId && user.role !== 'admin'){
         return res.status(400).render('edit_rec', {errors: "You do not have access to edit this review", rec: r});
     }
 
@@ -317,7 +329,7 @@ router.route('/parks/:_id/rating/:revid/delete').post(async (req, res) => {
     }
     let user = req.session.user;
 
-    if(p.rating[rind].userId != user.userId){
+    if(p.rating[rind].userId != user.userId && user.role !== 'admin'){
         return res.status(400).render('park_rating', {errors: "You do not have access to delete this review", park: p});
     }
 
@@ -357,7 +369,7 @@ router.route('/rec_centers/:_id/rating/:revid/delete').post(async (req, res) => 
     }
     let user = req.session.user;
 
-    if(r.rating[rind].userId != user.userId){
+    if(r.rating[rind].userId != user.userId && user.role !== 'admin'){
         return res.status(400).render('rec_rating', {errors: "You do not have access to delete this review", rec: r});
     }
 
