@@ -4,6 +4,7 @@ import { parkList, recList } from '../data/parks_rec.js';
 import { getFacilityById, hasReviewed } from '../data/facilities.js';
 import { parks, rec_centers } from '../config/mongoCollections.js';
 import { ObjectId } from 'mongodb';
+import { addReview, deleteReview, updateReview } from '../data/reviews.js';
 
 router.route('/parks/:_id/rating').get(async (req, res) => {
     let p = await getFacilityById(req.params._id);
@@ -68,39 +69,11 @@ router.route('/parks/:_id/rating').post(async (req, res) => {
         return res.status(400).render('park_rating', {errors: errors.join(", "), park: {...p, rating: newrate} } );
     }
 
-    let date = new Date();
-    let month = date.getMonth() + 1;
-    let day = date.getDate();
-    let year = date.getFullYear();
-    let tfhour = date.getHours();
-    let minute = date.getMinutes();
-    let ap = 'AM';
-    if(tfhour >= 12){
-    ap = 'PM';
-    tfhour = tfhour - 12;
+    try{
+        await addReview(p._id, user.userId, title, rating, review);
+    } catch (e) {
+        return res.status(400).render('park_rating', {errors: e.message, park: {...p, rating: newrate} });
     }
-    if(tfhour == 0){
-    tfhour = 12;
-    }
-    month = String(month).padStart(2, '0');
-    day = String(day).padStart(2, '0');
-    year = String(year);
-    minute = String(minute).padStart(2, '0');
-    tfhour = String(tfhour).padStart(2, '0');
-    let currentDate = `${month}/${day}/${year}`;
-    let currentTime = `${tfhour}:${minute}${ap}`;
-    date = `${currentDate} at ${currentTime}`;
-
-    let rat = {_id: new ObjectId(), name: `${user.firstName} ${user.lastName}`, userId: user.userId, title: title, review: review, rating: rating, date: date};
-    let score = 0;
-    for(let i = 0; i < p.rating.length; i++){
-        score += p.rating[i].rating;
-    }
-    score = ((score + rating) / (p.rating.length + 1)).toFixed(2);
-    p.rating.push(rat);
-    p.score = score;
-    let ps = await parks();
-    await ps.updateOne({_id: p._id}, {$set: {rating: p.rating, score: score}});
 
     res.redirect(`/parks/${p._id}/rating`);
 });
@@ -125,7 +98,7 @@ router.route('/rec_centers/:_id/rating').post(async (req, res) => {
     let r = await getFacilityById(req.params._id);
 
     if(req.session.user == null){
-        return res.status(400).render('rec_rating', {errors: "You must sign in to review", login: true, rec: r});
+        return res.status(400).render('park_rating', {errors: "You must sign in to review", login: true, rec: r});
     }
     let user = req.session.user;
 
@@ -137,11 +110,11 @@ router.route('/rec_centers/:_id/rating').post(async (req, res) => {
     });
 
     if(await hasReviewed(user.userId, r._id)){
-        return res.status(400).render('rec_rating', {errors: "You have already reviewed this facility", rec: {...r, rating: newrate} });
+        return res.status(400).render('park_rating', {errors: "You have already reviewed this facility", rec: {...r, rating: newrate} });
     }
 
     if(!req.body.reviewbox || !req.body.reviewtitle || !req.body.rating){
-        return res.status(400).render('rec_rating', {errors: "Review cannot be empty", rec: {...r, rating: newrate}});
+        return res.status(400).render('park_rating', {errors: "Review cannot be empty", rec: {...r, rating: newrate} });
     }
     let review = req.body.reviewbox.trim();
     let title = req.body.reviewtitle.trim();
@@ -166,42 +139,14 @@ router.route('/rec_centers/:_id/rating').post(async (req, res) => {
     }
 
     if(errors.length > 0){
-        return res.status(400).render('rec_rating', {errors: errors.join(", "), rec: {...r, rating: newrate} });
+        return res.status(400).render('rec_rating', {errors: errors.join(", "), rec: {...r, rating: newrate} } );
     }
 
-    let date = new Date();
-    let month = date.getMonth() + 1;
-    let day = date.getDate();
-    let year = date.getFullYear();
-    let tfhour = date.getHours();
-    let minute = date.getMinutes();
-    let ap = 'AM';
-    if(tfhour >= 12){
-    ap = 'PM';
-    tfhour = tfhour - 12;
+    try{
+        await addReview(r._id, user.userId, title, rating, review);
+    } catch (e) {
+        return res.status(400).render('rec_rating', {errors: e.message, rec: {...r, rating: newrate} });
     }
-    if(tfhour == 0){
-    tfhour = 12;
-    }
-    month = String(month).padStart(2, '0');
-    day = String(day).padStart(2, '0');
-    year = String(year);
-    minute = String(minute).padStart(2, '0');
-    tfhour = String(tfhour).padStart(2, '0');
-    let currentDate = `${month}/${day}/${year}`;
-    let currentTime = `${tfhour}:${minute}${ap}`;
-    date = `${currentDate} at ${currentTime}`;
-
-    let rat = { _id: new ObjectId(), name: `${user.firstName} ${user.lastName}`, userId: user.userId, title: title, review: review, rating: rating, date: date};
-    let score = 0;
-    for(let i = 0; i < r.rating.length; i++){
-        score += r.rating[i].rating;
-    }
-    score = ((score + rating) / (r.rating.length + 1)).toFixed(2);
-    r.rating.push(rat);
-    r.score = score;
-    let rs = await rec_centers();
-    await rs.updateOne({_id: r._id}, {$set: {rating: r.rating, score: score}});
 
     res.redirect(`/rec_centers/${r._id}/rating`);
 });
@@ -272,43 +217,12 @@ router.route('/parks/:_id/rating/:revid/edit').post(async (req, res) => {
         return res.status(400).render('edit_park', {errors: errors.join(", "), park: {...p, rating: newrate}});
     }
 
-    let date = new Date();
-    let month = date.getMonth() + 1;
-    let day = date.getDate();
-    let year = date.getFullYear();
-    let tfhour = date.getHours();
-    let minute = date.getMinutes();
-    let ap = 'AM';
-    if(tfhour >= 12){
-    ap = 'PM';
-    tfhour = tfhour - 12;
+    try{
+        await updateReview(p._id, user.userId, title, rating, review);
     }
-    if(tfhour == 0){
-    tfhour = 12;
+    catch(e){
+        return res.status(400).render('edit_park', {errors: e.message, park: {...p, rating: newrate} });
     }
-    month = String(month).padStart(2, '0');
-    day = String(day).padStart(2, '0');
-    year = String(year);
-    minute = String(minute).padStart(2, '0');
-    tfhour = String(tfhour).padStart(2, '0');
-    let currentDate = `${month}/${day}/${year}`;
-    let currentTime = `${tfhour}:${minute}${ap}`;
-    date = `${currentDate} at ${currentTime}`;
-
-    p.rating[rind].title = title;
-    p.rating[rind].review = review;
-    p.rating[rind].rating = rating;
-    p.rating[rind].date = date;
-
-    let score = 0;
-    for(let i = 0; i < p.rating.length; i++){
-        score += p.rating[i].rating;
-    }
-    score = (score / (p.rating.length)).toFixed(2);
-    p.score = score;
-
-    let ps = await parks();
-    await ps.updateOne({_id: p._id}, {$set: {rating: p.rating, score: score}});
 
     res.redirect(`/parks/${p._id}/rating`);
 });
@@ -350,7 +264,7 @@ router.route('/rec_centers/:_id/rating/:revid/edit').post(async (req, res) => {
     });
 
     if(!req.body.reviewbox || !req.body.reviewtitle || !req.body.rating){
-        return res.status(400).render('park_rating', {errors: "Review cannot be empty", rec: {...r, rating: newrate}});
+        return res.status(400).render('edit_rec', {errors: "Review cannot be empty", rec: {...r, rating: newrate}});
     }
     let review = req.body.reviewbox.trim();
     let title = req.body.reviewtitle.trim();
@@ -378,43 +292,12 @@ router.route('/rec_centers/:_id/rating/:revid/edit').post(async (req, res) => {
         return res.status(400).render('edit_rec', {errors: errors.join(", "), rec: {...r, rating: newrate}});
     }
 
-    let date = new Date();
-    let month = date.getMonth() + 1;
-    let day = date.getDate();
-    let year = date.getFullYear();
-    let tfhour = date.getHours();
-    let minute = date.getMinutes();
-    let ap = 'AM';
-    if(tfhour >= 12){
-    ap = 'PM';
-    tfhour = tfhour - 12;
+    try{
+        await updateReview(r._id, user.userId, title, rating, review);
     }
-    if(tfhour == 0){
-    tfhour = 12;
+    catch(e){
+        return res.status(400).render('edit_rec', {errors: e.message, rec: {...r, rating: newrate} });
     }
-    month = String(month).padStart(2, '0');
-    day = String(day).padStart(2, '0');
-    year = String(year);
-    minute = String(minute).padStart(2, '0');
-    tfhour = String(tfhour).padStart(2, '0');
-    let currentDate = `${month}/${day}/${year}`;
-    let currentTime = `${tfhour}:${minute}${ap}`;
-    date = `${currentDate} at ${currentTime}`;
-
-    r.rating[rind].title = title;
-    r.rating[rind].review = review;
-    r.rating[rind].rating = rating;
-    r.rating[rind].date = date;
-
-    let score = 0;
-    for(let i = 0; i < r.rating.length; i++){
-        score += r.rating[i].rating;
-    }
-    score = (score / (r.rating.length)).toFixed(2);
-    r.score = score;
-
-    let rc = await rec_centers();
-    await rc.updateOne({_id: r._id}, {$set: {rating: r.rating, score: score}});
 
     res.redirect(`/rec_centers/${r._id}/rating`);
 });
@@ -449,22 +332,12 @@ router.route('/parks/:_id/rating/:revid/delete').post(async (req, res) => {
         return res.status(400).render('park_rating', {errors: errors.join(", "), park: {...p, rating: newrate} });
     }
 
-    p.rating = p.rating.filter(p => p._id != revid);
-
-    let score = 0;
-    for(let i = 0; i < p.rating.length; i++){
-        score += p.rating[i].rating;
+    try{
+        await deleteReview(p._id, user.userId);
     }
-    score = (score / (p.rating.length)).toFixed(2);
-    if(p.rating.length == 0){
-        score = 0;
+    catch(e){
+        return res.status(400).render('park_rating', {errors: e.message, rec: {...r, rating: newrate} });
     }
-    p.score = score;
-
-
-
-    let ps = await parks();
-    await ps.updateOne({_id: p._id}, {$set: {rating: p.rating, score: score}});
 
     res.redirect(`/parks/${p._id}/rating`);
 });
@@ -499,20 +372,12 @@ router.route('/rec_centers/:_id/rating/:revid/delete').post(async (req, res) => 
         return res.status(400).render('rec_rating', {errors: errors.join(", "), rec: {...r, rating: newrate} });
     }
 
-    r.rating = r.rating.filter(r => r._id != revid);
-
-    let score = 0;
-    for(let i = 0; i < r.rating.length; i++){
-        score += r.rating[i].rating;
+    try{
+        await deleteReview(p._id, user.userId);
     }
-    score = (score / (r.rating.length)).toFixed(2);
-    if(r.rating.length == 0){
-        score = 0;
+    catch(e){
+        return res.status(400).render('rec_rating', {errors: e.message, rec: {...r, rating: newrate} });
     }
-    r.score = score;
-
-    let rcs = await rec_centers();
-    await rcs.updateOne({_id: r._id}, {$set: {rating: r.rating, score: score}});
 
     res.redirect(`/rec_centers/${r._id}/rating`);
 });

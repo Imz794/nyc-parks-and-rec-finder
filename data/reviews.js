@@ -1,5 +1,6 @@
 import { parks, rec_centers, users } from '../config/mongoCollections.js';
 import { getFacilityById } from './facilities.js';
+import { ObjectId } from 'mongodb';
 
 const validateString = (str, fieldName) => {
   if (typeof str !== 'string' || str.trim().length === 0) {
@@ -16,7 +17,7 @@ const validateNumber = (num, fieldName, min = -Infinity, max = Infinity) => {
   return parsed;
 };
 
-export const addReview = async (facilityId, userId, rating, comment = '') => {
+export const addReview = async (facilityId, userId, title, rating, comment) => {
   if (!facilityId) throw new Error('Facility ID must be provided');
   if (!userId) throw new Error('User ID must be provided');
   
@@ -24,10 +25,21 @@ export const addReview = async (facilityId, userId, rating, comment = '') => {
   userId = validateString(userId, 'User ID').toLowerCase();
   rating = validateNumber(rating, 'Rating', 1, 5);
   
-  if (comment && typeof comment !== 'string') {
+  if (typeof comment !== 'string') {
     throw new Error('Comment must be a string');
   }
+  if(comment.length > 500){
+      throw new Error("Max length for description is 500 characters");
+  }
+
+  if(typeof(title) != 'string' || title.length == 0 || title == ''){
+      throw new Error("Title cannot be empty");
+  }
+  if(title.length > 35){
+      throw new Error("Max length for title is 35 characters");
+  }
   comment = comment.trim();
+  title = title.trim();
 
   const facility = await getFacilityById(numFacilityId);
   
@@ -44,19 +56,29 @@ export const addReview = async (facilityId, userId, rating, comment = '') => {
 
   const date = new Date();
   const reviewDate = `${String(date.getMonth() + 1).padStart(2, '0')}/${String(date.getDate()).padStart(2, '0')}/${date.getFullYear()}`;
+
+  let score = 0;
+  for(let i = 0; i < facility.rating.length; i++){
+      score += facility.rating[i].rating;
+  }
+  score = ((score + rating) / (facility.rating.length + 1)).toFixed(2);
+  facility.score = score;
   
+  let _id = new ObjectId();
   const review = {
+    _id: _id,
     userId: userId,
+    title: title,
     rating: rating,
-    comment: comment,
+    review: comment,
     date: reviewDate,
-    helpful: 0
   };
 
   const collection = facility.park ? await parks() : await rec_centers();
   const updateResult = await collection.updateOne(
     { _id: numFacilityId },
-    { $push: { rating: review } }
+    { $push: { rating: review },
+     $set: { score: Number(score) } }
   );
   
   if (updateResult.modifiedCount === 0) {
@@ -68,10 +90,12 @@ export const addReview = async (facilityId, userId, rating, comment = '') => {
     { 
       $push: { 
         reviews: {
+          _id: _id,
           facilityId: numFacilityId,
           facilityName: facility.parkName || facility.recCenterName,
           rating: rating,
-          comment: comment,
+          review: comment,
+          title: title,
           date: reviewDate
         }
       } 
@@ -85,7 +109,7 @@ export const addReview = async (facilityId, userId, rating, comment = '') => {
   return review;
 };
 
-export const updateReview = async (facilityId, userId, newRating, newComment) => {
+export const updateReview = async (facilityId, userId, newTitle, newRating, newComment) => {
   if (!facilityId) throw new Error('Facility ID must be provided');
   if (!userId) throw new Error('User ID must be provided');
   
@@ -96,7 +120,21 @@ export const updateReview = async (facilityId, userId, newRating, newComment) =>
   if (newComment && typeof newComment !== 'string') {
     throw new Error('Comment must be a string');
   }
+  if (typeof newComment !== 'string') {
+    throw new Error('Comment must be a string');
+  }
+  if(newComment.length > 500){
+      throw new Error("Max length for description is 500 characters");
+  }
+
+  if(typeof(newTitle) != 'string' || newTitle.length == 0 || newTitle == ''){
+      throw new Error("Title cannot be empty");
+  }
+  if(newTitle.length > 35){
+      throw new Error("Max length for title is 35 characters");
+  }
   newComment = newComment.trim();
+  newTitle = newTitle.trim();
   
   const facility = await getFacilityById(numFacilityId);
 
@@ -108,13 +146,22 @@ export const updateReview = async (facilityId, userId, newRating, newComment) =>
   const date = new Date();
   const reviewDate = `${String(date.getMonth() + 1).padStart(2, '0')}/${String(date.getDate()).padStart(2, '0')}/${date.getFullYear()}`;
   
+  let oldScore = existingReview.rating;
+  let score = 0;
+  for(let i = 0; i < facility.rating.length; i++){
+    score += facility.rating[i].rating;
+  }
+  score = ((score - oldScore + newRating)/ (facility.rating.length)).toFixed(2);
+  
   const collection = facility.park ? await parks() : await rec_centers();
   const updateResult = await collection.updateOne(
     { _id: numFacilityId, 'rating.userId': userId },
     { 
       $set: { 
+        score: Number(score),
+        'rating.$.title': newTitle,
         'rating.$.rating': newRating,
-        'rating.$.comment': newComment,
+        'rating.$.review': newComment,
         'rating.$.date': reviewDate
       } 
     }
@@ -129,8 +176,9 @@ export const updateReview = async (facilityId, userId, newRating, newComment) =>
     { userId: userId, 'reviews.facilityId': numFacilityId },
     { 
       $set: { 
+        'reviews.$.title': newTitle,
         'reviews.$.rating': newRating,
-        'reviews.$.comment': newComment,
+        'reviews.$.review': newComment,
         'reviews.$.date': reviewDate
       } 
     }
@@ -142,10 +190,10 @@ export const updateReview = async (facilityId, userId, newRating, newComment) =>
   
   return {
     userId: userId,
+    title: newTitle,
     rating: newRating,
-    comment: newComment,
+    review: newComment,
     date: reviewDate,
-    helpful: existingReview.helpful
   };
 };
 
@@ -153,7 +201,8 @@ export const deleteReview = async (facilityId, userId) => {
   if (!facilityId) throw new Error('Facility ID must be provided');
   if (!userId) throw new Error('User ID must be provided');
   
-  const numFacilityId = validateNumber(facilityId, 'Facility ID');
+  // const numFacilityId = validateNumber(facilityId, 'Facility ID');
+  const numFacilityId = facilityId;
   userId = validateString(userId, 'User ID').toLowerCase();
 
   const facility = await getFacilityById(numFacilityId);
@@ -163,10 +212,23 @@ export const deleteReview = async (facilityId, userId) => {
     throw new Error('You have not reviewed this facility');
   }
 
+    let score = 0;
+    for(let i = 0; i < facility.rating.length; i++){
+        score += facility.rating[i].rating;
+    }
+    if(facility.rating.length == 1){
+        score = 0;
+    }
+    else{
+      score = ((score - existingReview.rating) / (facility.rating.length - 1)).toFixed(2);
+    }
+
+
   const collection = facility.park ? await parks() : await rec_centers();
   const updateResult = await collection.updateOne(
     { _id: numFacilityId },
-    { $pull: { rating: { userId: userId } } }
+    { $pull: { rating: { userId: userId } }, 
+      $set: { score: Number(score) } }
   );
   
   if (updateResult.modifiedCount === 0) {
