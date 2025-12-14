@@ -104,6 +104,7 @@ export const register = async (
     email: email,
     age: age,
     gender: gender,
+    role: "user",
     reviews: [],
     favorites: [],
     signupDate: signupDate
@@ -185,6 +186,7 @@ export const login = async (userId, password) => {
       age: ucheck.age,
       gender: ucheck.gender,
       email: ucheck.email,
+      role: ucheck.role,
       signupDate: ucheck.signupDate,
       lastLogin: ucheck.lastLogin,
       reviews: ucheck.reviews,
