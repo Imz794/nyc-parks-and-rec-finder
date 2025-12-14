@@ -26,7 +26,8 @@ router
       password,
       confirmPassword,
       gender,
-      age
+      age,
+      adminkey
     } = req.body;
 
     if (!firstName) errors.push('First name is required');
@@ -98,6 +99,22 @@ router
       });
     }
 
+    //determine user role aka admin
+    let role = "user";
+    if(userId.toLowerCase() === "admin")
+    {
+      //special admin key to verify if they are an admin
+      if(adminkey != "supersecret")
+      {
+        error.push("Invalid admin key for admin account");
+        return res.status(400).render('register', {
+          errors, 
+          user: req.session.user
+        });
+      }
+      role = "admin";
+    }
+
     try {
       await register(firstName, lastName, userId, password, email, ageNum, gender);
       return res.redirect('/login');
@@ -166,6 +183,7 @@ router
         age: li.age,
         signupDate: li.signupDate,
         lastLogin: li.lastLogin,
+        role: li.role, //admin access
         reviews: li.reviews,
         favorites: li.favorites
       };
