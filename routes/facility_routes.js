@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { getFacilityById, getFacilityStats, updateFacilityLikes, searchFacilitiesByName, filterFacilities, getAllBoroughs, getAllParkTypes, getTopRatedFacilities} from '../data/facilities.js';
+import { getFacilityById, getFacilityStats, updateFacilityLikes, searchFacilitiesByName, filterFacilities, getAllBoroughs, getAllParkTypes, getTopRatedFacilities, addFacility, deleteFacility} from '../data/facilities.js';
 import { addReview, updateReview, deleteReview, getReviewsByFacility, hasUserReviewed, markReviewHelpful} from '../data/reviews.js';
 import { addFavorite, removeFavorite, isFavorite } from '../data/favorites.js';
 import { parks, rec_centers } from '../config/mongoCollections.js';
