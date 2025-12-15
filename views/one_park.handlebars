@@ -1,0 +1,77 @@
+<section>
+  <h2>{{park.parkName}}</h2>
+    <article class="park-card">
+        <p>Rated {{park.score}}/5</p>
+        <p>Address: {{park.streetAddress}}</p>
+        <p>{{park.borough}} | {{park.zipcode}}</p>
+        <p>{{park.type}} | {{park.size}} Acres</p>
+
+        <div class="likes-section">
+        <form class="like-dislike-form">
+            <button
+        type="button"
+        class="like-btn"
+        data-id="{{park._id}}"
+        data-kind="park"
+        >
+        Likes: <span class="like-count">{{park.likes}}</span>
+        </button>
+
+        <button
+        type="button"
+        class="dislike-btn"
+        data-id="{{park._id}}"
+        data-kind="park"
+        >
+        Dislikes: <span class="dislike-count">{{park.dislikes}}</span>
+        </button>
+
+        <p class="ajax-error" hidden></p>
+        </form>
+        </div>
+
+        {{#if user}}
+            {{#if favorited}}
+                <form method="POST" action="/parks/{{park._id}}/favorite/remove">
+                    <button type="submit">Remove from Favorites</button>
+                </form>
+            {{else}}
+                <form method="POST" action="/parks/{{park._id}}/favorite">
+                    <button type="submit">Add to Favorites</button>
+                </form>
+            {{/if}}
+            {{#if newfav}}
+                <p>Added to favorites!</p>
+            {{/if}}
+            {{#if remfav}}
+                <p>Removed from favorites!</p>
+            {{/if}}
+        {{/if}}
+
+
+        {{#if park.comments}}
+        <h4>Comments:</h4>
+        <ul>
+        {{#each park.comments}}
+        <li>
+            <p><strong>{{this.userId}}</strong> ({{this.date}}): {{this.comment}}</p>
+        </li>
+        {{/each}}
+        </ul>
+        {{/if}}
+        <a name="add-comment" id="add-comment" href="/parks/{{park._id}}/comments">View All Comments | Add Comment</a>
+        {{#if park.rating}}
+            <h4>Reviews:</h4>
+            <ul>
+            {{#each park.rating}}
+            <li>
+                <p><strong>{{this.userId}}</strong> ({{this.date}}): {{this.title}} - {{this.rating}}/5</p>
+                <p>{{this.review}}</p>
+            </li>
+            {{/each}}
+        </ul>
+        {{/if}}
+        <a name="add-review" id="add-review" href="/parks/{{park._id}}/rating">View All Reviews | Add Review</a>
+    </article>
+</section>
+<script src="/public/js/likes_ajax.js"></script>

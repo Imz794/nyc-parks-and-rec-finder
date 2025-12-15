@@ -153,3 +153,10 @@ textarea.error {
   padding: 10px;
   margin-top: 10px;
 }
+.emoji-icon {
+  font-size: 28px; /* bigger is fine */
+  line-height: 1;
+  display: block;
+  text-align: center;
+  transform: translate(-50%, -100%); /* centers emoji above marker point */
+}

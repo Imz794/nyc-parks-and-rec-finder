@@ -1,6 +1,7 @@
 import { parks, rec_centers, users } from '../config/mongoCollections.js';
 import { getFacilityById } from './facilities.js';
 import { ObjectId } from 'mongodb';
+import { sanitizeString } from '../utils/sanitize.js';
 
 const validateString = (str, fieldName) => {
   if (typeof str !== 'string' || str.trim().length === 0) {
@@ -38,8 +39,8 @@ export const addReview = async (facilityId, userId, title, rating, comment) => {
   if(title.length > 35){
       throw new Error("Max length for title is 35 characters");
   }
-  comment = comment.trim();
-  title = title.trim();
+  comment = sanitizeString(comment.trim());
+  title = sanitizeString(title.trim());
 
   const facility = await getFacilityById(numFacilityId);
   
@@ -133,8 +134,8 @@ export const updateReview = async (facilityId, userId, newTitle, newRating, newC
   if(newTitle.length > 35){
       throw new Error("Max length for title is 35 characters");
   }
-  newComment = newComment.trim();
-  newTitle = newTitle.trim();
+  newComment = sanitizeString(newComment.trim());
+  newTitle = sanitizeString(newTitle.trim());
   
   const facility = await getFacilityById(numFacilityId);
 

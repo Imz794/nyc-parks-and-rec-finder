@@ -1,0 +1,15 @@
+<h3>Recreation Center Hours</h3>
+<p>{{facility.recCenterName}}</p>
+{{#if hasHours}}
+    <ul>
+        <li>Sunday: {{hours.SUNDAY.startTime}} - {{hours.SUNDAY.endTime}}</li>
+        <li>Monday: {{hours.MONDAY.startTime}} - {{hours.MONDAY.endTime}}</li>
+        <li>Tuesday: {{hours.TUESDAY.startTime}} - {{hours.TUESDAY.endTime}}</li>
+        <li>Wednesday: {{hours.WEDNESDAY.startTime}} - {{hours.WEDNESDAY.endTime}}</li>
+        <li>Thursday: {{hours.THURSDAY.startTime}} - {{hours.THURSDAY.endTime}}</li>
+        <li>Friday: {{hours.FRIDAY.startTime}} - {{hours.FRIDAY.endTime}}</li>
+        <li>Saturday: {{hours.SATURDAY.startTime}} - {{hours.SATURDAY.endTime}}</li>
+    </ul>
+{{else}}
+    <p>Hours information is currently unavailable for this facility.</p>
+{{/if}}

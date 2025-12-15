@@ -4,10 +4,10 @@
   {{#if recs}}
     {{#each recs}}
       <article class="rec-card">
-        <h3>{{this.recCenterName}}</h3>
-        <p>{{this.score}}/5</p>
-        <p>{{this.streetAddress}}</p>
-        <p>{{this.zipcode}}</p>
+        <h3><a href="/rec_centers/info/{{this._id}}">{{this.recCenterName}}</a></h3>
+        <p>Rated: {{this.score}}/5</p>
+        <p>Address: {{this.streetAddress}}</p>
+        <p>Zipcode: {{this.zipcode}}</p>
 
         <p>
             <a href="/rec_centers/{{this._id}}/hours">See Hours</a>

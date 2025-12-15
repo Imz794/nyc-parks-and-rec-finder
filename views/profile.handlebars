@@ -22,7 +22,7 @@
   {{#if user.favorites}}
     <ul>
       {{#each user.favorites}}
-        <li>{{this}}</li>
+        <li>{{this.facilityName}}</li>
       {{/each}}
     </ul>
   {{else}}
@@ -33,7 +33,7 @@
   {{#if user.reviews}}
     <ul>
       {{#each user.reviews}}
-        <li>{{this}}</li>
+        <li>{{this.facilityName}} - {{this.rating}}/5: {{this.review}}</li>
       {{/each}}
     </ul>
   {{else}}

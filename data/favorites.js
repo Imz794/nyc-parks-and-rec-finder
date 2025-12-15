@@ -21,7 +21,8 @@ export const addFavorite = async (userId, facilityId) => {
   if (!facilityId) throw new Error('Facility ID must be provided');
   
   userId = validateString(userId, 'User ID').toLowerCase();
-  const numFacilityId = validateNumber(facilityId, 'Facility ID');
+  // const numFacilityId = validateNumber(facilityId, 'Facility ID');
+  const numFacilityId = facilityId;
   
   const userCollection = await users();
   const user = await userCollection.findOne({ userId: userId });
@@ -78,7 +79,8 @@ export const removeFavorite = async (userId, facilityId) => {
   if (!facilityId) throw new Error('Facility ID must be provided');
   
   userId = validateString(userId, 'User ID').toLowerCase();
-  const numFacilityId = validateNumber(facilityId, 'Facility ID');
+  // const numFacilityId = validateNumber(facilityId, 'Facility ID');
+  const numFacilityId = facilityId;
   
   const userCollection = await users();
   const user = await userCollection.findOne({ userId: userId });
@@ -128,7 +130,8 @@ export const isFavorite = async (userId, facilityId) => {
   if (!facilityId) throw new Error('Facility ID must be provided');
   
   userId = validateString(userId, 'User ID').toLowerCase();
-  const numFacilityId = validateNumber(facilityId, 'Facility ID');
+  // const numFacilityId = validateNumber(facilityId, 'Facility ID');
+  const numFacilityId = facilityId;
   
   try {
     const userCollection = await users();

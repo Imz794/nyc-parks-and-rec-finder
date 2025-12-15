@@ -1,5 +1,6 @@
 import {users} from '../config/mongoCollections.js';
 import bcrypt from 'bcrypt';
+import { sanitizeString } from '../utils/sanitize.js';
 const saltRounds = 12;
 
 function validatePasswordStrength(password) {
@@ -79,7 +80,9 @@ export const register = async (
   if (!/^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/.test(email)) {
     throw new Error("Invalid email");
   }
-  email = email.toLowerCase();
+  firstName = sanitizeString(firstName.trim());
+  lastName = sanitizeString(lastName.trim());
+  email = sanitizeString(email.trim()).toLowerCase();
 
   age = Number(age);
   if (typeof age !== 'number' || age < 0 || !Number.isInteger(age) || age > 120) {
