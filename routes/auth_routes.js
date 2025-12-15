@@ -1,6 +1,9 @@
 import { Router } from 'express';
 import { register, login } from '../data/users.js';
 
+//SUPER HARDCODED ADMIN KEY
+const ADMIN_KEY = "SuperSecretAdmin123"; /
+
 const router = Router();
 
 router.route('/').get(async (req, res) => {
@@ -191,12 +194,13 @@ router.route('/signout').get(async (req, res) => {
   req.session.destroy(() => {
     return res.render('signout');
   });
+});
 
-router.route('/become-admin').get(async (req,res) => 
-  {
-    if(!.req.session.user) 
+router.route('/become-admin')
+  .get(async (req,res) => {
+    if(!req.session.user) 
     {
-      return res.redirect('/login';
+      return res.redirect('/login');
     }
     return res.render('become_admin', { user: req.session.user });
   })
@@ -208,7 +212,7 @@ router.route('/become-admin').get(async (req,res) =>
 
     const { adminKey } = req.body;
 
-    if (!adminkey || adminkey !== ADMIN_KEY) 
+    if (!adminKey || adminKey !== ADMIN_KEY) 
     {
         return res.status(400).render('become_admin', {
         user: req.session.user,
@@ -224,8 +228,6 @@ router.route('/become-admin').get(async (req,res) =>
         { userId: req.session.user.userId },
         { $set: { role: "admin" } }
       );
-
-      // Update session
       req.session.user.role = "admin";
 
       return res.render('become_admin', {
