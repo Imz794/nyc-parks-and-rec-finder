@@ -1,5 +1,4 @@
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-<link rel="stylesheet" href="/css/styles.css" />
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
 <div class="map-container">
@@ -18,80 +17,6 @@
     <div><span class="legend-marker park-marker">🏞️</span> Parks</div>
   </div>
 </div>
-
-<script>
-  const map = L.map('map').setView([40.7128, -74.0060], 11);
-  
-  // Add map tiles
-  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    attribution: '© OpenStreetMap contributors',
-    maxZoom: 19
-  }).addTo(map);
-  
-  // Get facilities data from server
-  const facilities = {{{facilitiesJson}}};
-  
-  // Create marker groups
-  const parkMarkers = L.layerGroup().addTo(map);
-  const recMarkers = L.layerGroup().addTo(map);
-  
-  // Custom icons
-  const parkIcon = L.divIcon({
-  html: '<span class="emoji-icon">🏞️</span>',
-  className: '', // important: prevents extra Leaflet styles
-  iconSize: [30, 30], // hitbox size
-  iconAnchor: [15, 30] // center the emoji on the marker point
-  });
-
-  const recIcon = L.divIcon({
-  html: '<span class="emoji-icon">🏀</span>',
-  className: '',
-  iconSize: [30, 30],
-  iconAnchor: [15, 30]
-  });
-  
-  // Add markers for each facility
-  facilities.forEach(facility => {
-    if (!facility.lat || !facility.lng) return;
-    
-    const name = facility.parkName || facility.recCenterName;
-    const type = facility.park ? 'Park' : 'Recreation Center';
-    const icon = facility.park ? parkIcon : recIcon;
-    const group = facility.park ? parkMarkers : recMarkers;
-    
-    const popupContent = `
-      <div class="marker-popup">
-        <h3>${name}</h3>
-        <p><strong>Type:</strong> ${type}</p>
-        <p><strong>Borough:</strong> ${facility.borough}</p>
-        <p><strong>Address:</strong> ${facility.streetAddress}</p>
-        ${facility.size ? `<p><strong>Size:</strong> ${facility.size} acres</p>` : ''}
-        <a href="/facility/${facility._id}" class="view-link">View Details</a>
-      </div>
-    `;
-    
-    L.marker([facility.lat, facility.lng], { icon: icon })
-      .bindPopup(popupContent)
-      .addTo(group);
-  });
-  
-  // Filter controls
-  document.getElementById('showParks').addEventListener('change', (e) => {
-    if (e.target.checked) {
-      map.addLayer(parkMarkers);
-    } else {
-      map.removeLayer(parkMarkers);
-    }
-  });
-  
-  document.getElementById('showRecCenters').addEventListener('change', (e) => {
-    if (e.target.checked) {
-      map.addLayer(recMarkers);
-    } else {
-      map.removeLayer(recMarkers);
-    }
-  });
-</script>
 
 <style>
 .map-container {
@@ -204,3 +129,75 @@
   }
 }
 </style>
+
+<script>
+  window.addEventListener('load', function() {
+    const map = L.map('map').setView([40.7128, -74.0060], 11);
+    
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '© OpenStreetMap contributors',
+      maxZoom: 19
+    }).addTo(map);
+    
+    setTimeout(() => {
+      map.invalidateSize();
+    }, 100);
+    
+    const facilities = {{{facilitiesJson}}};
+    
+    const parkMarkers = L.layerGroup().addTo(map);
+    const recMarkers = L.layerGroup().addTo(map);
+    
+    const parkIcon = L.divIcon({
+      html: '🏞️',
+      className: 'custom-icon',
+      iconSize: [30, 30]
+    });
+    
+    const recIcon = L.divIcon({
+      html: '🏀',
+      className: 'custom-icon',
+      iconSize: [30, 30]
+    });
+    
+    facilities.forEach(facility => {
+      if (!facility.lat || !facility.lng) return;
+      
+      const name = facility.parkName || facility.recCenterName;
+      const type = facility.park ? 'Park' : 'Recreation Center';
+      const icon = facility.park ? parkIcon : recIcon;
+      const group = facility.park ? parkMarkers : recMarkers;
+      
+      const popupContent = `
+        <div class="marker-popup">
+          <h3>${name}</h3>
+          <p><strong>Type:</strong> ${type}</p>
+          <p><strong>Borough:</strong> ${facility.borough}</p>
+          <p><strong>Address:</strong> ${facility.streetAddress}</p>
+          ${facility.size ? `<p><strong>Size:</strong> ${facility.size} acres</p>` : ''}
+          <a href="/facility/${facility._id}" class="view-link">View Details</a>
+        </div>
+      `;
+      
+      L.marker([facility.lat, facility.lng], { icon: icon })
+        .bindPopup(popupContent)
+        .addTo(group);
+    });
+    
+    document.getElementById('showParks').addEventListener('change', (e) => {
+      if (e.target.checked) {
+        map.addLayer(parkMarkers);
+      } else {
+        map.removeLayer(parkMarkers);
+      }
+    });
+    
+    document.getElementById('showRecCenters').addEventListener('change', (e) => {
+      if (e.target.checked) {
+        map.addLayer(recMarkers);
+      } else {
+        map.removeLayer(recMarkers);
+      }
+    });
+  });
+</script>
