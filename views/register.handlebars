@@ -31,9 +31,12 @@
     <label for="age">Age</label>
     <input type="number" name="age" id="age" min="0" max="120">
 
+    <!-- NEW ADMIN KEY INPUT -->
+    <label for="adminKey">Admin Key (optional)</label>
+    <input type="text" name="adminKey" id="adminKey" placeholder="Enter Admin Key if you have one">
+
     <button type="submit" name="submitButton" id="submitButton">Submit</button>
   </form>
-
   {{#if errors}}
     <div class="error-container">
       <h3>Error</h3>
