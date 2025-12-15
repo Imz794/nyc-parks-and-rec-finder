@@ -1,1 +1,31 @@
+<section>
+  <h2>Become Admin</h2>
 
+  {{#if errors}}
+    <div class="error-container">
+      <h3>Error</h3>
+      <ul>
+        {{#each errors}}
+          <li>{{this}}</li>
+        {{/each}}
+      </ul>
+    </div>
+  {{/if}}
+
+  {{#if success}}
+    <div class="success-container">
+      <p>{{success}}</p>
+    </div>
+  {{/if}}
+
+  <form method="POST" action="/become-admin" id="become-admin-form">
+    <label for="adminKey">Admin Key</label>
+    <input type="text" id="adminKey" name="adminKey" placeholder="Enter Admin Key">
+    <button type="submit">Submit</button>
+  </form>
+
+  <p>
+    <a href="/profile">Go to Profile</a> |
+    <a href="/">Go to Home</a>
+  </p>
+</section>
