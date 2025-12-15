@@ -238,7 +238,7 @@ router.route('/become-admin')
       );
       req.session.user.role = "admin";
 
-      return res.render('admin-success', { user: req.session.user });
+      return res.render('admin_success', { user: req.session.user });
     } catch (e) {
       return res.status(500).render('become_admin', {
         user: req.session.user,
