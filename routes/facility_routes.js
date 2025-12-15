@@ -328,6 +328,10 @@ router.delete('/facility/:id', requireAdmin, async(req,res) =>
   } catch (e) {
     return res.status(400).render('error', {
       error: e.message || 'Failed to delete facility',
+      user: req.session.user
+    });
+  }
+});
 router.route('/map').get(async (req, res) => {
   try {
     const park = await parks();
