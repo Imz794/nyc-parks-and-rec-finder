@@ -2,6 +2,7 @@ import { Router } from 'express';
 import { getFacilityById, getFacilityStats, updateFacilityLikes, searchFacilitiesByName, filterFacilities, getAllBoroughs, getAllParkTypes, getTopRatedFacilities} from '../data/facilities.js';
 import { addReview, updateReview, deleteReview, getReviewsByFacility, hasUserReviewed, markReviewHelpful} from '../data/reviews.js';
 import { addFavorite, removeFavorite, isFavorite } from '../data/favorites.js';
+import { parks, rec_centers } from '../config/mongoCollections.js';
 
 const router = Router();
 
@@ -267,6 +268,29 @@ router.route('/top-rated').get(async (req, res) => {
     return res.status(500).render('error', { 
       error: e.message || 'Failed to load top rated facilities',
       user: req.session.user 
+    });
+  }
+});
+
+router.route('/map').get(async (req, res) => {
+  try {
+    const park = await parks();
+    const rec = await rec_centers();
+    
+    const allParks = await park.find({}).toArray();
+    const allRecs = await rec.find({}).toArray();
+    const facilities = [...allParks, ...allRecs];
+
+    const facilitiesWithCoords = facilities.filter(f => f.lat && f.lng);
+    
+    return res.render('map', {
+      facilitiesJson: JSON.stringify(facilitiesWithCoords),
+      user: req.session.user
+    });
+  } catch (e) {
+    return res.status(500).render('error', {
+      error: e.message || 'Failed to load map',
+      user: req.session.user
     });
   }
 });

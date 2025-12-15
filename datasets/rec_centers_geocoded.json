@@ -1,0 +1,2705 @@
+[
+  {
+    "Prop_ID": "B008",
+    "NAME": "Betsy Head Field House",
+    "RecreationCenter_Type": "Field House",
+    "ADDRESS": "Livonia Ave between Hopkinson & Amboy streets",
+    "CITY": "Brooklyn",
+    "STATE": "NY",
+    "ZIP": "11212",
+    "BOROUGH": null,
+    "PHONE": "(718) 257-1636",
+    "PHONE_B": "",
+    "FAX": "",
+    "CENTER_MANAGER": "",
+    "DEPUTY_MANAGER": "",
+    "message": null,
+    "cost_free": "0",
+    "cost_description": "",
+    "description": "",
+    "Building_Hours": {
+      "MONDAY": {
+        "startTime": null,
+        "endTime": null
+      },
+      "TUESDAY": {
+        "startTime": null,
+        "endTime": null
+      },
+      "WEDNESDAY": {
+        "startTime": null,
+        "endTime": null
+      },
+      "THURSDAY": {
+        "startTime": null,
+        "endTime": null
+      },
+      "FRIDAY": {
+        "startTime": null,
+        "endTime": null
+      },
+      "SATURDAY": {
+        "startTime": null,
+        "endTime": null
+      },
+      "SUNDAY": {
+        "startTime": null,
+        "endTime": null
+      }
+    },
+    "lat": null,
+    "lng": null
+  },
+  {
+    "Prop_ID": "B058",
+    "NAME": "McCarren Play Center",
+    "RecreationCenter_Type": "Recreation Center",
+    "ADDRESS": "776 Lorimer Street",
+    "CITY": "Brooklyn",
+    "STATE": "NY",
+    "ZIP": "11222",
+    "BOROUGH": null,
+    "PHONE": "(718) 218-2380",
+    "PHONE_B": "",
+    "FAX": "(718) 218-2390",
+    "CENTER_MANAGER": "Harold Benjamin",
+    "DEPUTY_MANAGER": "",
+    "message": null,
+    "cost_free": "0",
+    "cost_description": "",
+    "description": "",
+    "Building_Hours": {
+      "MONDAY": {
+        "startTime": "06:00:00",
+        "endTime": "22:00:00"
+      },
+      "TUESDAY": {
+        "startTime": "06:00:00",
+        "endTime": "22:00:00"
+      },
+      "WEDNESDAY": {
+        "startTime": "06:00:00",
+        "endTime": "22:00:00"
+      },
+      "THURSDAY": {
+        "startTime": "06:00:00",
+        "endTime": "22:00:00"
+      },
+      "FRIDAY": {
+        "startTime": "06:00:00",
+        "endTime": "22:00:00"
+      },
+      "SATURDAY": {
+        "startTime": "08:00:00",
+        "endTime": "16:00:00"
+      },
+      "SUNDAY": {
+        "startTime": null,
+        "endTime": null
+      }
+    },
+    "lat": null,
+    "lng": null
+  },
+  {
+    "Prop_ID": "B085",
+    "NAME": "Metropolitan Recreation Center",
+    "RecreationCenter_Type": "Recreation Center",
+    "ADDRESS": "261 Bedford Avenue",
+    "CITY": "Brooklyn",
+    "STATE": "NY",
+    "ZIP": "11211",
+    "BOROUGH": null,
+    "PHONE": "(718) 599-5707",
+    "PHONE_B": "",
+    "FAX": "(718) 599-5745",
+    "CENTER_MANAGER": "Lawerence James",
+    "DEPUTY_MANAGER": "Larry Woods, Matthew Walker",
+    "message": null,
+    "cost_free": "0",
+    "cost_description": "",
+    "description": "",
+    "Building_Hours": {
+      "MONDAY": {
+        "startTime": "07:00:00",
+        "endTime": "22:00:00"
+      },
+      "TUESDAY": {
+        "startTime": "07:00:00",
+        "endTime": "22:00:00"
+      },
+      "WEDNESDAY": {
+        "startTime": "07:00:00",
+        "endTime": "22:00:00"
+      },
+      "THURSDAY": {
+        "startTime": "07:00:00",
+        "endTime": "22:00:00"
+      },
+      "FRIDAY": {
+        "startTime": "07:00:00",
+        "endTime": "22:00:00"
+      },
+      "SATURDAY": {
+        "startTime": "08:00:00",
+        "endTime": "16:00:00"
+      },
+      "SUNDAY": {
+        "startTime": "08:00:00",
+        "endTime": "16:00:00"
+      }
+    },
+    "lat": null,
+    "lng": null
+  },
+  {
+    "Prop_ID": "B087",
+    "NAME": "Sunset Park Recreation Center",
+    "RecreationCenter_Type": "Recreation Center",
+    "ADDRESS": "4200 7th Avenue",
+    "CITY": "Brooklyn",
+    "STATE": "NY",
+    "ZIP": "11232",
+    "BOROUGH": null,
+    "PHONE": "(718) 972-2135",
+    "PHONE_B": "(718) 972-0567",
+    "FAX": "",
+    "CENTER_MANAGER": "",
+    "DEPUTY_MANAGER": "",
+    "message": null,
+    "cost_free": "0",
+    "cost_description": "",
+    "description": "",
+    "Building_Hours": {
+      "MONDAY": {
+        "startTime": "06:00:00",
+        "endTime": "21:00:00"
+      },
+      "TUESDAY": {
+        "startTime": "06:00:00",
+        "endTime": "21:00:00"
+      },
+      "WEDNESDAY": {
+        "startTime": "06:00:00",
+        "endTime": "21:00:00"
+      },
+      "THURSDAY": {
+        "startTime": "06:00:00",
+        "endTime": "21:00:00"
+      },
+      "FRIDAY": {
+        "startTime": "06:00:00",
+        "endTime": "21:00:00"
+      },
+      "SATURDAY": {
+        "startTime": "08:00:00",
+        "endTime": "16:00:00"
+      },
+      "SUNDAY": {
+        "startTime": null,
+        "endTime": null
+      }
+    },
+    "lat": null,
+    "lng": null
+  },
+  {
+    "Prop_ID": "B088",
+    "NAME": "Herbert Von King Cultural Arts Center",
+    "RecreationCenter_Type": "Recreation Center",
+    "ADDRESS": "670 Lafayette Avenue",
+    "CITY": "Brooklyn",
+    "STATE": "NY",
+    "ZIP": "11216",
+    "BOROUGH": null,
+    "PHONE": "(718) 622-2082",
+    "PHONE_B": "",
+    "FAX": "",
+    "CENTER_MANAGER": "tbd",
+    "DEPUTY_MANAGER": "Colleen Flood",
+    "message": null,
+    "cost_free": "1",
+    "cost_description": "",
+    "description": "<p class=\"alert alert-success\">Interested in learning computers or multimedia production? Visit the media lab in your recreation center and sign up for a wide range of programs! <a href=\"/programs/media\">Media Education</a> workshops are free with membership and open to people of all ages and abilities.</p>",
+    "Building_Hours": {
+      "MONDAY": {
+        "startTime": "10:00:00",
+        "endTime": "18:00:00"
+      },
+      "TUESDAY": {
+        "startTime": "10:00:00",
+        "endTime": "18:00:00"
+      },
+      "WEDNESDAY": {
+        "startTime": "10:00:00",
+        "endTime": "18:00:00"
+      },
+      "THURSDAY": {
+        "startTime": "10:00:00",
+        "endTime": "18:00:00"
+      },
+      "FRIDAY": {
+        "startTime": "10:00:00",
+        "endTime": "18:00:00"
+      },
+      "SATURDAY": {
+        "startTime": "10:00:00",
+        "endTime": "18:00:00"
+      },
+      "SUNDAY": {
+        "startTime": null,
+        "endTime": null
+      }
+    },
+    "lat": null,
+    "lng": null
+  },
+  {
+    "Prop_ID": "B126",
+    "NAME": "Red Hook Recreation Center",
+    "RecreationCenter_Type": "Recreation Center",
+    "ADDRESS": "155 Bay Street",
+    "CITY": "Brooklyn",
+    "STATE": "NY",
+    "ZIP": "11231",
+    "BOROUGH": null,
+    "PHONE": "(718) 722-3211",
+    "PHONE_B": "(718) 722-7105",
+    "FAX": "(718) 722-7341",
+    "CENTER_MANAGER": "Isaiah Forde",
+    "DEPUTY_MANAGER": "Moesha Johnson, Jamaal Lavan",
+    "message": null,
+    "cost_free": "0",
+    "cost_description": "",
+    "description": "",
+    "Building_Hours": {
+      "MONDAY": {
+        "startTime": "06:00:00",
+        "endTime": "21:45:00"
+      },
+      "TUESDAY": {
+        "startTime": "06:00:00",
+        "endTime": "21:45:00"
+      },
+      "WEDNESDAY": {
+        "startTime": "06:00:00",
+        "endTime": "21:45:00"
+      },
+      "THURSDAY": {
+        "startTime": "06:00:00",
+        "endTime": "21:45:00"
+      },
+      "FRIDAY": {
+        "startTime": "06:00:00",
+        "endTime": "21:45:00"
+      },
+      "SATURDAY": {
+        "startTime": "08:00:00",
+        "endTime": "23:00:00"
+      },
+      "SUNDAY": {
+        "startTime": null,
+        "endTime": null
+      }
+    },
+    "lat": null,
+    "lng": null
+  },
+  {
+    "Prop_ID": "B210W-03",
+    "NAME": "Fort Hamilton Senior Recreation Center",
+    "RecreationCenter_Type": "Recreation Center",
+    "ADDRESS": "9941 Fort Hamilton Parkway",
+    "CITY": "Brooklyn",
+    "STATE": "NY",
+    "ZIP": "11209",
+    "BOROUGH": null,
+    "PHONE": "(718) 439-4296",
+    "PHONE_B": "",
+    "FAX": "(718) 439-6737",
+    "CENTER_MANAGER": "Teresa Mangan",
+    "DEPUTY_MANAGER": "Jeffrey Cooper",
+    "message": null,
+    "cost_free": "0",
+    "cost_description": "",
+    "description": "<p class=\"alert alert-success\">Interested in learning computers or multimedia production? Visit the media lab in your recreation center and sign up for a wide range of programs! <a href=\"/programs/media\">Media Education</a> workshops are free with membership and open to people of all ages and abilities.</p>",
+    "Building_Hours": {
+      "MONDAY": {
+        "startTime": "09:00:00",
+        "endTime": "17:00:00"
+      },
+      "TUESDAY": {
+        "startTime": "09:00:00",
+        "endTime": "17:00:00"
+      },
+      "WEDNESDAY": {
+        "startTime": "09:00:00",
+        "endTime": "17:00:00"
+      },
+      "THURSDAY": {
+        "startTime": "09:00:00",
+        "endTime": "17:00:00"
+      },
+      "FRIDAY": {
+        "startTime": "09:00:00",
+        "endTime": "17:00:00"
+      },
+      "SATURDAY": {
+        "startTime": "09:00:00",
+        "endTime": "17:00:00"
+      },
+      "SUNDAY": {
+        "startTime": null,
+        "endTime": null
+      }
+    },
+    "lat": null,
+    "lng": null
+  },
+  {
+    "Prop_ID": "B245",
+    "NAME": "St. John&rsquo;s Recreation Center",
+    "RecreationCenter_Type": "Recreation Center",
+    "ADDRESS": "1251 Prospect Place",
+    "CITY": "Brooklyn",
+    "STATE": "NY",
+    "ZIP": "11213",
+    "BOROUGH": null,
+    "PHONE": "(718) 771-2143",
+    "PHONE_B": "",
+    "FAX": "(718) 771-2693",
+    "CENTER_MANAGER": "Steve Groce",
+    "DEPUTY_MANAGER": "Levette Deas and Donna Algood-Walls",
+    "message": null,
+    "cost_free": "0",
+    "cost_description": "",
+    "description": "",
+    "Building_Hours": {
+      "MONDAY": {
+        "startTime": "06:00:00",
+        "endTime": "22:45:00"
+      },
+      "TUESDAY": {
+        "startTime": "06:00:00",
+        "endTime": "22:45:00"
+      },
+      "WEDNESDAY": {
+        "startTime": "06:00:00",
+        "endTime": "22:45:00"
+      },
+      "THURSDAY": {
+        "startTime": "06:00:00",
+        "endTime": "22:45:00"
+      },
+      "FRIDAY": {
+        "startTime": "06:00:00",
+        "endTime": "22:45:00"
+      },
+      "SATURDAY": {
+        "startTime": "08:00:00",
+        "endTime": "23:45:00"
+      },
+      "SUNDAY": {
+        "startTime": "08:00:00",
+        "endTime": "17:45:00"
+      }
+    },
+    "lat": null,
+    "lng": null
+  },
+  {
+    "Prop_ID": "B270",
+    "NAME": "Brownsville Recreation Center",
+    "RecreationCenter_Type": "Recreation Center",
+    "ADDRESS": "1555 Linden Boulevard",
+    "CITY": "Brooklyn",
+    "STATE": "NY",
+    "ZIP": "11212",
+    "BOROUGH": null,
+    "PHONE": "(718) 485-4633",
+    "PHONE_B": "(718) 345-2706",
+    "FAX": "",
+    "CENTER_MANAGER": "Jerry Childs, Preston Coston",
+    "DEPUTY_MANAGER": "",
+    "message": null,
+    "cost_free": "0",
+    "cost_description": "",
+    "description": "",
+    "Building_Hours": {
+      "MONDAY": {
+        "startTime": "07:00:00",
+        "endTime": "22:00:00"
+      },
+      "TUESDAY": {
+        "startTime": "07:00:00",
+        "endTime": "22:00:00"
+      },
+      "WEDNESDAY": {
+        "startTime": "07:00:00",
+        "endTime": "22:00:00"
+      },
+      "THURSDAY": {
+        "startTime": "07:00:00",
+        "endTime": "22:00:00"
+      },
+      "FRIDAY": {
+        "startTime": "07:00:00",
+        "endTime": "22:00:00"
+      },
+      "SATURDAY": {
+        "startTime": "08:00:00",
+        "endTime": "00:00:00"
+      },
+      "SUNDAY": {
+        "startTime": "08:00:00",
+        "endTime": "16:00:00"
+      }
+    },
+    "lat": null,
+    "lng": null
+  },
+  {
+    "Prop_ID": "M010",
+    "NAME": "North Meadow Recreation Center",
+    "RecreationCenter_Type": "Community Center",
+    "ADDRESS": "Mid-park at 97th Street, Central Park",
+    "CITY": "New York",
+    "STATE": "NY",
+    "ZIP": "10025",
+    "BOROUGH": null,
+    "PHONE": "(917) 267-2474",
+    "PHONE_B": "",
+    "FAX": "(212) 348-4479",
+    "CENTER_MANAGER": "",
+    "DEPUTY_MANAGER": "",
+    "message": null,
+    "cost_free": "1",
+    "cost_description": "",
+    "description": "",
+    "Building_Hours": {
+      "MONDAY": {
+        "startTime": "10:00:00",
+        "endTime": "17:00:00"
+      },
+      "TUESDAY": {
+        "startTime": "10:00:00",
+        "endTime": "17:00:00"
+      },
+      "WEDNESDAY": {
+        "startTime": "10:00:00",
+        "endTime": "17:00:00"
+      },
+      "THURSDAY": {
+        "startTime": "10:00:00",
+        "endTime": "17:00:00"
+      },
+      "FRIDAY": {
+        "startTime": "10:00:00",
+        "endTime": "17:00:00"
+      },
+      "SATURDAY": {
+        "startTime": "10:00:00",
+        "endTime": "17:00:00"
+      },
+      "SUNDAY": {
+        "startTime": "10:00:00",
+        "endTime": "17:00:00"
+      }
+    },
+    "lat": null,
+    "lng": null
+  },
+  {
+    "Prop_ID": "M014",
+    "NAME": "Jackie Robinson Recreation Center",
+    "RecreationCenter_Type": "Recreation Center",
+    "ADDRESS": "85 Bradhurst Avenue",
+    "CITY": "New York",
+    "STATE": "NY",
+    "ZIP": "10039",
+    "BOROUGH": null,
+    "PHONE": "(212) 234-9606",
+    "PHONE_B": "",
+    "FAX": "(212) 234-5683",
+    "CENTER_MANAGER": "Rich Martinez",
+    "DEPUTY_MANAGER": "TBD",
+    "message": null,
+    "cost_free": "0",
+    "cost_description": "",
+    "description": "",
+    "Building_Hours": {
+      "MONDAY": {
+        "startTime": "10:00:00",
+        "endTime": "18:00:00"
+      },
+      "TUESDAY": {
+        "startTime": "10:00:00",
+        "endTime": "18:00:00"
+      },
+      "WEDNESDAY": {
+        "startTime": "10:00:00",
+        "endTime": "18:00:00"
+      },
+      "THURSDAY": {
+        "startTime": "10:00:00",
+        "endTime": "18:00:00"
+      },
+      "FRIDAY": {
+        "startTime": "10:00:00",
+        "endTime": "18:00:00"
+      },
+      "SATURDAY": {
+        "startTime": null,
+        "endTime": null
+      },
+      "SUNDAY": {
+        "startTime": null,
+        "endTime": null
+      }
+    },
+    "lat": null,
+    "lng": null
+  },
+  {
+    "Prop_ID": "M033",
+    "NAME": "Hamilton Fish Recreation Center",
+    "RecreationCenter_Type": "Recreation Center",
+    "ADDRESS": "128 Pitt Street",
+    "CITY": "New York",
+    "STATE": "NY",
+    "ZIP": "10002",
+    "BOROUGH": null,
+    "PHONE": "(646) 385-1037",
+    "PHONE_B": "",
+    "FAX": "(212) 387-7689",
+    "CENTER_MANAGER": "Robert Lindo",
+    "DEPUTY_MANAGER": "",
+    "message": null,
+    "cost_free": "0",
+    "cost_description": "",
+    "description": "",
+    "Building_Hours": {
+      "MONDAY": {
+        "startTime": null,
+        "endTime": null
+      },
+      "TUESDAY": {
+        "startTime": "10:00:00",
+        "endTime": "20:00:00"
+      },
+      "WEDNESDAY": {
+        "startTime": "10:00:00",
+        "endTime": "20:00:00"
+      },
+      "THURSDAY": {
+        "startTime": "10:00:00",
+        "endTime": "20:00:00"
+      },
+      "FRIDAY": {
+        "startTime": "10:00:00",
+        "endTime": "20:00:00"
+      },
+      "SATURDAY": {
+        "startTime": "09:00:00",
+        "endTime": "15:00:00"
+      },
+      "SUNDAY": {
+        "startTime": null,
+        "endTime": null
+      }
+    },
+    "lat": null,
+    "lng": null
+  },
+  {
+    "Prop_ID": "M047",
+    "NAME": "Thomas Jefferson Recreation Center",
+    "RecreationCenter_Type": "Recreation Center",
+    "ADDRESS": "2180 First Avenue",
+    "CITY": "New York",
+    "STATE": "NY",
+    "ZIP": "10029",
+    "BOROUGH": null,
+    "PHONE": "(212) 860-1383",
+    "PHONE_B": "",
+    "FAX": "(212) 860-1371",
+    "CENTER_MANAGER": "Carol Smith",
+    "DEPUTY_MANAGER": "",
+    "message": null,
+    "cost_free": "0",
+    "cost_description": "",
+    "description": "",
+    "Building_Hours": {
+      "MONDAY": {
+        "startTime": null,
+        "endTime": null
+      },
+      "TUESDAY": {
+        "startTime": "10:00:00",
+        "endTime": "20:00:00"
+      },
+      "WEDNESDAY": {
+        "startTime": "10:00:00",
+        "endTime": "20:00:00"
+      },
+      "THURSDAY": {
+        "startTime": "10:00:00",
+        "endTime": "20:00:00"
+      },
+      "FRIDAY": {
+        "startTime": "10:00:00",
+        "endTime": "20:00:00"
+      },
+      "SATURDAY": {
+        "startTime": "09:00:00",
+        "endTime": "15:00:00"
+      },
+      "SUNDAY": {
+        "startTime": null,
+        "endTime": null
+      }
+    },
+    "lat": null,
+    "lng": null
+  },
+  {
+    "Prop_ID": "M056",
+    "NAME": "Morningside Park House",
+    "RecreationCenter_Type": "Field House",
+    "ADDRESS": "410 West 123rd Street",
+    "CITY": "New York",
+    "STATE": "NY",
+    "ZIP": "10027",
+    "BOROUGH": null,
+    "PHONE": "",
+    "PHONE_B": "",
+    "FAX": "",
+    "CENTER_MANAGER": "",
+    "DEPUTY_MANAGER": "",
+    "message": null,
+    "cost_free": "0",
+    "cost_description": "",
+    "description": "",
+    "Building_Hours": {
+      "MONDAY": {
+        "startTime": "14:00:00",
+        "endTime": "18:00:00"
+      },
+      "TUESDAY": {
+        "startTime": "14:00:00",
+        "endTime": "18:00:00"
+      },
+      "WEDNESDAY": {
+        "startTime": "14:00:00",
+        "endTime": "18:00:00"
+      },
+      "THURSDAY": {
+        "startTime": "14:00:00",
+        "endTime": "18:00:00"
+      },
+      "FRIDAY": {
+        "startTime": "14:00:00",
+        "endTime": "18:00:00"
+      },
+      "SATURDAY": {
+        "startTime": null,
+        "endTime": null
+      },
+      "SUNDAY": {
+        "startTime": null,
+        "endTime": null
+      }
+    },
+    "lat": null,
+    "lng": null
+  },
+  {
+    "Prop_ID": "M058",
+    "NAME": "Pelham Fritz Recreation Center",
+    "RecreationCenter_Type": "Recreation Center",
+    "ADDRESS": "18 Mount Morris Park West",
+    "CITY": "New York",
+    "STATE": "NY",
+    "ZIP": "10027",
+    "BOROUGH": null,
+    "PHONE": "(212) 860-1373",
+    "PHONE_B": "(212) 860-1380",
+    "FAX": "",
+    "CENTER_MANAGER": "Ruth Mendin",
+    "DEPUTY_MANAGER": "",
+    "message": null,
+    "cost_free": "0",
+    "cost_description": "",
+    "description": "",
+    "Building_Hours": {
+      "MONDAY": {
+        "startTime": null,
+        "endTime": null
+      },
+      "TUESDAY": {
+        "startTime": "10:00:00",
+        "endTime": "18:00:00"
+      },
+      "WEDNESDAY": {
+        "startTime": "10:00:00",
+        "endTime": "18:00:00"
+      },
+      "THURSDAY": {
+        "startTime": "10:00:00",
+        "endTime": "18:00:00"
+      },
+      "FRIDAY": {
+        "startTime": "10:00:00",
+        "endTime": "18:00:00"
+      },
+      "SATURDAY": {
+        "startTime": "08:00:00",
+        "endTime": "16:00:00"
+      },
+      "SUNDAY": {
+        "startTime": null,
+        "endTime": null
+      }
+    },
+    "lat": null,
+    "lng": null
+  },
+  {
+    "Prop_ID": "M063",
+    "NAME": "Gertrude Ederle Recreation Center",
+    "RecreationCenter_Type": "Recreation Center",
+    "ADDRESS": "232 West 60th Street",
+    "CITY": "New York",
+    "STATE": "NY",
+    "ZIP": "10023",
+    "BOROUGH": null,
+    "PHONE": "(212) 397-3160",
+    "PHONE_B": "",
+    "FAX": "(212) 397-3059",
+    "CENTER_MANAGER": "Erica Serrano",
+    "DEPUTY_MANAGER": "Charlene Edwards",
+    "message": null,
+    "cost_free": "0",
+    "cost_description": "",
+    "description": "",
+    "Building_Hours": {
+      "MONDAY": {
+        "startTime": "07:00:00",
+        "endTime": "20:00:00"
+      },
+      "TUESDAY": {
+        "startTime": "07:00:00",
+        "endTime": "20:00:00"
+      },
+      "WEDNESDAY": {
+        "startTime": "07:00:00",
+        "endTime": "20:00:00"
+      },
+      "THURSDAY": {
+        "startTime": "07:00:00",
+        "endTime": "20:00:00"
+      },
+      "FRIDAY": {
+        "startTime": "07:00:00",
+        "endTime": "20:00:00"
+      },
+      "SATURDAY": {
+        "startTime": "08:00:00",
+        "endTime": "16:00:00"
+      },
+      "SUNDAY": {
+        "startTime": null,
+        "endTime": null
+      }
+    },
+    "lat": null,
+    "lng": null
+  },
+  {
+    "Prop_ID": "M099",
+    "NAME": "J. Hood Wright Recreation Center",
+    "RecreationCenter_Type": "Recreation Center",
+    "ADDRESS": "351 Fort Washington Avenue",
+    "CITY": "New York",
+    "STATE": "NY",
+    "ZIP": "10033",
+    "BOROUGH": null,
+    "PHONE": "(212) 927-1514",
+    "PHONE_B": "",
+    "FAX": "(212) 927-8882",
+    "CENTER_MANAGER": "Shanel Burgess",
+    "DEPUTY_MANAGER": "",
+    "message": null,
+    "cost_free": "0",
+    "cost_description": "",
+    "description": "",
+    "Building_Hours": {
+      "MONDAY": {
+        "startTime": null,
+        "endTime": null
+      },
+      "TUESDAY": {
+        "startTime": "10:00:00",
+        "endTime": "18:00:00"
+      },
+      "WEDNESDAY": {
+        "startTime": "10:00:00",
+        "endTime": "18:00:00"
+      },
+      "THURSDAY": {
+        "startTime": "10:00:00",
+        "endTime": "18:00:00"
+      },
+      "FRIDAY": {
+        "startTime": "10:00:00",
+        "endTime": "18:00:00"
+      },
+      "SATURDAY": {
+        "startTime": "09:00:00",
+        "endTime": "15:00:00"
+      },
+      "SUNDAY": {
+        "startTime": null,
+        "endTime": null
+      }
+    },
+    "lat": null,
+    "lng": null
+  },
+  {
+    "Prop_ID": "M103",
+    "NAME": "Tony Dapolito Recreation Center",
+    "RecreationCenter_Type": "Recreation Center",
+    "ADDRESS": "1 Clarkson Street",
+    "CITY": "New York",
+    "STATE": "NY",
+    "ZIP": "10014",
+    "BOROUGH": null,
+    "PHONE": "(212) 242-5228",
+    "PHONE_B": "(212) 242-5419",
+    "FAX": "(212) 242-5422",
+    "CENTER_MANAGER": "Trevor Merk",
+    "DEPUTY_MANAGER": "",
+    "message": null,
+    "cost_free": "0",
+    "cost_description": "",
+    "description": "",
+    "Building_Hours": {
+      "MONDAY": {
+        "startTime": null,
+        "endTime": null
+      },
+      "TUESDAY": {
+        "startTime": null,
+        "endTime": null
+      },
+      "WEDNESDAY": {
+        "startTime": null,
+        "endTime": null
+      },
+      "THURSDAY": {
+        "startTime": null,
+        "endTime": null
+      },
+      "FRIDAY": {
+        "startTime": null,
+        "endTime": null
+      },
+      "SATURDAY": {
+        "startTime": null,
+        "endTime": null
+      },
+      "SUNDAY": {
+        "startTime": null,
+        "endTime": null
+      }
+    },
+    "lat": null,
+    "lng": null
+  },
+  {
+    "Prop_ID": "M130",
+    "NAME": "Recreation Center 54",
+    "RecreationCenter_Type": "Recreation Center",
+    "ADDRESS": "348 East 54th Street",
+    "CITY": "New York",
+    "STATE": "NY",
+    "ZIP": "10022",
+    "BOROUGH": null,
+    "PHONE": "(212) 754-5411",
+    "PHONE_B": "(212) 754-0293",
+    "FAX": "(212) 754-0661",
+    "CENTER_MANAGER": "Talaya Melton",
+    "DEPUTY_MANAGER": "Alisa Brogdon",
+    "message": null,
+    "cost_free": "0",
+    "cost_description": "",
+    "description": "",
+    "Building_Hours": {
+      "MONDAY": {
+        "startTime": "07:00:00",
+        "endTime": "20:00:00"
+      },
+      "TUESDAY": {
+        "startTime": "07:00:00",
+        "endTime": "20:00:00"
+      },
+      "WEDNESDAY": {
+        "startTime": "07:00:00",
+        "endTime": "20:00:00"
+      },
+      "THURSDAY": {
+        "startTime": "07:00:00",
+        "endTime": "20:00:00"
+      },
+      "FRIDAY": {
+        "startTime": "07:00:00",
+        "endTime": "20:00:00"
+      },
+      "SATURDAY": {
+        "startTime": "08:00:00",
+        "endTime": "15:00:00"
+      },
+      "SUNDAY": {
+        "startTime": null,
+        "endTime": null
+      }
+    },
+    "lat": null,
+    "lng": null
+  },
+  {
+    "Prop_ID": "M131",
+    "NAME": "Hansborough Recreation Center",
+    "RecreationCenter_Type": "Recreation Center",
+    "ADDRESS": "35 West 134th Street",
+    "CITY": "New York",
+    "STATE": "NY",
+    "ZIP": "10037",
+    "BOROUGH": null,
+    "PHONE": "(212) 234-9600",
+    "PHONE_B": "(212) 234-9603",
+    "FAX": "(212) 234-9604",
+    "CENTER_MANAGER": "Zakiyah DeGraffe",
+    "DEPUTY_MANAGER": "Shakeem Snipe",
+    "message": null,
+    "cost_free": "0",
+    "cost_description": "",
+    "description": "",
+    "Building_Hours": {
+      "MONDAY": {
+        "startTime": "06:00:00",
+        "endTime": "22:00:00"
+      },
+      "TUESDAY": {
+        "startTime": "06:00:00",
+        "endTime": "22:00:00"
+      },
+      "WEDNESDAY": {
+        "startTime": "06:00:00",
+        "endTime": "22:00:00"
+      },
+      "THURSDAY": {
+        "startTime": "06:00:00",
+        "endTime": "22:00:00"
+      },
+      "FRIDAY": {
+        "startTime": "06:00:00",
+        "endTime": "22:00:00"
+      },
+      "SATURDAY": {
+        "startTime": "08:00:00",
+        "endTime": "20:00:00"
+      },
+      "SUNDAY": {
+        "startTime": "08:00:00",
+        "endTime": "18:00:00"
+      }
+    },
+    "lat": null,
+    "lng": null
+  },
+  {
+    "Prop_ID": "M164",
+    "NAME": "Asser Levy Recreation Center",
+    "RecreationCenter_Type": "Recreation Center",
+    "ADDRESS": "392 Asser Levy Place",
+    "CITY": "New York",
+    "STATE": "NY",
+    "ZIP": "10010",
+    "BOROUGH": null,
+    "PHONE": "(212) 447-2027",
+    "PHONE_B": "",
+    "FAX": "(212) 447-2028",
+    "CENTER_MANAGER": "Ahmad Sarwary",
+    "DEPUTY_MANAGER": "Terrence Hatzigiannis",
+    "message": null,
+    "cost_free": "0",
+    "cost_description": "",
+    "description": "",
+    "Building_Hours": {
+      "MONDAY": {
+        "startTime": "07:00:00",
+        "endTime": "20:00:00"
+      },
+      "TUESDAY": {
+        "startTime": "07:00:00",
+        "endTime": "20:00:00"
+      },
+      "WEDNESDAY": {
+        "startTime": "07:00:00",
+        "endTime": "20:00:00"
+      },
+      "THURSDAY": {
+        "startTime": "07:00:00",
+        "endTime": "20:00:00"
+      },
+      "FRIDAY": {
+        "startTime": "07:00:00",
+        "endTime": "20:00:00"
+      },
+      "SATURDAY": {
+        "startTime": "09:00:00",
+        "endTime": "16:00:00"
+      },
+      "SUNDAY": {
+        "startTime": null,
+        "endTime": null
+      }
+    },
+    "lat": null,
+    "lng": null
+  },
+  {
+    "Prop_ID": "M194",
+    "NAME": "Alfred E. Smith Recreation Center",
+    "RecreationCenter_Type": "Recreation Center",
+    "ADDRESS": "80 Catherine Street",
+    "CITY": "New York",
+    "STATE": "NY",
+    "ZIP": "10038",
+    "BOROUGH": null,
+    "PHONE": "(347) 931-6843",
+    "PHONE_B": "",
+    "FAX": "(212) 285-0304",
+    "CENTER_MANAGER": "Jamel Gist",
+    "DEPUTY_MANAGER": "Jasmine Campbell and Carmen Quarles",
+    "message": null,
+    "cost_free": "0",
+    "cost_description": "",
+    "description": "",
+    "Building_Hours": {
+      "MONDAY": {
+        "startTime": "09:00:00",
+        "endTime": "20:00:00"
+      },
+      "TUESDAY": {
+        "startTime": "09:00:00",
+        "endTime": "20:00:00"
+      },
+      "WEDNESDAY": {
+        "startTime": "09:00:00",
+        "endTime": "20:00:00"
+      },
+      "THURSDAY": {
+        "startTime": "09:00:00",
+        "endTime": "20:00:00"
+      },
+      "FRIDAY": {
+        "startTime": "09:00:00",
+        "endTime": "20:00:00"
+      },
+      "SATURDAY": {
+        "startTime": "08:00:00",
+        "endTime": "15:00:00"
+      },
+      "SUNDAY": {
+        "startTime": null,
+        "endTime": null
+      }
+    },
+    "lat": null,
+    "lng": null
+  },
+  {
+    "Prop_ID": "M260",
+    "NAME": "Chelsea Recreation Center",
+    "RecreationCenter_Type": "Recreation Center",
+    "ADDRESS": "430 West 25th Street",
+    "CITY": "New York",
+    "STATE": "NY",
+    "ZIP": "10001",
+    "BOROUGH": null,
+    "PHONE": "(212) 255-3705",
+    "PHONE_B": "",
+    "FAX": "(212) 255-3706",
+    "CENTER_MANAGER": "Bobby Vangelatos",
+    "DEPUTY_MANAGER": "John Contreras and Saudia Thompson",
+    "message": null,
+    "cost_free": "0",
+    "cost_description": "",
+    "description": "<h3>Membership Extension</h3>\r\n\r\n<p>During the summer, we have had to temporarily reduce operating hours at several of our indoor pools. We understand the impact this has had on our members, and we want to ensure that our members have as much pool time and access as possible.</p>\r\n\r\n<p>That said, we are offering qualifying individuals the opportunity to extend their membership by three months for free. To be eligible to receive the extension, you must meet all three qualification criteria:</p>\r\n\r\n<ul>\r\n\t<li>Have obtained your membership prior to June 26, 2025, and were an active member on that date.</li>\r\n\t<li>Be a paying member who possesses either an adult indoor pool membership or a senior, people with disabilities, or veteran membership.</li>\r\n\t<li>Have visited a qualifying indoor pool site between January 1, 2025 to June 26, 2025.\r\n\t<ul>\r\n\t\t<li>St. John&rsquo;s Recreation Center</li>\r\n\t\t<li>Chelsea Recreation Center&ensp;&ensp;&ensp;&ensp;</li>\r\n\t\t<li>Constance Baker Motley Recreation Center</li>\r\n\t\t<li>Gertrude Ederle Recreation Center</li>\r\n\t\t<li>Flushing Meadows Corona Park Aquatics Center</li>\r\n\t</ul>\r\n\t</li>\r\n</ul>\r\n\r\n<p>If you believe you meet these qualifications, you may submit a request by <a href=\"https://forms.office.com/Pages/ResponsePage.aspx?id=x2_1MoFfIk6pWxXaZlE7710LKJS3C2ZGtGmBgW1cyQFUMklTWlFTVldRRENRRkUwRFRGTjhNQURKMS4u\">completing the online form</a>. The deadline to opt-in for the extension is November 16, 2025.</p>",
+    "Building_Hours": {
+      "MONDAY": {
+        "startTime": "07:00:00",
+        "endTime": "20:00:00"
+      },
+      "TUESDAY": {
+        "startTime": "07:00:00",
+        "endTime": "20:00:00"
+      },
+      "WEDNESDAY": {
+        "startTime": "07:00:00",
+        "endTime": "20:00:00"
+      },
+      "THURSDAY": {
+        "startTime": "07:00:00",
+        "endTime": "20:00:00"
+      },
+      "FRIDAY": {
+        "startTime": "07:00:00",
+        "endTime": "20:00:00"
+      },
+      "SATURDAY": {
+        "startTime": "08:00:00",
+        "endTime": "16:00:00"
+      },
+      "SUNDAY": {
+        "startTime": "08:00:00",
+        "endTime": "14:00:00"
+      }
+    },
+    "lat": null,
+    "lng": null
+  },
+  {
+    "Prop_ID": "MX261",
+    "NAME": "Highbridge Recreation Center",
+    "RecreationCenter_Type": "Recreation Center",
+    "ADDRESS": "2301 Amsterdam Avenue",
+    "CITY": "New York",
+    "STATE": "NY",
+    "ZIP": "10033",
+    "BOROUGH": null,
+    "PHONE": "(212) 927-2400",
+    "PHONE_B": "",
+    "FAX": "(212) 927-2063",
+    "CENTER_MANAGER": "Trevor Merk and Erica Serrano",
+    "DEPUTY_MANAGER": "Angelica Pabon",
+    "message": null,
+    "cost_free": "0",
+    "cost_description": "",
+    "description": "",
+    "Building_Hours": {
+      "MONDAY": {
+        "startTime": "09:00:00",
+        "endTime": "20:00:00"
+      },
+      "TUESDAY": {
+        "startTime": "09:00:00",
+        "endTime": "20:00:00"
+      },
+      "WEDNESDAY": {
+        "startTime": "09:00:00",
+        "endTime": "20:00:00"
+      },
+      "THURSDAY": {
+        "startTime": "09:00:00",
+        "endTime": "20:00:00"
+      },
+      "FRIDAY": {
+        "startTime": "09:00:00",
+        "endTime": "20:00:00"
+      },
+      "SATURDAY": {
+        "startTime": "08:30:00",
+        "endTime": "15:00:00"
+      },
+      "SUNDAY": {
+        "startTime": null,
+        "endTime": null
+      }
+    },
+    "lat": null,
+    "lng": null
+  },
+  {
+    "Prop_ID": "Q006",
+    "NAME": "Bowne Park Field House",
+    "RecreationCenter_Type": "Field House",
+    "ADDRESS": "32nd Avenue & 159th Street",
+    "CITY": "Flushing",
+    "STATE": "NY",
+    "ZIP": "11358",
+    "BOROUGH": null,
+    "PHONE": "(718) 939-2428",
+    "PHONE_B": "",
+    "FAX": "",
+    "CENTER_MANAGER": "",
+    "DEPUTY_MANAGER": "",
+    "message": null,
+    "cost_free": "1",
+    "cost_description": "",
+    "description": null,
+    "Building_Hours": {
+      "MONDAY": {
+        "startTime": null,
+        "endTime": null
+      },
+      "TUESDAY": {
+        "startTime": null,
+        "endTime": null
+      },
+      "WEDNESDAY": {
+        "startTime": null,
+        "endTime": null
+      },
+      "THURSDAY": {
+        "startTime": null,
+        "endTime": null
+      },
+      "FRIDAY": {
+        "startTime": null,
+        "endTime": null
+      },
+      "SATURDAY": {
+        "startTime": null,
+        "endTime": null
+      },
+      "SUNDAY": {
+        "startTime": null,
+        "endTime": null
+      }
+    },
+    "lat": null,
+    "lng": null
+  },
+  {
+    "Prop_ID": "Q099",
+    "NAME": "Flushing Meadows Corona Park Pool & Rink",
+    "RecreationCenter_Type": "Recreation Center",
+    "ADDRESS": "131-04 Meridian Rd",
+    "CITY": "Flushing",
+    "STATE": "NY",
+    "ZIP": "11368",
+    "BOROUGH": null,
+    "PHONE": "(718) 271-7572",
+    "PHONE_B": "",
+    "FAX": "",
+    "CENTER_MANAGER": "Tony Ferruggia",
+    "DEPUTY_MANAGER": "Neil Clayton, Jodian Wint, Ashley Bernal",
+    "message": null,
+    "cost_free": "0",
+    "cost_description": "",
+    "description": "",
+    "Building_Hours": {
+      "MONDAY": {
+        "startTime": "06:00:00",
+        "endTime": "22:00:00"
+      },
+      "TUESDAY": {
+        "startTime": "06:00:00",
+        "endTime": "22:00:00"
+      },
+      "WEDNESDAY": {
+        "startTime": "06:00:00",
+        "endTime": "22:00:00"
+      },
+      "THURSDAY": {
+        "startTime": "06:00:00",
+        "endTime": "22:00:00"
+      },
+      "FRIDAY": {
+        "startTime": "06:00:00",
+        "endTime": "22:00:00"
+      },
+      "SATURDAY": {
+        "startTime": "09:00:00",
+        "endTime": "22:00:00"
+      },
+      "SUNDAY": {
+        "startTime": "09:00:00",
+        "endTime": "20:00:00"
+      }
+    },
+    "lat": null,
+    "lng": null
+  },
+  {
+    "Prop_ID": "Q099-NMD01",
+    "NAME": "Al Oerter Recreation Center",
+    "RecreationCenter_Type": "Recreation Center",
+    "ADDRESS": "131-40 Fowler Avenue",
+    "CITY": "Flushing",
+    "STATE": "NY",
+    "ZIP": "11355",
+    "BOROUGH": null,
+    "PHONE": "(718) 353-7853",
+    "PHONE_B": "",
+    "FAX": "(718) 353-7687",
+    "CENTER_MANAGER": "Angela Elie",
+    "DEPUTY_MANAGER": "Aissa Collado and Carl Antoine",
+    "message": null,
+    "cost_free": "1",
+    "cost_description": "",
+    "description": "",
+    "Building_Hours": {
+      "MONDAY": {
+        "startTime": "06:00:00",
+        "endTime": "22:00:00"
+      },
+      "TUESDAY": {
+        "startTime": "06:00:00",
+        "endTime": "22:00:00"
+      },
+      "WEDNESDAY": {
+        "startTime": "06:00:00",
+        "endTime": "22:00:00"
+      },
+      "THURSDAY": {
+        "startTime": "06:00:00",
+        "endTime": "22:00:00"
+      },
+      "FRIDAY": {
+        "startTime": "06:00:00",
+        "endTime": "22:00:00"
+      },
+      "SATURDAY": {
+        "startTime": "08:00:00",
+        "endTime": "21:00:00"
+      },
+      "SUNDAY": {
+        "startTime": null,
+        "endTime": null
+      }
+    },
+    "lat": null,
+    "lng": null
+  },
+  {
+    "Prop_ID": "Q121",
+    "NAME": "Detective Keith L. Williams Field House",
+    "RecreationCenter_Type": "Field House",
+    "ADDRESS": "106-16 173rd Street between 172 & 173 Streets",
+    "CITY": "Jamaica",
+    "STATE": "New York",
+    "ZIP": "11433",
+    "BOROUGH": null,
+    "PHONE": "(718) 523-6912",
+    "PHONE_B": "",
+    "FAX": "(718) 523-1617",
+    "CENTER_MANAGER": "Jordan Calloway",
+    "DEPUTY_MANAGER": "",
+    "message": null,
+    "cost_free": "1",
+    "cost_description": "",
+    "description": "",
+    "Building_Hours": {
+      "MONDAY": {
+        "startTime": "11:00:00",
+        "endTime": "19:00:00"
+      },
+      "TUESDAY": {
+        "startTime": "11:00:00",
+        "endTime": "19:00:00"
+      },
+      "WEDNESDAY": {
+        "startTime": "11:00:00",
+        "endTime": "19:00:00"
+      },
+      "THURSDAY": {
+        "startTime": "11:00:00",
+        "endTime": "19:00:00"
+      },
+      "FRIDAY": {
+        "startTime": "11:00:00",
+        "endTime": "19:00:00"
+      },
+      "SATURDAY": {
+        "startTime": null,
+        "endTime": null
+      },
+      "SUNDAY": {
+        "startTime": null,
+        "endTime": null
+      }
+    },
+    "lat": null,
+    "lng": null
+  },
+  {
+    "Prop_ID": "Q401",
+    "NAME": "Lost Battalion Hall Recreation Center",
+    "RecreationCenter_Type": "Recreation Center",
+    "ADDRESS": "93-29 Queens Boulevard",
+    "CITY": "Rego Park",
+    "STATE": "NY",
+    "ZIP": "11374",
+    "BOROUGH": null,
+    "PHONE": "(718) 263-1163",
+    "PHONE_B": "",
+    "FAX": "(718) 520-5366",
+    "CENTER_MANAGER": "Angela Elie",
+    "DEPUTY_MANAGER": "Chris Wong & Tammy Mitchell",
+    "message": null,
+    "cost_free": "0",
+    "cost_description": "",
+    "description": "",
+    "Building_Hours": {
+      "MONDAY": {
+        "startTime": "08:00:00",
+        "endTime": "21:00:00"
+      },
+      "TUESDAY": {
+        "startTime": "08:00:00",
+        "endTime": "21:00:00"
+      },
+      "WEDNESDAY": {
+        "startTime": "08:00:00",
+        "endTime": "21:00:00"
+      },
+      "THURSDAY": {
+        "startTime": "08:00:00",
+        "endTime": "21:00:00"
+      },
+      "FRIDAY": {
+        "startTime": "08:00:00",
+        "endTime": "21:00:00"
+      },
+      "SATURDAY": {
+        "startTime": "08:00:00",
+        "endTime": "16:00:00"
+      },
+      "SUNDAY": {
+        "startTime": null,
+        "endTime": null
+      }
+    },
+    "lat": null,
+    "lng": null
+  },
+  {
+    "Prop_ID": "Q413",
+    "NAME": "Vic Hanson Field House",
+    "RecreationCenter_Type": "Field House",
+    "ADDRESS": "133- 39 Guy R. Brewer Boulevard",
+    "CITY": "Jamaica",
+    "STATE": "New York",
+    "ZIP": "11434",
+    "BOROUGH": null,
+    "PHONE": "(718) 978-1536",
+    "PHONE_B": "",
+    "FAX": "(718) 978-8960",
+    "CENTER_MANAGER": "Jordan Calloway",
+    "DEPUTY_MANAGER": "",
+    "message": null,
+    "cost_free": "1",
+    "cost_description": "",
+    "description": "",
+    "Building_Hours": {
+      "MONDAY": {
+        "startTime": "12:00:00",
+        "endTime": "20:00:00"
+      },
+      "TUESDAY": {
+        "startTime": "12:00:00",
+        "endTime": "20:00:00"
+      },
+      "WEDNESDAY": {
+        "startTime": "12:00:00",
+        "endTime": "20:00:00"
+      },
+      "THURSDAY": {
+        "startTime": "12:00:00",
+        "endTime": "20:00:00"
+      },
+      "FRIDAY": {
+        "startTime": "12:00:00",
+        "endTime": "20:00:00"
+      },
+      "SATURDAY": {
+        "startTime": null,
+        "endTime": null
+      },
+      "SUNDAY": {
+        "startTime": null,
+        "endTime": null
+      }
+    },
+    "lat": null,
+    "lng": null
+  },
+  {
+    "Prop_ID": "Q446",
+    "NAME": "Sorrentino Recreation Center",
+    "RecreationCenter_Type": "Recreation Center",
+    "ADDRESS": "18-48 Cornaga Avenue",
+    "CITY": "Far Rockaway",
+    "STATE": "NY",
+    "ZIP": "11691",
+    "BOROUGH": null,
+    "PHONE": "(718) 471-4818",
+    "PHONE_B": "",
+    "FAX": "(718) 327-8615",
+    "CENTER_MANAGER": "Chaleene Nash",
+    "DEPUTY_MANAGER": "Dawn Whitfield and Ruth Hernandez",
+    "message": null,
+    "cost_free": "0",
+    "cost_description": "",
+    "description": "",
+    "Building_Hours": {
+      "MONDAY": {
+        "startTime": "06:00:00",
+        "endTime": "22:00:00"
+      },
+      "TUESDAY": {
+        "startTime": "06:00:00",
+        "endTime": "22:00:00"
+      },
+      "WEDNESDAY": {
+        "startTime": "06:00:00",
+        "endTime": "22:00:00"
+      },
+      "THURSDAY": {
+        "startTime": "06:00:00",
+        "endTime": "22:00:00"
+      },
+      "FRIDAY": {
+        "startTime": "06:00:00",
+        "endTime": "22:00:00"
+      },
+      "SATURDAY": {
+        "startTime": "08:00:00",
+        "endTime": "20:00:00"
+      },
+      "SUNDAY": {
+        "startTime": "08:00:00",
+        "endTime": "18:00:00"
+      }
+    },
+    "lat": null,
+    "lng": null
+  },
+  {
+    "Prop_ID": "Q448",
+    "NAME": "Roy Wilkins Recreation Center",
+    "RecreationCenter_Type": "Recreation Center",
+    "ADDRESS": "177th Street & Baisley Boulevard",
+    "CITY": "Jamaica",
+    "STATE": "NY",
+    "ZIP": "11434",
+    "BOROUGH": null,
+    "PHONE": "(718) 276-8686",
+    "PHONE_B": "",
+    "FAX": "(718) 276-8690",
+    "CENTER_MANAGER": "Lincoln Jacobs",
+    "DEPUTY_MANAGER": "Tammy Mitchell and Malcolm Covington",
+    "message": null,
+    "cost_free": "0",
+    "cost_description": "",
+    "description": "",
+    "Building_Hours": {
+      "MONDAY": {
+        "startTime": "06:00:00",
+        "endTime": "22:00:00"
+      },
+      "TUESDAY": {
+        "startTime": "06:00:00",
+        "endTime": "22:00:00"
+      },
+      "WEDNESDAY": {
+        "startTime": "06:00:00",
+        "endTime": "22:00:00"
+      },
+      "THURSDAY": {
+        "startTime": "06:00:00",
+        "endTime": "22:00:00"
+      },
+      "FRIDAY": {
+        "startTime": "06:00:00",
+        "endTime": "22:00:00"
+      },
+      "SATURDAY": {
+        "startTime": "08:00:00",
+        "endTime": "20:00:00"
+      },
+      "SUNDAY": {
+        "startTime": "08:00:00",
+        "endTime": "18:00:00"
+      }
+    },
+    "lat": null,
+    "lng": null
+  },
+  {
+    "Prop_ID": "Q468",
+    "NAME": "Louis Armstrong Community Center",
+    "RecreationCenter_Type": "Community Center",
+    "ADDRESS": "33-16 108 St.",
+    "CITY": "Corona",
+    "STATE": "NY",
+    "ZIP": "11368",
+    "BOROUGH": null,
+    "PHONE": "(718) 651-0096",
+    "PHONE_B": "",
+    "FAX": "(718) 457-3932",
+    "CENTER_MANAGER": "Saeeda Dunston",
+    "DEPUTY_MANAGER": "",
+    "message": null,
+    "cost_free": "0",
+    "cost_description": "",
+    "description": "",
+    "Building_Hours": {
+      "MONDAY": {
+        "startTime": "09:00:00",
+        "endTime": "17:00:00"
+      },
+      "TUESDAY": {
+        "startTime": "09:00:00",
+        "endTime": "17:00:00"
+      },
+      "WEDNESDAY": {
+        "startTime": "09:00:00",
+        "endTime": "17:00:00"
+      },
+      "THURSDAY": {
+        "startTime": "09:00:00",
+        "endTime": "17:00:00"
+      },
+      "FRIDAY": {
+        "startTime": "09:00:00",
+        "endTime": "17:00:00"
+      },
+      "SATURDAY": {
+        "startTime": null,
+        "endTime": null
+      },
+      "SUNDAY": {
+        "startTime": null,
+        "endTime": null
+      }
+    },
+    "lat": null,
+    "lng": null
+  },
+  {
+    "Prop_ID": "Q470",
+    "NAME": "A.R.R.O.W. Field House",
+    "RecreationCenter_Type": "Field House",
+    "ADDRESS": "35-30 35th Street",
+    "CITY": "Astoria",
+    "STATE": "NY",
+    "ZIP": "11106",
+    "BOROUGH": null,
+    "PHONE": "(718) 349-0444",
+    "PHONE_B": "(718) 349-3408",
+    "FAX": "(718) 349-6015",
+    "CENTER_MANAGER": "Joan Herrera",
+    "DEPUTY_MANAGER": "",
+    "message": null,
+    "cost_free": "1",
+    "cost_description": "",
+    "description": "",
+    "Building_Hours": {
+      "MONDAY": {
+        "startTime": "11:00:00",
+        "endTime": "19:00:00"
+      },
+      "TUESDAY": {
+        "startTime": "11:00:00",
+        "endTime": "19:00:00"
+      },
+      "WEDNESDAY": {
+        "startTime": "11:00:00",
+        "endTime": "19:00:00"
+      },
+      "THURSDAY": {
+        "startTime": "11:00:00",
+        "endTime": "19:00:00"
+      },
+      "FRIDAY": {
+        "startTime": "11:00:00",
+        "endTime": "19:00:00"
+      },
+      "SATURDAY": {
+        "startTime": null,
+        "endTime": null
+      },
+      "SUNDAY": {
+        "startTime": null,
+        "endTime": null
+      }
+    },
+    "lat": null,
+    "lng": null
+  },
+  {
+    "Prop_ID": "Q996",
+    "NAME": "Playground for All Children Field House",
+    "RecreationCenter_Type": "Field House",
+    "ADDRESS": "111-01 Corona Avenue",
+    "CITY": "Corona",
+    "STATE": "New York",
+    "ZIP": "11368",
+    "BOROUGH": null,
+    "PHONE": "(718) 699-4201",
+    "PHONE_B": "",
+    "FAX": "(718) 699-8283",
+    "CENTER_MANAGER": "",
+    "DEPUTY_MANAGER": "",
+    "message": null,
+    "cost_free": "1",
+    "cost_description": "",
+    "description": "",
+    "Building_Hours": {
+      "MONDAY": {
+        "startTime": "10:00:00",
+        "endTime": "18:00:00"
+      },
+      "TUESDAY": {
+        "startTime": "10:00:00",
+        "endTime": "18:00:00"
+      },
+      "WEDNESDAY": {
+        "startTime": "10:00:00",
+        "endTime": "18:00:00"
+      },
+      "THURSDAY": {
+        "startTime": "10:00:00",
+        "endTime": "18:00:00"
+      },
+      "FRIDAY": {
+        "startTime": "10:00:00",
+        "endTime": "18:00:00"
+      },
+      "SATURDAY": {
+        "startTime": "10:00:00",
+        "endTime": "18:00:00"
+      },
+      "SUNDAY": {
+        "startTime": "10:00:00",
+        "endTime": "18:00:00"
+      }
+    },
+    "lat": null,
+    "lng": null
+  },
+  {
+    "Prop_ID": "R008",
+    "NAME": "Faber Park Field House",
+    "RecreationCenter_Type": "Recreation Center",
+    "ADDRESS": "2175 Richmond Terrace",
+    "CITY": "Staten Island",
+    "STATE": "NY",
+    "ZIP": "10301",
+    "BOROUGH": null,
+    "PHONE": "(718) 816-5558",
+    "PHONE_B": "",
+    "FAX": "",
+    "CENTER_MANAGER": "",
+    "DEPUTY_MANAGER": "Joel Vasquez, Divina McNatt",
+    "message": null,
+    "cost_free": "0",
+    "cost_description": "",
+    "description": "<p class=\"alert alert-success\">Interested in learning computers or multimedia production? Visit the media lab in your recreation center and sign up for a wide range of programs! <a href=\"/programs/media\">Media Education</a> workshops are free with membership and open to people of all ages and abilities.</p>  <p class=\"alert alert-success\">Faber Park Field House is a center for all! Kids and teens are&nbsp;welcome to visit!</p>",
+    "Building_Hours": {
+      "MONDAY": {
+        "startTime": null,
+        "endTime": null
+      },
+      "TUESDAY": {
+        "startTime": "10:00:00",
+        "endTime": "18:00:00"
+      },
+      "WEDNESDAY": {
+        "startTime": "10:00:00",
+        "endTime": "18:00:00"
+      },
+      "THURSDAY": {
+        "startTime": "10:00:00",
+        "endTime": "18:00:00"
+      },
+      "FRIDAY": {
+        "startTime": "10:00:00",
+        "endTime": "18:00:00"
+      },
+      "SATURDAY": {
+        "startTime": "12:00:00",
+        "endTime": "20:00:00"
+      },
+      "SUNDAY": {
+        "startTime": null,
+        "endTime": null
+      }
+    },
+    "lat": null,
+    "lng": null
+  },
+  {
+    "Prop_ID": "R022",
+    "NAME": "Silver Lake Field House",
+    "RecreationCenter_Type": "Field House",
+    "ADDRESS": "42 Revere Street/1 University Place",
+    "CITY": "Staten Island",
+    "STATE": "New York",
+    "ZIP": "10301",
+    "BOROUGH": null,
+    "PHONE": "(718) 816-9721",
+    "PHONE_B": "",
+    "FAX": "",
+    "CENTER_MANAGER": "",
+    "DEPUTY_MANAGER": "",
+    "message": null,
+    "cost_free": null,
+    "cost_description": null,
+    "description": null,
+    "Building_Hours": {
+      "MONDAY": {
+        "startTime": "08:30:00",
+        "endTime": "17:00:00"
+      },
+      "TUESDAY": {
+        "startTime": "08:30:00",
+        "endTime": "17:00:00"
+      },
+      "WEDNESDAY": {
+        "startTime": "08:30:00",
+        "endTime": "17:00:00"
+      },
+      "THURSDAY": {
+        "startTime": "08:30:00",
+        "endTime": "17:00:00"
+      },
+      "FRIDAY": {
+        "startTime": "08:30:00",
+        "endTime": "17:00:00"
+      },
+      "SATURDAY": {
+        "startTime": "08:30:00",
+        "endTime": "17:00:00"
+      },
+      "SUNDAY": {
+        "startTime": "08:30:00",
+        "endTime": "17:00:00"
+      }
+    },
+    "lat": null,
+    "lng": null
+  },
+  {
+    "Prop_ID": "R035",
+    "NAME": "De Matti Playground",
+    "RecreationCenter_Type": "Recreation Center",
+    "ADDRESS": "Tompkins Avenue, Chestnut Street, & Shaughnessy Lane",
+    "CITY": "Staten Island",
+    "STATE": "NY",
+    "ZIP": "10305",
+    "BOROUGH": null,
+    "PHONE": "(718) 816-5256",
+    "PHONE_B": "",
+    "FAX": "",
+    "CENTER_MANAGER": "",
+    "DEPUTY_MANAGER": "Joel Vasquez",
+    "message": null,
+    "cost_free": "0",
+    "cost_description": "",
+    "description": "",
+    "Building_Hours": {
+      "MONDAY": {
+        "startTime": null,
+        "endTime": null
+      },
+      "TUESDAY": {
+        "startTime": "10:00:00",
+        "endTime": "18:00:00"
+      },
+      "WEDNESDAY": {
+        "startTime": "10:00:00",
+        "endTime": "18:00:00"
+      },
+      "THURSDAY": {
+        "startTime": "10:00:00",
+        "endTime": "18:00:00"
+      },
+      "FRIDAY": {
+        "startTime": "10:00:00",
+        "endTime": "18:00:00"
+      },
+      "SATURDAY": {
+        "startTime": "10:00:00",
+        "endTime": "18:00:00"
+      },
+      "SUNDAY": {
+        "startTime": null,
+        "endTime": null
+      }
+    },
+    "lat": null,
+    "lng": null
+  },
+  {
+    "Prop_ID": "R043-NMD01",
+    "NAME": "Lyons Pool",
+    "RecreationCenter_Type": "Recreation Center",
+    "ADDRESS": "6 Victory Blvd",
+    "CITY": "Staten Island",
+    "STATE": "New York",
+    "ZIP": "10301",
+    "BOROUGH": null,
+    "PHONE": "(718) 816-6172",
+    "PHONE_B": "",
+    "FAX": "(718) 390-8019",
+    "CENTER_MANAGER": "Joel Vasquez",
+    "DEPUTY_MANAGER": "Divina McNatt",
+    "message": null,
+    "cost_free": "0",
+    "cost_description": "",
+    "description": "",
+    "Building_Hours": {
+      "MONDAY": {
+        "startTime": "06:30:00",
+        "endTime": "20:30:00"
+      },
+      "TUESDAY": {
+        "startTime": "06:30:00",
+        "endTime": "20:30:00"
+      },
+      "WEDNESDAY": {
+        "startTime": "06:30:00",
+        "endTime": "20:30:00"
+      },
+      "THURSDAY": {
+        "startTime": "06:30:00",
+        "endTime": "20:30:00"
+      },
+      "FRIDAY": {
+        "startTime": "06:30:00",
+        "endTime": "20:30:00"
+      },
+      "SATURDAY": {
+        "startTime": "07:00:00",
+        "endTime": "15:00:00"
+      },
+      "SUNDAY": {
+        "startTime": "07:00:00",
+        "endTime": "15:00:00"
+      }
+    },
+    "lat": null,
+    "lng": null
+  },
+  {
+    "Prop_ID": "R114",
+    "NAME": "Graniteville Field House",
+    "RecreationCenter_Type": "Field House",
+    "ADDRESS": "Jules & Regis Drive",
+    "CITY": "Staten Island",
+    "STATE": "NY",
+    "ZIP": "10314",
+    "BOROUGH": null,
+    "PHONE": "(718) 477-5471",
+    "PHONE_B": "(718) 667-3545",
+    "FAX": "",
+    "CENTER_MANAGER": "Lisa Brooks",
+    "DEPUTY_MANAGER": "Mae Frazier",
+    "message": null,
+    "cost_free": "0",
+    "cost_description": "",
+    "description": "",
+    "Building_Hours": {
+      "MONDAY": {
+        "startTime": "08:30:00",
+        "endTime": "13:30:00"
+      },
+      "TUESDAY": {
+        "startTime": "08:30:00",
+        "endTime": "13:30:00"
+      },
+      "WEDNESDAY": {
+        "startTime": "08:30:00",
+        "endTime": "13:30:00"
+      },
+      "THURSDAY": {
+        "startTime": "08:30:00",
+        "endTime": "13:30:00"
+      },
+      "FRIDAY": {
+        "startTime": null,
+        "endTime": null
+      },
+      "SATURDAY": {
+        "startTime": null,
+        "endTime": null
+      },
+      "SUNDAY": {
+        "startTime": null,
+        "endTime": null
+      }
+    },
+    "lat": null,
+    "lng": null
+  },
+  {
+    "Prop_ID": "R129",
+    "NAME": "Greenbelt Recreation Center",
+    "RecreationCenter_Type": "Recreation Center",
+    "ADDRESS": "501 Brielle Avenue (across from Sea View Hospital)",
+    "CITY": "Staten Island",
+    "STATE": "New York",
+    "ZIP": "10314",
+    "BOROUGH": null,
+    "PHONE": "(718) 667-3545",
+    "PHONE_B": "",
+    "FAX": "(718) 667-3544",
+    "CENTER_MANAGER": "Jaclyn Badagliacco",
+    "DEPUTY_MANAGER": "Victor Schettino",
+    "message": null,
+    "cost_free": "0",
+    "cost_description": "",
+    "description": "",
+    "Building_Hours": {
+      "MONDAY": {
+        "startTime": "06:30:00",
+        "endTime": "20:30:00"
+      },
+      "TUESDAY": {
+        "startTime": "06:30:00",
+        "endTime": "20:30:00"
+      },
+      "WEDNESDAY": {
+        "startTime": "06:30:00",
+        "endTime": "20:30:00"
+      },
+      "THURSDAY": {
+        "startTime": "06:30:00",
+        "endTime": "20:30:00"
+      },
+      "FRIDAY": {
+        "startTime": "06:30:00",
+        "endTime": "20:30:00"
+      },
+      "SATURDAY": {
+        "startTime": "08:00:00",
+        "endTime": "15:00:00"
+      },
+      "SUNDAY": {
+        "startTime": "08:00:00",
+        "endTime": "15:00:00"
+      }
+    },
+    "lat": null,
+    "lng": null
+  },
+  {
+    "Prop_ID": "R149",
+    "NAME": "Ocean Breeze Track & Field Athletic Complex",
+    "RecreationCenter_Type": "Recreation Center",
+    "ADDRESS": "625 Father Capodanno Blvd",
+    "CITY": "Staten Island",
+    "STATE": "New York",
+    "ZIP": "10305",
+    "BOROUGH": null,
+    "PHONE": "(718) 351-7923",
+    "PHONE_B": "",
+    "FAX": "(718) 351-6482",
+    "CENTER_MANAGER": "Lauren Primerano - Park Administrator, Chris Caropolo - Operations Manager, Jonathan Giordano - Public Program Manager",
+    "DEPUTY_MANAGER": "James Destefano, Stephen McLean - Track & Field Coordinator",
+    "message": null,
+    "cost_free": "0",
+    "cost_description": "",
+    "description": "<p>The Ocean Breeze Track and Field Athletic Complex is a 135,000 square-foot, state-of-the-art indoor track and field facility in Ocean Breeze, Park Staten Island. For more information, <a href=\"https://oceanbreezenyc.org\">visit the Ocean Breeze Athletic Complex website</a>.</p>\r\n\r\n<h3>Track and Field Schedule</h3>\r\n\r\n<p>Find out what’s coming up at the Ocean Breeze Track & Field Athletic Complex. Visit the <a href=\"https://oceanbreezenyc.org/sports/track-and-field/schedule\">Track & Field schedule</a> for information.</p>",
+    "Building_Hours": {
+      "MONDAY": {
+        "startTime": "05:30:00",
+        "endTime": "19:30:00"
+      },
+      "TUESDAY": {
+        "startTime": "05:30:00",
+        "endTime": "19:30:00"
+      },
+      "WEDNESDAY": {
+        "startTime": "05:30:00",
+        "endTime": "19:30:00"
+      },
+      "THURSDAY": {
+        "startTime": "05:30:00",
+        "endTime": "19:30:00"
+      },
+      "FRIDAY": {
+        "startTime": "06:30:00",
+        "endTime": "13:30:00"
+      },
+      "SATURDAY": {
+        "startTime": "06:30:00",
+        "endTime": "13:30:00"
+      },
+      "SUNDAY": {
+        "startTime": "06:30:00",
+        "endTime": "13:30:00"
+      }
+    },
+    "lat": null,
+    "lng": null
+  },
+  {
+    "Prop_ID": "X010",
+    "NAME": "Crotona Park Community Center",
+    "RecreationCenter_Type": "Community Center",
+    "ADDRESS": "1700 Fulton Avenue",
+    "CITY": "Bronx",
+    "STATE": "NY",
+    "ZIP": "10457",
+    "BOROUGH": null,
+    "PHONE": "(718) 822-4440",
+    "PHONE_B": "",
+    "FAX": "",
+    "CENTER_MANAGER": "Aisha Tolbert",
+    "DEPUTY_MANAGER": "",
+    "message": null,
+    "cost_free": "0",
+    "cost_description": "",
+    "description": "",
+    "Building_Hours": {
+      "MONDAY": {
+        "startTime": "14:00:00",
+        "endTime": "22:00:00"
+      },
+      "TUESDAY": {
+        "startTime": "14:00:00",
+        "endTime": "22:00:00"
+      },
+      "WEDNESDAY": {
+        "startTime": "14:00:00",
+        "endTime": "22:00:00"
+      },
+      "THURSDAY": {
+        "startTime": "14:00:00",
+        "endTime": "22:00:00"
+      },
+      "FRIDAY": {
+        "startTime": "14:00:00",
+        "endTime": "20:00:00"
+      },
+      "SATURDAY": {
+        "startTime": null,
+        "endTime": null
+      },
+      "SUNDAY": {
+        "startTime": null,
+        "endTime": null
+      }
+    },
+    "lat": null,
+    "lng": null
+  },
+  {
+    "Prop_ID": "X016",
+    "NAME": "Owen Dolen Recreation Center",
+    "RecreationCenter_Type": "Recreation Center",
+    "ADDRESS": "2551 Westchester Avenue",
+    "CITY": "Bronx",
+    "STATE": "NY",
+    "ZIP": "10461",
+    "BOROUGH": null,
+    "PHONE": "(718) 829-0156",
+    "PHONE_B": "(718) 822-4202",
+    "FAX": "(718) 822-4201",
+    "CENTER_MANAGER": "Kathleen Walker-Pinckney",
+    "DEPUTY_MANAGER": "Ray Combest",
+    "message": null,
+    "cost_free": "0",
+    "cost_description": "",
+    "description": "<p class=\"alert alert-success\">Interested in learning computers or multimedia production? Visit the media lab in your recreation center and sign up for a wide range of programs! <a href=\"https://www.nycgovparks.org/programs/media\">Media Education</a> workshops are free with membership and open to people of all ages and abilities.</p>\r\n\r\n<p class=\"alert alert-success\">Open the 1st & 2nd Saturdays of each month!</p>",
+    "Building_Hours": {
+      "MONDAY": {
+        "startTime": "09:00:00",
+        "endTime": "21:00:00"
+      },
+      "TUESDAY": {
+        "startTime": "09:00:00",
+        "endTime": "21:00:00"
+      },
+      "WEDNESDAY": {
+        "startTime": "09:00:00",
+        "endTime": "21:00:00"
+      },
+      "THURSDAY": {
+        "startTime": "09:00:00",
+        "endTime": "21:00:00"
+      },
+      "FRIDAY": {
+        "startTime": "09:00:00",
+        "endTime": "21:00:00"
+      },
+      "SATURDAY": {
+        "startTime": "09:00:00",
+        "endTime": "17:00:00"
+      },
+      "SUNDAY": {
+        "startTime": null,
+        "endTime": null
+      }
+    },
+    "lat": null,
+    "lng": null
+  },
+  {
+    "Prop_ID": "X034",
+    "NAME": "Mullaly Community Center",
+    "RecreationCenter_Type": "Community Center",
+    "ADDRESS": "40 East 164th Street",
+    "CITY": "Bronx",
+    "STATE": "NY",
+    "ZIP": "10452",
+    "BOROUGH": null,
+    "PHONE": "(718) 590-5743",
+    "PHONE_B": "(718) 537-6782",
+    "FAX": "(718) 590-5981",
+    "CENTER_MANAGER": "George Parker",
+    "DEPUTY_MANAGER": "",
+    "message": null,
+    "cost_free": "0",
+    "cost_description": "",
+    "description": "",
+    "Building_Hours": {
+      "MONDAY": {
+        "startTime": "13:00:00",
+        "endTime": "20:00:00"
+      },
+      "TUESDAY": {
+        "startTime": "13:00:00",
+        "endTime": "20:00:00"
+      },
+      "WEDNESDAY": {
+        "startTime": "13:00:00",
+        "endTime": "20:00:00"
+      },
+      "THURSDAY": {
+        "startTime": "13:00:00",
+        "endTime": "20:00:00"
+      },
+      "FRIDAY": {
+        "startTime": "13:00:00",
+        "endTime": "20:00:00"
+      },
+      "SATURDAY": {
+        "startTime": null,
+        "endTime": null
+      },
+      "SUNDAY": {
+        "startTime": null,
+        "endTime": null
+      }
+    },
+    "lat": null,
+    "lng": null
+  },
+  {
+    "Prop_ID": "X044",
+    "NAME": "St. James Recreation Center",
+    "RecreationCenter_Type": "Recreation Center",
+    "ADDRESS": "2530 Jerome Avenue",
+    "CITY": "Bronx",
+    "STATE": "NY",
+    "ZIP": "10468",
+    "BOROUGH": null,
+    "PHONE": "(718) 367-3657",
+    "PHONE_B": "",
+    "FAX": "(718) 295-8713",
+    "CENTER_MANAGER": "Sheroly Jones",
+    "DEPUTY_MANAGER": "Angel Gerena",
+    "message": null,
+    "cost_free": "0",
+    "cost_description": "",
+    "description": "",
+    "Building_Hours": {
+      "MONDAY": {
+        "startTime": "10:00:00",
+        "endTime": "18:00:00"
+      },
+      "TUESDAY": {
+        "startTime": "10:00:00",
+        "endTime": "18:00:00"
+      },
+      "WEDNESDAY": {
+        "startTime": "10:00:00",
+        "endTime": "18:00:00"
+      },
+      "THURSDAY": {
+        "startTime": "10:00:00",
+        "endTime": "18:00:00"
+      },
+      "FRIDAY": {
+        "startTime": "10:00:00",
+        "endTime": "18:00:00"
+      },
+      "SATURDAY": {
+        "startTime": "10:00:00",
+        "endTime": "18:00:00"
+      },
+      "SUNDAY": {
+        "startTime": null,
+        "endTime": null
+      }
+    },
+    "lat": null,
+    "lng": null
+  },
+  {
+    "Prop_ID": "X045",
+    "NAME": "St. Mary&rsquo;s Recreation Center",
+    "RecreationCenter_Type": "Recreation Center",
+    "ADDRESS": "450 Saint Ann's Avenue",
+    "CITY": "Bronx",
+    "STATE": "NY",
+    "ZIP": "10455",
+    "BOROUGH": null,
+    "PHONE": "(929) 492-1885",
+    "PHONE_B": "",
+    "FAX": "(718) 402-5158",
+    "CENTER_MANAGER": "Sheroly Jones",
+    "DEPUTY_MANAGER": "Angel Gerena and Carmen Quarles",
+    "message": null,
+    "cost_free": "0",
+    "cost_description": "",
+    "description": "",
+    "Building_Hours": {
+      "MONDAY": {
+        "startTime": "07:00:00",
+        "endTime": "21:00:00"
+      },
+      "TUESDAY": {
+        "startTime": "07:00:00",
+        "endTime": "21:00:00"
+      },
+      "WEDNESDAY": {
+        "startTime": "07:00:00",
+        "endTime": "21:00:00"
+      },
+      "THURSDAY": {
+        "startTime": "07:00:00",
+        "endTime": "21:00:00"
+      },
+      "FRIDAY": {
+        "startTime": "07:00:00",
+        "endTime": "21:00:00"
+      },
+      "SATURDAY": {
+        "startTime": "08:00:00",
+        "endTime": "16:00:00"
+      },
+      "SUNDAY": {
+        "startTime": null,
+        "endTime": null
+      }
+    },
+    "lat": null,
+    "lng": null
+  },
+  {
+    "Prop_ID": "X104",
+    "NAME": "Williamsbridge Oval Recreation Center",
+    "RecreationCenter_Type": "Recreation Center",
+    "ADDRESS": "3225 Reservoir Oval East",
+    "CITY": "Bronx",
+    "STATE": "NY",
+    "ZIP": "10467",
+    "BOROUGH": null,
+    "PHONE": "(718) 543-8672",
+    "PHONE_B": "(718) 515-2495",
+    "FAX": "",
+    "CENTER_MANAGER": "Sarah Bishow",
+    "DEPUTY_MANAGER": "Victor Campbell",
+    "message": null,
+    "cost_free": "0",
+    "cost_description": "",
+    "description": "",
+    "Building_Hours": {
+      "MONDAY": {
+        "startTime": "08:00:00",
+        "endTime": "20:00:00"
+      },
+      "TUESDAY": {
+        "startTime": "08:00:00",
+        "endTime": "20:00:00"
+      },
+      "WEDNESDAY": {
+        "startTime": "08:00:00",
+        "endTime": "20:00:00"
+      },
+      "THURSDAY": {
+        "startTime": "08:00:00",
+        "endTime": "20:00:00"
+      },
+      "FRIDAY": {
+        "startTime": "08:00:00",
+        "endTime": "20:00:00"
+      },
+      "SATURDAY": {
+        "startTime": "08:00:00",
+        "endTime": "16:00:00"
+      },
+      "SUNDAY": {
+        "startTime": "08:00:00",
+        "endTime": "16:00:00"
+      }
+    },
+    "lat": null,
+    "lng": null
+  },
+  {
+    "Prop_ID": "X196",
+    "NAME": "Haffen Park Field House",
+    "RecreationCenter_Type": "Field House",
+    "ADDRESS": "Ely & Hammersly Avenues",
+    "CITY": "Bronx",
+    "STATE": "NY",
+    "ZIP": "10469",
+    "BOROUGH": null,
+    "PHONE": "(718) 379-8347",
+    "PHONE_B": "",
+    "FAX": "",
+    "CENTER_MANAGER": "",
+    "DEPUTY_MANAGER": "",
+    "message": null,
+    "cost_free": "0",
+    "cost_description": "",
+    "description": "",
+    "Building_Hours": {
+      "MONDAY": {
+        "startTime": "07:00:00",
+        "endTime": "16:00:00"
+      },
+      "TUESDAY": {
+        "startTime": "07:00:00",
+        "endTime": "16:00:00"
+      },
+      "WEDNESDAY": {
+        "startTime": "07:00:00",
+        "endTime": "16:00:00"
+      },
+      "THURSDAY": {
+        "startTime": "07:00:00",
+        "endTime": "16:00:00"
+      },
+      "FRIDAY": {
+        "startTime": "07:00:00",
+        "endTime": "16:00:00"
+      },
+      "SATURDAY": {
+        "startTime": "07:00:00",
+        "endTime": "16:00:00"
+      },
+      "SUNDAY": {
+        "startTime": "07:00:00",
+        "endTime": "16:00:00"
+      }
+    },
+    "lat": null,
+    "lng": null
+  },
+  {
+    "Prop_ID": "X250",
+    "NAME": "Kingsbridge Heights Community Center",
+    "RecreationCenter_Type": "Community Center",
+    "ADDRESS": "3101 Kingsbridge Terrace",
+    "CITY": "Bronx",
+    "STATE": "NY",
+    "ZIP": "10463",
+    "BOROUGH": null,
+    "PHONE": "(718) 884-0700",
+    "PHONE_B": "",
+    "FAX": "(718) 884-0858",
+    "CENTER_MANAGER": "Lori Spector",
+    "DEPUTY_MANAGER": "",
+    "message": null,
+    "cost_free": "0",
+    "cost_description": "",
+    "description": "",
+    "Building_Hours": {
+      "MONDAY": {
+        "startTime": "08:00:00",
+        "endTime": "21:00:00"
+      },
+      "TUESDAY": {
+        "startTime": "08:00:00",
+        "endTime": "21:00:00"
+      },
+      "WEDNESDAY": {
+        "startTime": "08:00:00",
+        "endTime": "21:00:00"
+      },
+      "THURSDAY": {
+        "startTime": "08:00:00",
+        "endTime": "21:00:00"
+      },
+      "FRIDAY": {
+        "startTime": "08:00:00",
+        "endTime": "21:00:00"
+      },
+      "SATURDAY": {
+        "startTime": "08:00:00",
+        "endTime": "14:00:00"
+      },
+      "SUNDAY": {
+        "startTime": "08:00:00",
+        "endTime": "14:00:00"
+      }
+    },
+    "lat": null,
+    "lng": null
+  },
+  {
+    "Prop_ID": "X997",
+    "NAME": "Basil Behagen Field House",
+    "RecreationCenter_Type": "Field House",
+    "ADDRESS": "East 166th Street",
+    "CITY": "Bronx",
+    "STATE": "New York",
+    "ZIP": "10452",
+    "BOROUGH": null,
+    "PHONE": "",
+    "PHONE_B": "",
+    "FAX": "",
+    "CENTER_MANAGER": "",
+    "DEPUTY_MANAGER": "",
+    "message": null,
+    "cost_free": "0",
+    "cost_description": "",
+    "description": "",
+    "Building_Hours": {
+      "MONDAY": {
+        "startTime": null,
+        "endTime": null
+      },
+      "TUESDAY": {
+        "startTime": null,
+        "endTime": null
+      },
+      "WEDNESDAY": {
+        "startTime": null,
+        "endTime": null
+      },
+      "THURSDAY": {
+        "startTime": null,
+        "endTime": null
+      },
+      "FRIDAY": {
+        "startTime": null,
+        "endTime": null
+      },
+      "SATURDAY": {
+        "startTime": null,
+        "endTime": null
+      },
+      "SUNDAY": {
+        "startTime": null,
+        "endTime": null
+      }
+    },
+    "lat": null,
+    "lng": null
+  },
+  {
+    "Prop_ID": "X998",
+    "NAME": "Hunts Point Recreation Center",
+    "RecreationCenter_Type": "Recreation Center",
+    "ADDRESS": "765 Manida Street",
+    "CITY": "Bronx",
+    "STATE": "New York",
+    "ZIP": "10474",
+    "BOROUGH": null,
+    "PHONE": "(718) 860-5544",
+    "PHONE_B": "",
+    "FAX": "(718) 860-5885",
+    "CENTER_MANAGER": "Ashanta Smith",
+    "DEPUTY_MANAGER": "Ray Combest",
+    "message": null,
+    "cost_free": "0",
+    "cost_description": "",
+    "description": "",
+    "Building_Hours": {
+      "MONDAY": {
+        "startTime": "08:00:00",
+        "endTime": "20:00:00"
+      },
+      "TUESDAY": {
+        "startTime": "08:00:00",
+        "endTime": "20:00:00"
+      },
+      "WEDNESDAY": {
+        "startTime": "08:00:00",
+        "endTime": "20:00:00"
+      },
+      "THURSDAY": {
+        "startTime": "08:00:00",
+        "endTime": "20:00:00"
+      },
+      "FRIDAY": {
+        "startTime": "08:00:00",
+        "endTime": "20:00:00"
+      },
+      "SATURDAY": {
+        "startTime": "08:00:00",
+        "endTime": "20:00:00"
+      },
+      "SUNDAY": {
+        "startTime": null,
+        "endTime": null
+      }
+    },
+    "lat": null,
+    "lng": null
+  },
+  {
+    "Prop_ID": "X999",
+    "NAME": "West Bronx Recreation Center",
+    "RecreationCenter_Type": "Recreation Center",
+    "ADDRESS": "1527 Jesup Avenue",
+    "CITY": "Bronx",
+    "STATE": "New York",
+    "ZIP": "10452",
+    "BOROUGH": null,
+    "PHONE": "(718) 293-5934",
+    "PHONE_B": "",
+    "FAX": "(718) 293-2485",
+    "CENTER_MANAGER": "Domonique Lee Alston",
+    "DEPUTY_MANAGER": "",
+    "message": null,
+    "cost_free": "0",
+    "cost_description": "",
+    "description": "",
+    "Building_Hours": {
+      "MONDAY": {
+        "startTime": "08:00:00",
+        "endTime": "20:00:00"
+      },
+      "TUESDAY": {
+        "startTime": "08:00:00",
+        "endTime": "20:00:00"
+      },
+      "WEDNESDAY": {
+        "startTime": "08:00:00",
+        "endTime": "20:00:00"
+      },
+      "THURSDAY": {
+        "startTime": "08:00:00",
+        "endTime": "20:00:00"
+      },
+      "FRIDAY": {
+        "startTime": "08:00:00",
+        "endTime": "20:00:00"
+      },
+      "SATURDAY": {
+        "startTime": "08:00:00",
+        "endTime": "20:00:00"
+      },
+      "SUNDAY": {
+        "startTime": "08:00:00",
+        "endTime": "16:00:00"
+      }
+    },
+    "lat": null,
+    "lng": null
+  }
+]
