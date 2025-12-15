@@ -10,6 +10,19 @@
     <p>Last Login: {{user.lastLogin}}</p>
   {{/if}}
 
+<!--become admin-->
+  {{#if user.role}}
+    {{#unless (eq user.role "admin")}}
+      <form action="/become-admin" method="get">
+        <button type="submit">Become Admin</button>
+      </form>
+    {{/unless}}
+  {{else}}
+    <form action="/become-admin" method="get">
+      <button type="submit">Become Admin</button>
+    </form>
+  {{/if}}
+
   <h3>My Favorites</h3>
   {{#if user.favorites}}
     <ul>
