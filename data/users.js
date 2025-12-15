@@ -25,7 +25,8 @@ export const register = async (
   password,
   email,
   age,
-  gender
+  gender,
+  role = "user"
 ) => {
   if (!firstName || !lastName || !userId || !password || !email || !age || !gender) {
     throw new Error("All fields must be supplied");
@@ -107,6 +108,7 @@ export const register = async (
     email: email,
     age: age,
     gender: gender,
+    role,
     reviews: [],
     favorites: [],
     signupDate: signupDate
@@ -188,6 +190,7 @@ export const login = async (userId, password) => {
       age: ucheck.age,
       gender: ucheck.gender,
       email: ucheck.email,
+      role: ucheck.role,
       signupDate: ucheck.signupDate,
       lastLogin: ucheck.lastLogin,
       reviews: ucheck.reviews,

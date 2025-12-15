@@ -7,6 +7,20 @@ import { ObjectId } from 'mongodb';
 import { sanitizeString } from '../utils/sanitize.js';
 
 
+const requireAdmin = (req, res, next) => 
+{
+  if (!req.session.user || req.session.user.role !== "admin") 
+  {
+    return res.status(403).render("error", {
+      title: "Access Denied",
+      error: "Admin access required",
+      user: req.session.user
+    });
+  }
+  next();
+};
+
+
 router.route('/parks/:_id/comments').get(async (req, res) => {
     let p = await getFacilityById(req.params._id);
     let user = req.session.user;
@@ -158,8 +172,9 @@ router.route('/rec_centers/:_id/comments').post(async (req, res) => {
     res.redirect(`/rec_centers/${r._id}/comments`);
 });
 
-router.route('/parks/:_id/comments/:comid/delete').post(async (req, res) => {
-    let errors = [];
+router.route('/parks/:_id/comments/:comid/delete').post(async (req, res) => 
+{
+    let errors = []
     let p = await getFacilityById(req.params._id);
     let comid = req.params.comid;
     let cind = p.comments.findIndex(c => c._id.toString() == comid);
@@ -172,7 +187,7 @@ router.route('/parks/:_id/comments/:comid/delete').post(async (req, res) => {
     }
     let user = req.session.user;
 
-    if(p.comments[cind].userId != user.userId){
+    if(p.comments[cind].userId != user.userId && user.role !== 'admin'){
         return res.status(400).render('park_comments', {errors: "You do not have access to delete this comment", park: p});
     }
 
@@ -187,7 +202,7 @@ router.route('/parks/:_id/comments/:comid/delete').post(async (req, res) => {
         return res.status(400).render('park_comments', {errors: errors.join(", "), park: {...p, comments: newcom}, user: user });
     }
 
-    p.comments = p.comments.filter(p => p._id != comid);
+    p.comments = p.comments.filter(c => c._id != comid);
 
     let ps = await parks();
     await ps.updateOne({_id: p._id}, {$set: {comments: p.comments}});
@@ -209,8 +224,8 @@ router.route('/rec_centers/:_id/comments/:comid/delete').post(async (req, res) =
     }
     let user = req.session.user;
 
-    if(r.comments[cind].userId != user.userId){
-        return res.status(400).render('rec_comments', {errors: "You do not have access to delete this comment", rec: r, user: user});
+    if(r.comments[cind].userId != user.userId && user.role !== 'admin'){
+        return res.status(400).render('rec_comments', {errors: "You do not have access to delete this comment", rec: r});
     }
 
     let newcom = r.comments.map(com => {
@@ -224,7 +239,7 @@ router.route('/rec_centers/:_id/comments/:comid/delete').post(async (req, res) =
         return res.status(400).render('rec_comments', {errors: errors.join(", "), rec: {...r, comments: newcom}, user: user});
     }
 
-    r.comments = r.comments.filter(r => r._id != comid);
+    r.comments = r.comments.filter(c => c._id != comid);
 
     let rs = await rec_centers();
     await rs.updateOne({_id: r._id}, {$set: {comments: r.comments}});

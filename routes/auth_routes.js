@@ -1,6 +1,9 @@
 import { Router } from 'express';
 import { register, login } from '../data/users.js';
 
+//SUPER HARDCODED ADMIN KEY
+const ADMIN_KEY = "SuperSecretAdmin123"; 
+
 const router = Router();
 
 router.route('/').get(async (req, res) => {
@@ -26,7 +29,8 @@ router
       password,
       confirmPassword,
       gender,
-      age
+      age,
+      adminKey
     } = req.body;
 
     if (!firstName) errors.push('First name is required');
@@ -98,8 +102,15 @@ router
       });
     }
 
+    
+    // Determine role based on admin key
+    let role = 'user';
+    if (adminKey && adminKey === ADMIN_KEY) {
+      role = 'admin';
+    }
+    
     try {
-      await register(firstName, lastName, userId, password, email, ageNum, gender);
+      await register(firstName, lastName, userId, password, email, ageNum, gender, role);
       return res.redirect('/login');
     } catch (e) {
       errors.push(e.message || 'Failed to register user');
@@ -191,6 +202,49 @@ router.route('/signout').get(async (req, res) => {
   req.session.destroy(() => {
     return res.render('signout');
   });
+});
+
+router.route('/become-admin')
+  .get(async (req,res) => {
+    if(!req.session.user) 
+    {
+      return res.redirect('/login');
+    }
+    return res.render('become_admin', { user: req.session.user });
+  })
+  .post(async (req,res) => {
+    if(!req.session.user)
+    {
+      return res.redirect('/login');
+    }
+
+    const { adminKey } = req.body;
+
+    if (!adminKey || adminKey !== ADMIN_KEY) 
+    {
+        return res.status(400).render('become_admin', {
+        user: req.session.user,
+        errors: ["Invalid admin key."]
+      });
+    }
+
+    try {
+      // Upgrade the user role to admin
+      const { users } = await import('../config/mongoCollections.js'); // your users collection
+      const userCollection = await users();
+      await userCollection.updateOne(
+        { userId: req.session.user.userId },
+        { $set: { role: "admin" } }
+      );
+      req.session.user.role = "admin";
+
+      return res.render('admin_success', { user: req.session.user });
+    } catch (e) {
+      return res.status(500).render('become_admin', {
+        user: req.session.user,
+        errors: [e.message]
+      });
+    }   
 });
 
 export default router;
