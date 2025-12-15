@@ -24,7 +24,8 @@ export const register = async (
   password,
   email,
   age,
-  gender
+  gender,
+  role = "user"
 ) => {
   if (!firstName || !lastName || !userId || !password || !email || !age || !gender) {
     throw new Error("All fields must be supplied");
