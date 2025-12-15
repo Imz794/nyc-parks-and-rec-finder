@@ -81,4 +81,33 @@ router.route('/search').get(async (req, res) => {
     });
 });
 
+router.route('/parks/info/:id').get(async (req, res) => {
+    let facilId = req.params.id;
+    let facility = await getFacilityById(facilId);
+
+    if(!facility){
+        return res.status(404).render('error', { error: 'Facility not found', user: req.session.user });
+    }
+
+    res.render('one_park', { park: facility, user: req.session.user });
+});
+
+router.route('/rec_centers/info/:id').get(async (req, res) => {
+    let facilId = req.params.id;
+    let facility = await getFacilityById(facilId);
+    let hasH = false;
+    let hours = {};
+
+    if(!facility){
+        return res.status(404).render('error', { error: 'Facility not found', user: req.session.user });
+    }
+
+    if(hasHours(facility)){
+        hasH = true;
+        hours = getHours(facility);
+    }
+
+    res.render('one_rec', { rec: facility, hasHours: hasH, hours: hours, user: req.session.user });
+});
+
 export default router;

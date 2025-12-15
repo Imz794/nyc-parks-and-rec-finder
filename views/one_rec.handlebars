@@ -1,0 +1,71 @@
+<section>
+  <h2>{{rec.recCenterName}}</h2>
+    <article class="rec-card">
+        <p>Rated {{rec.score}}/5</p>
+        <p>Address: {{rec.streetAddress}}</p>
+        <p>Zipcode: {{rec.zipcode}}</p>
+        <p>Phone Number: {{rec.phoneNumber}}</p>
+
+        {{#if hasHours}}
+        <h4>Hours of Operation:</h4>
+            <ul>
+                <li>Sunday: {{hours.SUNDAY.startTime}} - {{hours.SUNDAY.endTime}}</li>
+                <li>Monday: {{hours.MONDAY.startTime}} - {{hours.MONDAY.endTime}}</li>
+                <li>Tuesday: {{hours.TUESDAY.startTime}} - {{hours.TUESDAY.endTime}}</li>
+                <li>Wednesday: {{hours.WEDNESDAY.startTime}} - {{hours.WEDNESDAY.endTime}}</li>
+                <li>Thursday: {{hours.THURSDAY.startTime}} - {{hours.THURSDAY.endTime}}</li>
+                <li>Friday: {{hours.FRIDAY.startTime}} - {{hours.FRIDAY.endTime}}</li>
+                <li>Saturday: {{hours.SATURDAY.startTime}} - {{hours.SATURDAY.endTime}}</li>
+            </ul>
+        {{/if}}
+
+        <div class="likes-section">
+        <form class="like-dislike-form">
+            <button
+        type="button"
+        class="like-btn"
+        data-id="{{rec._id}}"
+        data-kind="rec"
+        >
+        Likes: <span class="like-count">{{rec.likes}}</span>
+        </button>
+
+        <button
+        type="button"
+        class="dislike-btn"
+        data-id="{{rec._id}}"
+        data-kind="rec"
+        >
+        Dislikes: <span class="dislike-count">{{rec.dislikes}}</span>
+        </button>
+
+        <p class="ajax-error" hidden></p>
+        </form>
+        </div>
+
+        {{#if rec.comments}}
+        <h4>Comments:</h4>
+        <ul>
+        {{#each rec.comments}}
+        <li>
+            <p><strong>{{this.userId}}</strong> ({{this.date}}): {{this.comment}}</p>
+        </li>
+        {{/each}}
+        </ul>
+        {{/if}}
+        <a name="add-comment" id="add-comment" href="/rec_centers/{{rec._id}}/comments">View All Comments | Add Comment</a>
+        {{#if rec.rating}}
+            <h4>Reviews:</h4>
+            <ul>
+            {{#each rec.rating}}
+            <li>
+                <p><strong>{{this.userId}}</strong> ({{this.date}}): {{this.title}} - {{this.rating}}/5</p>
+                <p>{{this.review}}</p>
+            </li>
+            {{/each}}
+        </ul>
+        {{/if}}
+        <a name="add-review" id="add-review" href="/rec_centers/{{rec._id}}/rating">View All Reviews | Add Review</a>
+    </article>
+</section>
+<script src="/public/js/likes_ajax.js"></script>

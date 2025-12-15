@@ -26,10 +26,10 @@
           <li>
             {{#if this.parkName}}
               {{this.parkName}}
-              <a href="/parks/{{this._id}}/comments">View</a>
+              <a href="/parks/info/{{this._id}}">View</a>
             {{else}}
               {{this.recCenterName}}
-              <a href="/rec_centers/{{this._id}}/comments">View</a>
+              <a href="/rec_centers/info/{{this._id}}">View</a>
             {{/if}}
           </li>
         {{/each}}
