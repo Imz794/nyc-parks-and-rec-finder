@@ -345,7 +345,8 @@ router.route('/parks/:_id/rating/:revid/delete').post(async (req, res) => {
     }
 
     try{
-        await deleteReview(p._id, user.userId);
+        const reviewOwnerUserId = p.rating[rind].userId;
+        await deleteReview(p._id, reviewOwnerUserId;
     }
     catch(e){
         return res.status(400).render('park_rating', {errors: e.message, rec: {...r, rating: newrate} });
@@ -385,7 +386,8 @@ router.route('/rec_centers/:_id/rating/:revid/delete').post(async (req, res) => 
     }
 
     try{
-        await deleteReview(p._id, user.userId);
+        const reviewOwnerUserId = r.rating[rind].userId;
+        await deleteReview(r._id, reviewOwnerUserId);
     }
     catch(e){
         return res.status(400).render('rec_rating', {errors: e.message, rec: {...r, rating: newrate} });
