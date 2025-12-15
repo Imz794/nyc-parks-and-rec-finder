@@ -201,7 +201,7 @@ router.route('/parks/:_id/comments/:comid/delete').post(async (req, res) =>
         return res.status(400).render('park_comments', {errors: errors.join(", "), park: {...p, comments: newcom} });
     }
 
-    p.comments = p.comments.filter(p => p._id != comid);
+    p.comments = p.comments.filter(c => c._id != comid);
 
     let ps = await parks();
     await ps.updateOne({_id: p._id}, {$set: {comments: p.comments}});
@@ -238,7 +238,7 @@ router.route('/rec_centers/:_id/comments/:comid/delete').post(async (req, res) =
         return res.status(400).render('rec_comments', {errors: errors.join(", "), rec: {...r, comments: newcom} });
     }
 
-    r.comments = r.comments.filter(r => r._id != comid);
+    r.comments = r.comments.filter(c => c._id != comid);
 
     let rs = await rec_centers();
     await rs.updateOne({_id: r._id}, {$set: {comments: r.comments}});
