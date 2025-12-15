@@ -41,14 +41,24 @@
             <p><strong>Type:</strong> {{this.facilityType}}</p>
             <p><strong>Borough:</strong> {{this.borough}}</p>
             <p><strong>Added:</strong> {{this.dateAdded}}</p>
-            
+
+            {{#if this.borough}}
             <div class="card-actions">
-              <a href="/facility/{{this.facilityId}}" class="btn btn-view">View Details</a>
-              <form method="POST" action="/facility/{{this.facilityId}}/favorite" style="display: inline;">
+              <a href="/parks/info/{{this.facilityId}}" class="btn btn-view">View Details</a>
+              <form method="POST" action="/parks/{{this.facilityId}}/favorite/remove" style="display: inline;">
                 <input type="hidden" name="action" value="remove">
                 <button type="submit" class="btn btn-remove">Remove</button>
               </form>
             </div>
+            {{else}}
+            <div class="card-actions">
+              <a href="/rec_centers/info/{{this.facilityId}}" class="btn btn-view">View Details</a>
+              <form method="POST" action="/rec_centers/{{this.facilityId}}/favorite/remove" style="display: inline;">
+                <input type="hidden" name="action" value="remove">
+                <button type="submit" class="btn btn-remove">Remove</button>
+              </form>
+            </div>
+            {{/if}}
           </div>
         {{/each}}
       </div>

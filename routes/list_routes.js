@@ -3,6 +3,7 @@ const router = Router();
 import { getHours, hasHours, parkList, recList } from '../data/parks_rec.js';
 import { getFacilityById } from '../data/facilities.js';
 import { searchFacilitiesByName } from '../data/facilities.js';
+import { addFavorite, isFavorite, removeFavorite } from '../data/favorites.js';
 
 
 router.route('/rec_centers/:page').get(async (req, res) => {
@@ -84,12 +85,17 @@ router.route('/search').get(async (req, res) => {
 router.route('/parks/info/:id').get(async (req, res) => {
     let facilId = req.params.id;
     let facility = await getFacilityById(facilId);
+    let fav = false;
 
     if(!facility){
         return res.status(404).render('error', { error: 'Facility not found', user: req.session.user });
     }
 
-    res.render('one_park', { park: facility, user: req.session.user });
+    if(req.session.user){
+        fav = await isFavorite(req.session.user.userId, facilId);
+    }
+
+    res.render('one_park', { park: facility, user: req.session.user, favorited: fav });
 });
 
 router.route('/rec_centers/info/:id').get(async (req, res) => {
@@ -97,9 +103,14 @@ router.route('/rec_centers/info/:id').get(async (req, res) => {
     let facility = await getFacilityById(facilId);
     let hasH = false;
     let hours = {};
+    let fav = false;
 
     if(!facility){
         return res.status(404).render('error', { error: 'Facility not found', user: req.session.user });
+    }
+
+    if(req.session.user){
+        fav = await isFavorite(req.session.user.userId, facilId);
     }
 
     if(hasHours(facility)){
@@ -107,7 +118,189 @@ router.route('/rec_centers/info/:id').get(async (req, res) => {
         hours = getHours(facility);
     }
 
-    res.render('one_rec', { rec: facility, hasHours: hasH, hours: hours, user: req.session.user });
+    res.render('one_rec', { rec: facility, hasHours: hasH, hours: hours, user: req.session.user, favorited: fav });
+});
+
+router.route('/parks/:id/favorite').get(async (req, res) => {
+    let facilId = req.params.id;
+    let facility = await getFacilityById(facilId);
+    let fav = false;
+
+    if(!facility){
+        return res.status(404).render('error', { error: 'Facility not found', user: req.session.user });
+    }
+
+    if(req.session.user){  
+        fav = await isFavorite(req.session.user.userId, facilId);
+    }
+    res.render('one_park', { park: facility, user: req.session.user, favorited: fav, newfav: true });
+});
+
+router.route('/parks/:id/favorite').post(async (req, res) => {
+    let facilId = req.params.id;
+    let facility = await getFacilityById(facilId);
+    let fav = false;
+
+    if(!facility){
+        return res.status(404).render('error', { error: 'Facility not found', user: req.session.user });
+    }
+
+    if(req.session.user){  
+        fav = await isFavorite(req.session.user.userId, facilId);
+    }
+
+    if(fav){
+        throw new Error('Facility is already in favorites');
+    }
+
+    await addFavorite(req.session.user.userId, facilId);
+    fav = true;
+
+    res.render('one_park', { park: facility, user: req.session.user, favorited: fav, newfav: true });
+});
+
+router.route('/parks/:id/favorite/remove').get(async (req, res) => {
+    let facilId = req.params.id;
+    let facility = await getFacilityById(facilId);
+    let fav = false;
+
+    if(!facility){
+        return res.status(404).render('error', { error: 'Facility not found', user: req.session.user });
+    }
+
+    if(req.session.user){  
+        fav = await isFavorite(req.session.user.userId, facilId);
+    }
+
+    if(!fav){
+        throw new Error('Facility is not in favorites');
+    }
+
+    res.render('one_park', { park: facility, user: req.session.user, favorited: fav, remfav: true });
+});
+
+router.route('/parks/:id/favorite/remove').post(async (req, res) => {
+    let facilId = req.params.id;
+    let facility = await getFacilityById(facilId);
+    let fav = false;
+
+    if(!facility){
+        return res.status(404).render('error', { error: 'Facility not found', user: req.session.user });
+    }
+
+    if(req.session.user){
+        fav = await isFavorite(req.session.user.userId, facilId);
+    }
+
+    if(!fav){
+        throw new Error('Facility is not in favorites');
+    }
+    else{
+        await removeFavorite(req.session.user.userId, facilId);
+        fav = false;
+    }
+    res.render('one_park', { park: facility, user: req.session.user, favorited: fav, remfav: true });
+});
+
+router.route('/parks/:id/favorite').get(async (req, res) => {
+    let facilId = req.params.id;
+    let facility = await getFacilityById(facilId);
+    let fav = false;
+
+    if(!facility){
+        return res.status(404).render('error', { error: 'Facility not found', user: req.session.user });
+    }
+
+    if(req.session.user){  
+        fav = await isFavorite(req.session.user.userId, facilId);
+    }
+    res.render('one_park', { park: facility, user: req.session.user, favorited: fav, newfav: true });
+});
+
+router.route('/rec_centers/:id/favorite').post(async (req, res) => {
+    let facilId = req.params.id;
+    let facility = await getFacilityById(facilId);
+    let fav = false;
+    let hasH = false;
+    let hours = {};
+
+    if(!facility){
+        return res.status(404).render('error', { error: 'Facility not found', user: req.session.user });
+    }
+
+    if(req.session.user){  
+        fav = await isFavorite(req.session.user.userId, facilId);
+    }
+
+    if(fav){
+        throw new Error('Facility is already in favorites');
+    }
+
+    if(hasHours(facility)){
+        hasH = true;
+        hours = getHours(facility);
+    }
+
+    await addFavorite(req.session.user.userId, facilId);
+    fav = true;
+
+    res.render('one_rec', { rec: facility, user: req.session.user, hours: hours, hasHours: hasH, favorited: fav, newfav: true });
+});
+
+router.route('/rec_centers/:id/favorite/remove').get(async (req, res) => {
+    let facilId = req.params.id;
+    let facility = await getFacilityById(facilId);
+    let fav = false;
+    let hasH = false;
+    let hours = {};
+
+    if(!facility){
+        return res.status(404).render('error', { error: 'Facility not found', user: req.session.user });
+    }
+
+    if(req.session.user){  
+        fav = await isFavorite(req.session.user.userId, facilId);
+    }
+
+    if(!fav){
+        throw new Error('Facility is not in favorites');
+    }
+
+    if(hasHours(facility)){
+        hasH = true;
+        hours = getHours(facility);
+    }
+
+    res.render('one_rec', { rec: facility, user: req.session.user, favorited: fav, hours: hours, hasHours: hasH, remfav: true });
+});
+
+router.route('/rec_centers/:id/favorite/remove').post(async (req, res) => {
+    let facilId = req.params.id;
+    let facility = await getFacilityById(facilId);
+    let fav = false;
+    let hasH = false;
+    let hours = {};
+    
+    if(!facility){
+        return res.status(404).render('error', { error: 'Facility not found', user: req.session.user });
+    }
+
+    if(req.session.user){
+        fav = await isFavorite(req.session.user.userId, facilId);
+    }
+
+    if(!fav){
+        throw new Error('Facility is not in favorites');
+    }
+    else{
+        await removeFavorite(req.session.user.userId, facilId);
+        fav = false;
+    }
+    if(hasHours(facility)){
+        hasH = true;
+        hours = getHours(facility);
+    }
+    res.render('one_rec', { rec: facility, user: req.session.user, favorited: fav, hours: hours, hasHours: hasH, remfav: true });
 });
 
 export default router;

@@ -4,7 +4,7 @@
   {{#if parks}}
     {{#each parks}}
       <article class="park-card">
-        <h3>{{this.parkName}}</h3> 
+        <h3><a href="/parks/info/{{this._id}}">{{this.parkName}}</a></h3> 
         <p>Rated {{this.score}}/5</p>
         <p>Address: {{this.streetAddress}}</p>
         <p>{{this.borough}} | {{this.zipcode}}</p>

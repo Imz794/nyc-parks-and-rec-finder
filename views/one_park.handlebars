@@ -30,6 +30,25 @@
         </form>
         </div>
 
+        {{#if user}}
+            {{#if favorited}}
+                <form method="POST" action="/parks/{{park._id}}/favorite/remove">
+                    <button type="submit">Remove from Favorites</button>
+                </form>
+            {{else}}
+                <form method="POST" action="/parks/{{park._id}}/favorite">
+                    <button type="submit">Add to Favorites</button>
+                </form>
+            {{/if}}
+            {{#if newfav}}
+                <p>Added to favorites!</p>
+            {{/if}}
+            {{#if remfav}}
+                <p>Removed from favorites!</p>
+            {{/if}}
+        {{/if}}
+
+
         {{#if park.comments}}
         <h4>Comments:</h4>
         <ul>
