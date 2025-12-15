@@ -12,7 +12,7 @@
 
 <!--become admin-->
   {{#if user.role}}
-    {{#unless (eq user.role "admin")}}
+    {{#if (ne user.role "admin")}}
       <form action="/become-admin" method="get">
         <button type="submit">Become Admin</button>
       </form>
