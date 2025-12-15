@@ -2,7 +2,7 @@ import { Router } from 'express';
 import { register, login } from '../data/users.js';
 
 //SUPER HARDCODED ADMIN KEY
-const ADMIN_KEY = "SuperSecretAdmin123"; /
+const ADMIN_KEY = "SuperSecretAdmin123"; 
 
 const router = Router();
 
@@ -29,7 +29,8 @@ router
       password,
       confirmPassword,
       gender,
-      age
+      age,
+      adminKey
     } = req.body;
 
     if (!firstName) errors.push('First name is required');
@@ -100,9 +101,16 @@ router
         user: req.session.user
       });
     }
+
+    
+    // Determine role based on admin key
+    let role = 'user';
+    if (adminKey && adminKey === ADMIN_KEY) {
+      role = 'admin';
+    }
     
     try {
-      await register(firstName, lastName, userId, password, email, ageNum, gender, 'user');
+      await register(firstName, lastName, userId, password, email, ageNum, gender, role);
       return res.redirect('/login');
     } catch (e) {
       errors.push(e.message || 'Failed to register user');
