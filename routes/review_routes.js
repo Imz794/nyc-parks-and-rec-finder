@@ -346,7 +346,7 @@ router.route('/parks/:_id/rating/:revid/delete').post(async (req, res) => {
 
     try{
         const reviewOwnerUserId = p.rating[rind].userId;
-        await deleteReview(p._id, reviewOwnerUserId;
+        await deleteReview(p._id, reviewOwnerUserId);
     }
     catch(e){
         return res.status(400).render('park_rating', {errors: e.message, park: {...p, rating: newrate}, user: user });
