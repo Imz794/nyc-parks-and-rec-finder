@@ -1,1 +1,10 @@
+<section>
+  <h2>Admin Upgrade Successful!</h2>
 
+  <p>Congratulations, {{user.firstName}}! You are now an admin.</p>
+
+  <p>
+    <a href="/profile">Go to Profile</a> |
+    <a href="/">Go to Home</a>
+  </p>
+</section>
