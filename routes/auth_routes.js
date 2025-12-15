@@ -26,8 +26,7 @@ router
       password,
       confirmPassword,
       gender,
-      age,
-      adminkey
+      age
     } = req.body;
 
     if (!firstName) errors.push('First name is required');
@@ -98,25 +97,9 @@ router
         user: req.session.user
       });
     }
-
-    //determine user role aka admin
-    let role = "user";
-    if(userId.toLowerCase() === "admin")
-    {
-      //special admin key to verify if they are an admin
-      if(adminkey != "supersecret")
-      {
-        error.push("Invalid admin key for admin account");
-        return res.status(400).render('register', {
-          errors, 
-          user: req.session.user
-        });
-      }
-      role = "admin";
-    }
-
+    
     try {
-      await register(firstName, lastName, userId, password, email, ageNum, gender);
+      await register(firstName, lastName, userId, password, email, ageNum, gender, 'user');
       return res.redirect('/login');
     } catch (e) {
       errors.push(e.message || 'Failed to register user');
@@ -183,7 +166,6 @@ router
         age: li.age,
         signupDate: li.signupDate,
         lastLogin: li.lastLogin,
-        role: li.role, //admin access
         reviews: li.reviews,
         favorites: li.favorites
       };
@@ -209,6 +191,53 @@ router.route('/signout').get(async (req, res) => {
   req.session.destroy(() => {
     return res.render('signout');
   });
+
+router.route('/become-admin').get(async (req,res) => 
+  {
+    if(!.req.session.user) 
+    {
+      return res.redirect('/login';
+    }
+    return res.render('become_admin', { user: req.session.user });
+  })
+  .post(async (req,res) => {
+    if(!req.session.user)
+    {
+      return res.redirect('/login');
+    }
+
+    const { adminKey } = req.body;
+
+    if (!adminkey || adminkey !== ADMIN_KEY) 
+    {
+        return res.status(400).render('become_admin', {
+        user: req.session.user,
+        errors: ["Invalid admin key."]
+      });
+    }
+
+    try {
+      // Upgrade the user role to admin
+      const { users } = await import('../config/mongoCollections.js'); // your users collection
+      const userCollection = await users();
+      await userCollection.updateOne(
+        { userId: req.session.user.userId },
+        { $set: { role: "admin" } }
+      );
+
+      // Update session
+      req.session.user.role = "admin";
+
+      return res.render('become_admin', {
+        user: req.session.user,
+        success: "You are now an admin!"
+      });
+    } catch (e) {
+      return res.status(500).render('become_admin', {
+        user: req.session.user,
+        errors: [e.message]
+      });
+    }   
 });
 
 export default router;
