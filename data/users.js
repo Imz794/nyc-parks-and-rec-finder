@@ -105,7 +105,7 @@ export const register = async (
     email: email,
     age: age,
     gender: gender,
-    role: "user",
+    role,
     reviews: [],
     favorites: [],
     signupDate: signupDate
